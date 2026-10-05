@@ -1,18 +1,14 @@
 /**
  * Contact / lead form configuration.
- * Wire delivery by setting CONTACT_FORM_WEBHOOK_URL on Cloudflare Pages
- * (handled by functions/api/contact.ts for the static export).
+ * Delivery is handled by functions/api/contact.ts (Resend via Cloudflare Pages).
  */
 
 export const contactForm = {
   endpoint: "/api/contact",
   submitLabel: "Porozmawiajmy",
-  successMessage:
-    "Dziękujemy. Wiadomość została wysłana — odezwiemy się wkrótce.",
-  notConfiguredMessage:
-    "Formularz nie jest jeszcze podłączony do wysyłki. Napisz bezpośrednio na e-mail lub Instagram.",
+  successMessage: "Wiadomość wysłana. Odezwę się wkrótce.",
   errorMessage:
-    "Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz do nas bezpośrednio.",
+    "Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz na kontakt@mswa.pl.",
   reassurance: [
     "Bezpłatna rozmowa wstępna.",
     "Wysłanie formularza do niczego nie zobowiązuje.",
@@ -60,26 +56,3 @@ export type ContactPayload = {
   business: string;
   message: string;
 };
-
-/** Legacy webhook shape — kept for existing delivery integrations. */
-export type ContactWebhookPayload = {
-  name: string;
-  salon: string;
-  contact: string;
-  links: string;
-  message: string;
-};
-
-export function toWebhookPayload(values: ContactPayload): ContactWebhookPayload {
-  const contact = [values.email.trim(), values.phone.trim()]
-    .filter(Boolean)
-    .join(" · ");
-
-  return {
-    name: values.name.trim(),
-    salon: values.business.trim(),
-    contact,
-    links: values.phone.trim(),
-    message: values.message.trim(),
-  };
-}

@@ -1,6 +1,6 @@
 /**
- * Cloudflare Pages Function — contact form for static export.
- * Set CONTACT_FORM_WEBHOOK_URL in the Pages project environment.
+ * Cloudflare Pages Function — contact form → Resend.
+ * Uses RESEND_API_KEY from Pages secrets (never NEXT_PUBLIC_*).
  */
 
 type ContactPayload = {
@@ -11,7 +11,29 @@ type ContactPayload = {
   message: string;
 };
 
-const SITE_EMAIL = "hello@mswa.pl";
+type Env = {
+  RESEND_API_KEY?: string;
+};
+
+const FROM = "MSWA <kontakt@mswa.pl>";
+const TO = "kontakt@mswa.pl";
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function json(data: unknown, status = 200) {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: { "Content-Type": "application/json" },
+  });
+}
+
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 
 function isValidPayload(body: unknown): body is ContactPayload {
   if (!body || typeof body !== "object") return false;
@@ -25,17 +47,53 @@ function isValidPayload(body: unknown): body is ContactPayload {
   );
 }
 
-function json(data: unknown, status = 200) {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { "Content-Type": "application/json" },
-  });
+function buildText(payload: ContactPayload) {
+  const phone = payload.phone || "—";
+  return [
+    "Nowe zapytanie ze strony MSWA",
+    "",
+    `Imię / firma: ${payload.name}`,
+    `E-mail: ${payload.email}`,
+    `Telefon: ${phone}`,
+    `Czym zajmuje się firma: ${payload.business}`,
+    `Czego potrzebuje: ${payload.message}`,
+  ].join("\n");
 }
 
-export async function onRequestPost(context: {
+function buildHtml(payload: ContactPayload) {
+  const phone = payload.phone || "—";
+  const rows: Array<[string, string]> = [
+    ["Imię / firma", payload.name],
+    ["E-mail", payload.email],
+    ["Telefon", phone],
+    ["Czym zajmuje się firma", payload.business],
+    ["Czego potrzebuje", payload.message],
+  ];
+
+  const body = rows
+    .map(
+      ([label, value]) =>
+        `<p style="margin:0 0 12px;"><strong>${escapeHtml(label)}:</strong><br>${escapeHtml(value).replace(/\n/g, "<br>")}</p>`,
+    )
+    .join("");
+
+  return `<!DOCTYPE html>
+<html>
+  <body style="font-family:system-ui,-apple-system,sans-serif;line-height:1.5;color:#111;">
+    <h1 style="font-size:18px;font-weight:600;margin:0 0 20px;">Nowe zapytanie ze strony MSWA</h1>
+    ${body}
+  </body>
+</html>`;
+}
+
+export async function onRequest(context: {
   request: Request;
-  env: { CONTACT_FORM_WEBHOOK_URL?: string };
+  env: Env;
 }) {
+  if (context.request.method !== "POST") {
+    return json({ ok: false, error: "method_not_allowed" }, 405);
+  }
+
   let body: unknown;
 
   try {
@@ -60,42 +118,43 @@ export async function onRequestPost(context: {
     return json({ ok: false, error: "missing_fields" }, 400);
   }
 
-  const webhook = context.env.CONTACT_FORM_WEBHOOK_URL?.trim();
-
-  if (!webhook) {
-    return json(
-      { ok: false, error: "not_configured", email: SITE_EMAIL },
-      503,
-    );
+  if (!EMAIL_RE.test(payload.email)) {
+    return json({ ok: false, error: "invalid_email" }, 400);
   }
 
-  const contact = [payload.email, payload.phone].filter(Boolean).join(" · ");
+  const apiKey = context.env.RESEND_API_KEY?.trim();
+
+  if (!apiKey) {
+    console.error("[contact] RESEND_API_KEY is not configured");
+    return json({ ok: false, error: "not_configured" }, 503);
+  }
 
   try {
-    const response = await fetch(webhook, {
+    const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
-        source: "mswa-homepage",
-        to: SITE_EMAIL,
-        submittedAt: new Date().toISOString(),
-        name: payload.name,
-        salon: payload.business,
-        contact,
-        links: payload.phone,
-        message: payload.message,
-        email: payload.email,
-        phone: payload.phone,
-        business: payload.business,
+        from: FROM,
+        to: [TO],
+        reply_to: payload.email,
+        subject: `Nowe zapytanie ze strony MSWA — ${payload.name}`,
+        text: buildText(payload),
+        html: buildHtml(payload),
       }),
     });
 
     if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      console.error("[contact] Resend error", response.status, detail);
       return json({ ok: false, error: "delivery_failed" }, 502);
     }
 
     return json({ ok: true });
-  } catch {
+  } catch (error) {
+    console.error("[contact] Resend request failed", error);
     return json({ ok: false, error: "delivery_failed" }, 502);
   }
 }

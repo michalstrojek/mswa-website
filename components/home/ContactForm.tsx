@@ -2,7 +2,6 @@
 
 import { useId, useState } from "react";
 import { contactForm, type ContactPayload } from "@/lib/contact";
-import { site } from "@/lib/site";
 
 type FieldErrors = Partial<Record<keyof ContactPayload, string>>;
 
@@ -10,7 +9,7 @@ type Status =
   | { type: "idle" }
   | { type: "submitting" }
   | { type: "success" }
-  | { type: "error"; message: string; notConfigured?: boolean };
+  | { type: "error"; message: string };
 
 const initialValues: ContactPayload = {
   name: "",
@@ -97,15 +96,6 @@ export function ContactForm() {
         setStatus({ type: "success" });
         setValues(initialValues);
         setErrors({});
-        return;
-      }
-
-      if (response.status === 503 || data?.error === "not_configured") {
-        setStatus({
-          type: "error",
-          message: contactForm.notConfiguredMessage,
-          notConfigured: true,
-        });
         return;
       }
 
@@ -221,25 +211,6 @@ export function ContactForm() {
           aria-live="assertive"
         >
           <p>{status.message}</p>
-          {status.notConfigured ? (
-            <p className="mt-2">
-              <a
-                href={`mailto:${site.email}`}
-                className="text-text transition-colors hover:text-accent"
-              >
-                {site.email}
-              </a>
-              {" · "}
-              <a
-                href={site.instagram.href}
-                target="_blank"
-                rel="noreferrer"
-                className="text-text transition-colors hover:text-accent"
-              >
-                Instagram {site.instagram.handle}
-              </a>
-            </p>
-          ) : null}
         </div>
       ) : null}
 
