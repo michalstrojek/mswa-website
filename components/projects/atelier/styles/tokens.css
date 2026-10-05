@@ -1,0 +1,18 @@
+.atelier-root {
+  --color-near-black: #0c0c0c;
+  --color-charcoal: #171715;
+  --color-footer: #111110;
+  --color-off-white: #f3eee6;
+  --color-warm-grey: #8a847c;
+  --color-concrete: #c4beb4;
+  --color-text-muted: rgba(243, 238, 230, 0.72);
+  --color-text-soft: rgba(243, 238, 230, 0.55);
+  --font-serif: var(--font-atelier-serif), "Cormorant Garamond", "Times New Roman",
+    serif;
+  --font-sans: var(--font-atelier-sans), "Outfit", system-ui, sans-serif;
+  --tracking-logo: 0.42em;
+  --tracking-label: 0.22em;
+  --radius: 0;
+  --pad-x: clamp(1.25rem, 4.5vw, 4rem);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}

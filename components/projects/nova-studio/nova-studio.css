@@ -1,0 +1,173 @@
+/* NOVA STUDIO — loaded only on /projekty/nova-studio */
+
+html:has(.nova-root) {
+  background: #f5f1ea;
+  scroll-padding-top: 5.5rem;
+  overflow-x: clip;
+}
+
+body:has(.nova-root) {
+  background: #f5f1ea;
+  color: #111111;
+  overflow-x: clip;
+}
+
+.nova-root {
+  /* Palette — must match standalone exactly */
+  --color-cream: #f5f1ea;
+  --color-cream-deep: #ece6dc;
+  --color-ink: #111111;
+  --color-muted: #6f6962;
+  --color-line: #d9d2c8;
+
+  --font-sans: var(--font-nova-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-nova-display), ui-sans-serif, sans-serif;
+  --font-serif: var(--font-nova-serif), ui-serif, Georgia, serif;
+  --font-script: var(--font-nova-script), cursive;
+
+  min-height: 100svh;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  /* Match Tailwind preflight (1.5) — do not force `normal` or CTA/nav heights drift */
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+  scroll-padding-top: 5.5rem;
+}
+
+/* text-decoration only — never set color here (unlayered rules beat @layer utilities) */
+.nova-root :where(a) {
+  text-decoration: none;
+}
+
+.nova-root :where(button) {
+  font: inherit;
+}
+
+.nova-root ::selection {
+  background: var(--color-ink);
+  color: var(--color-cream);
+}
+
+.nova-root .font-display {
+  font-family: var(--font-display);
+}
+
+.nova-root .font-serif {
+  font-family: var(--font-serif);
+}
+
+.nova-root .font-script {
+  font-family: var(--font-script);
+}
+
+.nova-root .font-sans {
+  font-family: var(--font-sans);
+}
+
+.nova-root .headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+.nova-root .italic-word {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+/* Entrance animations deferred — keep content visible */
+.nova-root .reveal,
+.nova-root .reveal.is-visible,
+.nova-root .hero-rise,
+.nova-root .hero-fade,
+.nova-root .hero-scale,
+.nova-root .hero-from-right {
+  opacity: 1 !important;
+  transform: none !important;
+  clip-path: none !important;
+  animation: none !important;
+  transition: none !important;
+  will-change: auto;
+}
+
+/* Hover states from standalone (kept) */
+@media (hover: hover) and (pointer: fine) {
+  .nova-root .img-zoom {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .nova-root .group:hover .img-zoom {
+    transform: scale(1.025);
+  }
+
+  .nova-root .team-meta {
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .nova-root .group:hover .team-meta {
+    transform: translateX(4px);
+  }
+}
+
+.nova-root .nav-link {
+  position: relative;
+}
+.nova-root .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nova-root .nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.nova-root .btn-arrow span[aria-hidden="true"] {
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nova-root .btn-arrow:hover span[aria-hidden="true"] {
+  transform: translateX(5px);
+}
+
+.nova-root .link-line {
+  position: relative;
+}
+.nova-root .link-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nova-root .link-line:hover::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nova-root .img-zoom,
+  .nova-root .team-meta,
+  .nova-root .btn-arrow span[aria-hidden="true"],
+  .nova-root .nav-link::after,
+  .nova-root .link-line::after {
+    transition: none !important;
+  }
+}

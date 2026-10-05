@@ -1,0 +1,35 @@
+/* :where() keeps zero specificity so CSS modules win (same cascade as Vite). */
+
+.atelier-root,
+.atelier-root :where(*, *::before, *::after) {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.atelier-root {
+  min-height: 100svh;
+}
+
+.atelier-root :where(img) {
+  display: block;
+  max-width: 100%;
+}
+
+.atelier-root :where(button, a) {
+  font: inherit;
+}
+
+.atelier-root :where(button) {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.atelier-root :where(address) {
+  font-style: normal;
+}
+
+.atelier-root :where(section[id], footer[id]) {
+  scroll-margin-top: 0.5rem;
+}

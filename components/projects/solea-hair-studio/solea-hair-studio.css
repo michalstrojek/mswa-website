@@ -1,0 +1,138 @@
+/* SOLÉA Hair Studio — loaded only on /projekty/solea-hair-studio */
+
+html:has(.solea-root) {
+  background: #f7f3ec;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(4.5rem + 1.75rem);
+  overflow-x: clip;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.solea-root) {
+    scroll-behavior: auto;
+  }
+}
+
+body:has(.solea-root) {
+  background: #f7f3ec;
+  color: #2a221e;
+  overflow-x: clip;
+}
+
+.solea-root {
+  --color-taupe-deep: #3a2f2a;
+  --color-taupe: #5c4a42;
+  --color-stone: #a8988c;
+  --color-ivory: #f5f0e8;
+  --color-cream: #ede6da;
+  --color-ink: #2a221e;
+  --color-ink-soft: #6b5e56;
+  --color-surface: #f7f3ec;
+
+  --font-display: var(--font-solea-display), "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: var(--font-solea-sans), "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-script: var(--font-solea-script), "Great Vibes", cursive;
+
+  --shadow-soft: 0 24px 60px -32px rgb(42 34 30 / 0.35);
+
+  min-height: 100svh;
+  margin: 0;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+/* Isolate from MSWA base — text-decoration only (never color/background here;
+   unlayered rules beat @layer utilities and break CTA variants) */
+.solea-root :where(a) {
+  text-decoration: none;
+}
+
+.solea-root :where(button) {
+  font: inherit;
+}
+
+.solea-root :where(img) {
+  max-width: none;
+  display: block;
+}
+
+.solea-root :where(ul) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.solea-root ::selection {
+  background: color-mix(in srgb, var(--color-taupe) 35%, transparent);
+  color: var(--color-ink);
+}
+
+.solea-root .font-display {
+  font-family: var(--font-display);
+}
+
+.solea-root .font-sans {
+  font-family: var(--font-sans);
+}
+
+.solea-root .font-script {
+  font-family: var(--font-script);
+}
+
+/* Fixed header (4.5rem) + ~28px breathing room — covers nav anchors */
+.solea-root section[id],
+.solea-root footer[id],
+.solea-root #oferta {
+  scroll-margin-top: calc(4.5rem + 1.75rem);
+}
+
+.solea-root .campaign-photo {
+  filter: saturate(0.92) contrast(1.03) sepia(0.06) brightness(1.01);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .solea-root .campaign-photo-zoom {
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: scale(1);
+  }
+
+  .solea-root .campaign-photo-zoom:hover {
+    transform: scale(1.02);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .solea-root .campaign-photo-zoom {
+    transition: none;
+  }
+}
+
+.solea-root .skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 80;
+  border-radius: 999px;
+  background: var(--color-taupe-deep);
+  color: var(--color-ivory);
+  padding: 0.6rem 1.1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.solea-root .skip-link:focus {
+  top: 1rem;
+}
+
+/* Entrance / continuous motion deferred — keep resting visual state */
+.solea-root .hero-photo {
+  transform-origin: 68% 22%;
+  animation: none;
+}

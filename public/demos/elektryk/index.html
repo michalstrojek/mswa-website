@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elektro-Max — Instalacje elektryczne Warszawa</title>
+    <meta
+      name="description"
+      content="Profesjonalne instalacje, modernizacje i naprawy elektryczne w Warszawie i okolicach. Bezpłatna wycena."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/demos/elektryk/assets/index-CbJB2C9z.js"></script>
+    <link rel="stylesheet" crossorigin href="/demos/elektryk/assets/index-CZOJiOVk.css">
+  </head>
+  <body class="is-booting">
+    <!-- HEADER -->
+    <header class="site-header" id="site-header">
+      <div class="container-site flex items-center justify-between gap-4 lg:gap-6">
+        <a href="#top" class="flex items-center gap-2.5 no-underline shrink-0 logo-link">
+          <svg class="logo-bolt" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M13 2L4 14h7l-1 8 10-14h-7l1-6z" fill="#f0b429" />
+          </svg>
+          <span class="text-white font-semibold tracking-[0.12em] text-[0.9375rem]">Elektro-Max</span>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-7" aria-label="Główne menu">
+          <a class="nav-link" href="#o-nas">O nas</a>
+          <a class="nav-link" href="#uslugi">Usługi</a>
+          <a class="nav-link" href="#realizacje">Realizacje</a>
+          <a class="nav-link" href="#opinie">Opinie</a>
+          <a class="nav-link" href="#kontakt">Kontakt</a>
+        </nav>
+
+        <div class="hidden lg:flex items-center gap-3 shrink-0">
+          <a class="phone-pill" href="tel:+48123456789">
+            <svg class="icon icon-sm text-gold" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.97.35 1.92.67 2.83a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.86.54 2.83.67A2 2 0 0 1 22 16.92z" />
+            </svg>
+            +48 123 456 789
+          </a>
+          <a class="btn btn-gold px-5 py-2.5 text-[0.875rem]" href="#wycena">
+            Bezpłatna wycena
+            <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        </div>
+
+        <button
+          type="button"
+          class="menu-toggle inline-flex lg:hidden"
+          id="menu-toggle"
+          aria-label="Otwórz menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="menu-toggle-bar"></span>
+          <span class="menu-toggle-bar"></span>
+          <span class="menu-toggle-bar"></span>
+        </button>
+      </div>
+
+      <nav class="mobile-menu" id="mobile-menu" aria-label="Menu mobilne">
+        <a class="mobile-menu-link" href="#o-nas">O nas</a>
+        <a class="mobile-menu-link" href="#uslugi">Usługi</a>
+        <a class="mobile-menu-link" href="#realizacje">Realizacje</a>
+        <a class="mobile-menu-link" href="#opinie">Opinie</a>
+        <a class="mobile-menu-link" href="#kontakt">Kontakt</a>
+        <a class="mobile-menu-link mobile-menu-phone" href="tel:+48123456789">+48 123 456 789</a>
+        <a class="btn btn-gold px-5 py-3 text-[0.875rem] w-full mt-2" href="#wycena">
+          Bezpłatna wycena
+          <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="relative bg-ink overflow-hidden hero-section" aria-label="Hero" id="o-nas">
+        <div class="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[100vh]">
+          <!-- Photo: stacked on mobile, left column on desktop -->
+          <div class="relative h-[52vw] min-h-[260px] max-h-[420px] lg:h-auto lg:min-h-0 lg:max-h-none lg:block hero-photo">
+            <img
+              src="/demos/elektryk/images/hero.jpg"
+              alt="Elektryk przy rozdzielnicy elektrycznej"
+              class="absolute inset-0 w-full h-full object-cover object-[42%_center] lg:object-[35%_center] hero-photo-img"
+            />
+            <div
+              class="absolute inset-0 hidden lg:block"
+              style="background: linear-gradient(90deg, transparent 0%, transparent 82%, rgba(10,10,10,0.5) 100%);"
+            ></div>
+            <div
+              class="absolute inset-x-0 bottom-0 h-24 lg:hidden"
+              style="background: linear-gradient(180deg, transparent 0%, #0a0a0a 100%);"
+            ></div>
+          </div>
+
+          <!-- Dark content panel -->
+          <div class="relative bg-ink flex flex-col">
+            <div class="flex-1 flex items-center px-5 sm:px-8 lg:pl-16 lg:pr-14 xl:pl-20 xl:pr-16 pt-8 pb-8 lg:pt-28 lg:pb-10">
+              <div class="relative w-full max-w-[31rem]">
+                <p class="section-label section-label-gold mb-4 lg:mb-6 !text-gold hero-label">Warszawa i okolice</p>
+
+                <div class="relative">
+                  <div class="script-badge font-script hidden sm:block hero-script" aria-hidden="true">
+                    <span>Bezpieczeństwo<br />w Twoim domu</span>
+                  </div>
+                  <h1 class="font-display text-[2.15rem] sm:text-[2.6rem] lg:text-[3.15rem] leading-[1.08] tracking-[-0.02em] text-white mb-5 lg:mb-6">
+                    <span class="hero-title-white">Instalacje<br />elektryczne,</span><br />
+                    <em class="text-gold italic font-display hero-title-gold">na których<br />możesz polegać.</em>
+                  </h1>
+                </div>
+
+                <p class="text-white/70 text-[0.9375rem] leading-relaxed max-w-[24rem] mb-7 lg:mb-8 hero-desc">
+                  Profesjonalne instalacje, modernizacje i naprawy elektryczne dla domów, mieszkań i firm.
+                  Działamy szybko, czysto i z gwarancją jakości.
+                </p>
+
+                <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 hero-ctas">
+                  <a class="btn btn-gold px-5 py-3.5 text-[0.875rem] w-full sm:w-auto justify-center" href="#wycena">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                      <rect x="3" y="5" width="18" height="16" rx="2" />
+                      <path d="M3 10h18M8 3v4M16 3v4" />
+                    </svg>
+                    Umów bezpłatną wycenę
+                    <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                  </a>
+                  <a class="btn btn-outline-dark px-5 py-3.5 text-[0.875rem] w-full sm:w-auto justify-center" href="tel:+48123456789">
+                    <svg class="icon icon-sm text-gold" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.97.35 1.92.67 2.83a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.86.54 2.83.67A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    Zadzwoń teraz
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Feature bar: 2x2 mobile, 4-col desktop -->
+            <div class="border-t border-white/10 px-5 sm:px-8 lg:pl-16 lg:pr-14 xl:pl-20 xl:pr-16 hero-benefits">
+              <div class="grid grid-cols-2 lg:grid-cols-[1fr_0.85fr_1.35fr_0.75fr] lg:divide-x lg:divide-white/10">
+                <div class="trust-item items-start gap-2.5 py-5 pr-3 border-b border-r border-white/10 lg:border-0 lg:py-6 lg:pr-2 text-[0.8125rem] lg:text-[0.75rem]">
+                  <svg class="icon icon-sm shrink-0 mt-0.5" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 7v5l3 2" />
+                  </svg>
+                  <span class="leading-snug">Szybkie terminy realizacji</span>
+                </div>
+                <div class="trust-item items-start gap-2.5 py-5 pl-3 border-b border-white/10 lg:border-0 lg:py-6 lg:px-2 text-[0.8125rem] lg:text-[0.75rem]">
+                  <svg class="icon icon-sm shrink-0 mt-0.5" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3l8 4v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V7l8-4z" />
+                    <path d="M9 12l2 2 4-4" />
+                  </svg>
+                  <span class="leading-snug">Gwarancja jakości</span>
+                </div>
+                <div class="trust-item items-start gap-2.5 py-5 pr-3 border-r border-white/10 lg:border-0 lg:py-6 lg:px-2 text-[0.8125rem] lg:text-[0.75rem]">
+                  <svg class="icon icon-sm shrink-0 mt-0.5" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z" />
+                    <circle cx="12" cy="10" r="2.5" />
+                  </svg>
+                  <span class="leading-snug">Działamy na terenie Warszawy i okolic</span>
+                </div>
+                <div class="trust-item items-start gap-2.5 py-5 pl-3 lg:py-6 lg:pl-2 text-[0.8125rem] lg:text-[0.75rem]">
+                  <svg class="icon icon-sm shrink-0 mt-0.5" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 3h8l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" />
+                    <path d="M15 3v4h4M9 13h6M9 17h6" />
+                  </svg>
+                  <span class="leading-snug">Faktura VAT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="bg-cream py-16 lg:py-24" id="uslugi" data-reveal="section">
+        <div class="container-site grid grid-cols-1 lg:grid-cols-[0.95fr_1.7fr] gap-10 lg:gap-14 items-start">
+          <div class="pt-0 lg:pt-2 reveal-item">
+            <p class="section-label mb-5">Nasze usługi</p>
+            <h2 class="font-display text-[2rem] sm:text-[2.35rem] lg:text-[2.75rem] leading-[1.12] tracking-[-0.02em] mb-5">
+              Kompleksowe usługi elektryczne.
+            </h2>
+            <p class="text-muted text-[1rem] leading-relaxed mb-8 max-w-[22rem]">
+              Od nowych instalacji po modernizacje i naprawy. Dopasowujemy rozwiązania do Twoich potrzeb.
+            </p>
+            <a class="link-arrow" href="#uslugi">
+              Zobacz wszystkie usługi
+              <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 min-[420px]:grid-cols-2 lg:grid-cols-3 gap-5">
+            <article class="service-card" data-reveal="card" style="--stagger: 0">
+              <div class="service-card-media">
+                <img src="/demos/elektryk/images/service-instalacje.jpg" alt="Nowoczesne oświetlenie wnętrza" class="w-full h-48 object-cover block" />
+              </div>
+              <div class="service-card-body">
+                <svg class="icon mt-0.5 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M3 10.5 12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1v-10.5z" />
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-[1rem] mb-1">Instalacje elektryczne</h3>
+                  <p class="text-muted text-[0.8125rem] leading-relaxed">
+                    Nowe instalacje w domach, mieszkaniach i firmach.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="service-card" data-reveal="card" style="--stagger: 1">
+              <div class="service-card-media">
+                <img src="/demos/elektryk/images/service-modernizacje.jpg" alt="Prace modernizacyjne instalacji" class="w-full h-48 object-cover block" />
+              </div>
+              <div class="service-card-body">
+                <svg class="icon mt-0.5 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.1 2.1-1.9-1.9 2-2.1z" />
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-[1rem] mb-1">Modernizacje</h3>
+                  <p class="text-muted text-[0.8125rem] leading-relaxed">
+                    Wymiana starych instalacji i dostosowanie do aktualnych norm.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="service-card" data-reveal="card" style="--stagger: 2">
+              <div class="service-card-media">
+                <img src="/demos/elektryk/images/service-awarie.jpg" alt="Diagnostyka awarii elektrycznej" class="w-full h-48 object-cover block" />
+              </div>
+              <div class="service-card-body">
+                <svg class="icon mt-0.5 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M13 2 4 14h7l-1 8 10-14h-7l1-6z" />
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-[1rem] mb-1">Awarie</h3>
+                  <p class="text-muted text-[0.8125rem] leading-relaxed">
+                    Szybka diagnostyka i usuwanie usterek elektrycznych.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="service-card" data-reveal="card" style="--stagger: 3">
+              <div class="service-card-media">
+                <img src="/demos/elektryk/images/service-rozdzielnice.jpg" alt="Rozdzielnica elektryczna" class="w-full h-48 object-cover block" />
+              </div>
+              <div class="service-card-body">
+                <svg class="icon mt-0.5 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="4" y="3" width="16" height="18" rx="2" />
+                  <circle cx="9" cy="9" r="1.2" fill="currentColor" stroke="none" />
+                  <circle cx="15" cy="9" r="1.2" fill="currentColor" stroke="none" />
+                  <circle cx="9" cy="15" r="1.2" fill="currentColor" stroke="none" />
+                  <circle cx="15" cy="15" r="1.2" fill="currentColor" stroke="none" />
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-[1rem] mb-1">Rozdzielnice</h3>
+                  <p class="text-muted text-[0.8125rem] leading-relaxed">
+                    Montaż i modernizacja rozdzielnic elektrycznych.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="service-card" data-reveal="card" style="--stagger: 4">
+              <div class="service-card-media">
+                <img src="/demos/elektryk/images/service-smarthome.jpg" alt="Systemy smart home" class="w-full h-48 object-cover block" />
+              </div>
+              <div class="service-card-body">
+                <svg class="icon mt-0.5 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12.5a7 7 0 0 1 14 0" />
+                  <path d="M8.5 12.5a3.5 3.5 0 0 1 7 0" />
+                  <circle cx="12" cy="16" r="1.4" fill="currentColor" stroke="none" />
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-[1rem] mb-1">Smart home</h3>
+                  <p class="text-muted text-[0.8125rem] leading-relaxed">
+                    Inteligentne systemy dla nowoczesnych domów.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="service-card" data-reveal="card" style="--stagger: 5">
+              <div class="service-card-media">
+                <img src="/demos/elektryk/images/service-pomiary.jpg" alt="Pomiary elektryczne" class="w-full h-48 object-cover block" />
+              </div>
+              <div class="service-card-body">
+                <svg class="icon mt-0.5 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 4h8v4H8zM9 8v12M15 8v12M6 20h12" />
+                  <path d="M10 14h4" />
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-[1rem] mb-1">Pomiary</h3>
+                  <p class="text-muted text-[0.8125rem] leading-relaxed">
+                    Pomiary elektryczne i protokoły odbiorowe.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section class="bg-ink-soft text-white py-16 lg:py-[5.5rem] process-section" id="proces" data-reveal="process">
+        <div class="container-site">
+          <div class="mb-10 lg:mb-14 max-w-xl process-heading">
+            <p class="section-label section-label-light mb-5">Jak pracujemy?</p>
+            <h2 class="font-display text-[2rem] sm:text-[2.35rem] lg:text-[2.75rem] leading-[1.12] tracking-[-0.02em]">
+              Prosty proces współpracy.
+            </h2>
+          </div>
+
+          <div class="process-track">
+            <!-- Decorative circuit only — never affects layout -->
+            <div class="process-circuit" aria-hidden="true">
+              <div class="process-circuit-line"></div>
+              <div class="process-circuit-pulse"></div>
+            </div>
+
+            <div class="process-steps">
+              <div class="process-step" data-step="0">
+                <span class="process-step-node"></span>
+                <div class="process-step-meta">
+                  <span class="process-step-num">01</span>
+                  <svg class="process-step-icon icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.97.35 1.92.67 2.83a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.86.54 2.83.67A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </div>
+                <h3 class="process-step-title">Kontakt</h3>
+                <p class="process-step-desc">
+                  Dzwonisz lub wypełniasz formularz — odpowiadamy tego samego dnia.
+                </p>
+              </div>
+
+              <div class="process-step" data-step="1">
+                <span class="process-step-node"></span>
+                <div class="process-step-meta">
+                  <span class="process-step-num">02</span>
+                  <svg class="process-step-icon icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                    <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                    <path d="M10 9H8M16 13H8M16 17H8" />
+                  </svg>
+                </div>
+                <h3 class="process-step-title">Wycena</h3>
+                <p class="process-step-desc">
+                  Szybka i bezpłatna wycena na podstawie Twoich potrzeb.
+                </p>
+              </div>
+
+              <div class="process-step" data-step="2">
+                <span class="process-step-node"></span>
+                <div class="process-step-meta">
+                  <span class="process-step-num">03</span>
+                  <svg class="process-step-icon icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.1 2.1-1.9-1.9 2-2.1z" />
+                  </svg>
+                </div>
+                <h3 class="process-step-title">Realizacja</h3>
+                <p class="process-step-desc">
+                  Pracujemy sprawnie, czysto i zgodnie ze sztuką.
+                </p>
+              </div>
+
+              <div class="process-step" data-step="3">
+                <span class="process-step-node"></span>
+                <div class="process-step-meta">
+                  <span class="process-step-num">04</span>
+                  <svg class="process-step-icon icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                </div>
+                <h3 class="process-step-title">Odbiór</h3>
+                <p class="process-step-desc">
+                  Sprawdzenie działania instalacji i gwarancja jakości.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO -->
+      <section class="bg-cream py-16 lg:py-24" id="realizacje" data-reveal="section">
+        <div class="container-site grid grid-cols-1 lg:grid-cols-[0.85fr_1.8fr] gap-10 lg:gap-12 items-start">
+          <div class="pt-0 lg:pt-2 reveal-item">
+            <p class="section-label mb-5">Realizacje</p>
+            <h2 class="font-display text-[2rem] sm:text-[2.35rem] lg:text-[2.75rem] leading-[1.12] tracking-[-0.02em] mb-5">
+              Zobacz nasze ostatnie projekty.
+            </h2>
+            <p class="text-muted text-[1rem] leading-relaxed mb-8 max-w-[22rem]">
+              Estetyczne, bezpieczne i trwałe instalacje. Działamy w domach, mieszkaniach oraz obiektach
+              komercyjnych.
+            </p>
+            <a class="link-arrow" href="#realizacje">
+              Zobacz wszystkie realizacje
+              <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 min-[420px]:grid-cols-2 lg:grid-cols-4 gap-4">
+            <a class="project-card group relative block overflow-hidden rounded-2xl aspect-[3/4]" href="#realizacje" data-reveal="project" style="--stagger: 0">
+              <img
+                src="/demos/elektryk/images/project-dom.jpg"
+                alt="Dom jednorodzinny"
+                class="absolute inset-0 h-full w-full object-cover project-card-img"
+              />
+              <div class="project-panel-overlay" aria-hidden="true"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent project-card-shade"></div>
+              <div class="absolute inset-0 flex items-end justify-between gap-3 p-5 project-card-content">
+                <div>
+                  <h3 class="font-semibold text-[0.9875rem] mb-0.5 text-white">Dom jednorodzinny</h3>
+                  <p class="text-white/65 text-[0.75rem]">Nowa instalacja elektryczna</p>
+                </div>
+                <span class="project-card-arrow shrink-0 group-hover:bg-gold group-hover:border-gold group-hover:text-ink">
+                  <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+
+            <a class="project-card group relative block overflow-hidden rounded-2xl aspect-[3/4]" href="#realizacje" data-reveal="project" style="--stagger: 1">
+              <img
+                src="/demos/elektryk/images/project-mieszkanie.jpg"
+                alt="Mieszkanie"
+                class="absolute inset-0 h-full w-full object-cover project-card-img"
+              />
+              <div class="project-panel-overlay" aria-hidden="true"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent project-card-shade"></div>
+              <div class="absolute inset-0 flex items-end justify-between gap-3 p-5 project-card-content">
+                <div>
+                  <h3 class="font-semibold text-[0.9875rem] mb-0.5 text-white">Mieszkanie</h3>
+                  <p class="text-white/65 text-[0.75rem]">Wymiana instalacji</p>
+                </div>
+                <span class="project-card-arrow shrink-0 group-hover:bg-gold group-hover:border-gold group-hover:text-ink">
+                  <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+
+            <a class="project-card group relative block overflow-hidden rounded-2xl aspect-[3/4]" href="#realizacje" data-reveal="project" style="--stagger: 2">
+              <img
+                src="/demos/elektryk/images/project-rozdzielnica.jpg"
+                alt="Rozdzielnica"
+                class="absolute inset-0 h-full w-full object-cover project-card-img"
+              />
+              <div class="project-panel-overlay" aria-hidden="true"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent project-card-shade"></div>
+              <div class="absolute inset-0 flex items-end justify-between gap-3 p-5 project-card-content">
+                <div>
+                  <h3 class="font-semibold text-[0.9875rem] mb-0.5 text-white">Rozdzielnica</h3>
+                  <p class="text-white/65 text-[0.75rem]">Montaż i modernizacja</p>
+                </div>
+                <span class="project-card-arrow shrink-0 group-hover:bg-gold group-hover:border-gold group-hover:text-ink">
+                  <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+
+            <a class="project-card group relative block overflow-hidden rounded-2xl aspect-[3/4]" href="#realizacje" data-reveal="project" style="--stagger: 3">
+              <img
+                src="/demos/elektryk/images/project-lokal.jpg"
+                alt="Lokal usługowy"
+                class="absolute inset-0 h-full w-full object-cover project-card-img"
+              />
+              <div class="project-panel-overlay" aria-hidden="true"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent project-card-shade"></div>
+              <div class="absolute inset-0 flex items-end justify-between gap-3 p-5 project-card-content">
+                <div>
+                  <h3 class="font-semibold text-[0.9875rem] mb-0.5 text-white">Lokal usługowy</h3>
+                  <p class="text-white/65 text-[0.75rem]">Instalacja i oświetlenie</p>
+                </div>
+                <span class="project-card-arrow shrink-0 group-hover:bg-gold group-hover:border-gold group-hover:text-ink">
+                  <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- VALUES -->
+      <section class="bg-ink-soft text-white py-16 lg:py-[5.5rem] values-section" data-reveal="diagram">
+        <div class="container-site grid grid-cols-1 lg:grid-cols-[0.85fr_1.8fr] gap-10 lg:gap-12 items-start">
+          <div class="values-heading">
+            <p class="section-label section-label-gold mb-5 !text-gold">Dlaczego my?</p>
+            <h2 class="font-display text-[2rem] sm:text-[2.35rem] lg:text-[2.75rem] leading-[1.12] tracking-[-0.02em]">
+              Fachowość w każdym detalu.
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 min-[420px]:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 lg:gap-y-10 values-grid">
+            <div class="value-item" style="--stagger: 0">
+              <svg class="icon icon-lg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 3h12l4 6-10 12L2 9Z" />
+                <path d="M11 3 8 9l4 12 4-12-3-6" />
+                <path d="M2 9h20" />
+              </svg>
+              <h3 class="font-semibold text-[1.0625rem] mb-1.5">Doświadczenie</h3>
+              <p class="text-white/55 text-[0.875rem] leading-relaxed">
+                Wieloletnia praktyka i setki zrealizowanych projektów.
+              </p>
+            </div>
+            <div class="value-item" style="--stagger: 1">
+              <svg class="icon icon-lg" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l4 2" />
+              </svg>
+              <h3 class="font-semibold text-[1.0625rem] mb-1.5">Terminowość</h3>
+              <p class="text-white/55 text-[0.875rem] leading-relaxed">
+                Szanujemy Twój czas i dotrzymujemy ustaleń.
+              </p>
+            </div>
+            <div class="value-item" style="--stagger: 2">
+              <svg class="icon icon-lg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+              <h3 class="font-semibold text-[1.0625rem] mb-1.5">Bezpieczeństwo</h3>
+              <p class="text-white/55 text-[0.875rem] leading-relaxed">
+                Stosujemy sprawdzone materiały i rozwiązania.
+              </p>
+            </div>
+            <div class="value-item" style="--stagger: 3">
+              <svg class="icon icon-lg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+              </svg>
+              <h3 class="font-semibold text-[1.0625rem] mb-1.5">Czysta praca</h3>
+              <p class="text-white/55 text-[0.875rem] leading-relaxed">
+                Dbamy o porządek na każdym etapie realizacji.
+              </p>
+            </div>
+            <div class="value-item" style="--stagger: 4">
+              <svg class="icon icon-lg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <h3 class="font-semibold text-[1.0625rem] mb-1.5">Lokalny zasięg</h3>
+              <p class="text-white/55 text-[0.875rem] leading-relaxed">
+                Działamy w Warszawie i okolicach.
+              </p>
+            </div>
+            <div class="value-item" style="--stagger: 5">
+              <svg class="icon icon-lg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                <path d="M10 9H8M16 13H8M16 17H8" />
+              </svg>
+              <h3 class="font-semibold text-[1.0625rem] mb-1.5">Jasna wycena</h3>
+              <p class="text-white/55 text-[0.875rem] leading-relaxed">
+                Brak ukrytych kosztów. Wszystko ustalamy z góry.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section class="bg-cream py-16 lg:py-24" id="opinie" data-reveal="section">
+        <div class="container-site grid grid-cols-1 lg:grid-cols-[0.75fr_1.9fr] gap-10 lg:gap-12 items-start">
+          <div class="reveal-item">
+            <p class="section-label mb-5">Opinie klientów</p>
+            <h2 class="font-display text-[2rem] sm:text-[2.35rem] lg:text-[2.75rem] leading-[1.12] tracking-[-0.02em]">
+              Co mówią nasi klienci?
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            <article class="testimonial-card" data-reveal="fade" style="--stagger: 0">
+              <div class="flex gap-1 mb-4 text-gold" aria-label="Ocena 5 na 5">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5L22 9.5l-5 4.7L18.5 22 12 18.4 5.5 22 7 14.2 2 9.5l7-1L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5L22 9.5l-5 4.7L18.5 22 12 18.4 5.5 22 7 14.2 2 9.5l7-1L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5L22 9.5l-5 4.7L18.5 22 12 18.4 5.5 22 7 14.2 2 9.5l7-1L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5L22 9.5l-5 4.7L18.5 22 12 18.4 5.5 22 7 14.2 2 9.5l7-1L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5L22 9.5l-5 4.7L18.5 22 12 18.4 5.5 22 7 14.2 2 9.5l7-1L12 2z"/></svg>
+              </div>
+              <p class="text-[0.9375rem] leading-relaxed mb-6 text-ink/85">
+                „Świetny kontakt, wszystko zrobione terminowo i bardzo dokładnie. Polecam!”
+              </p>
+              <div class="flex items-center gap-3">
+                <img src="/demos/elektryk/images/avatar-1.jpg" alt="" class="w-10 h-10 rounded-full object-cover" />
+                <div>
+                  <p class="font-semibold text-[0.875rem]">Michał</p>
+                  <p class="text-muted text-[0.75rem]">Warszawa</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card" data-reveal="fade" style="--stagger: 1">
+              <div class="flex gap-1 mb-4 text-gold" aria-label="Ocena 5 na 5">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5L22 9.5l-5 4.7L18.5 22 12 18.4 5.5 22 7 14.2 2 9.5l7-1L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5L22 9.5l-5 4.7L18.5 22 12 18.4 5.5 22 7 14.2 2 9.5l7-1L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5L22 9.5l-5 4.7L18.5 22 12 18.4 5.5 22 7 14.2 2 9.5l7-1L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5L22 9.5l-5 4.7L18.5 22 12 18.4 5.5 22 7 14.2 2 9.5l7-1L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5L22 9.5l-5 4.7L18.5 22 12 18.4 5.5 22 7 14.2 2 9.5l7-1L12 2z"/></svg>
+              </div>
+              <p class="text-[0.9375rem] leading-relaxed mb-6 text-ink/85">
+                „Profesjonalna ekipa, czysta praca i jasne zasady. Instalacja działa bez zarzutu.”
+              </p>
+              <div class="flex items-center gap-3">
+                <img src="/demos/elektryk/images/avatar-2.jpg" alt="" class="w-10 h-10 rounded-full object-cover" />
+                <div>
+                  <p class="font-semibold text-[0.875rem]">Karolina</p>
+                  <p class="text-muted text-[0.75rem]">Piastów</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card" data-reveal="fade" style="--stagger: 2">
+              <div class="flex gap-1 mb-4 text-gold" aria-label="Ocena 5 na 5">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5L22 9.5l-5 4.7L18.5 22 12 18.4 5.5 22 7 14.2 2 9.5l7-1L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5L22 9.5l-5 4.7L18.5 22 12 18.4 5.5 22 7 14.2 2 9.5l7-1L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5L22 9.5l-5 4.7L18.5 22 12 18.4 5.5 22 7 14.2 2 9.5l7-1L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5L22 9.5l-5 4.7L18.5 22 12 18.4 5.5 22 7 14.2 2 9.5l7-1L12 2z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5L22 9.5l-5 4.7L18.5 22 12 18.4 5.5 22 7 14.2 2 9.5l7-1L12 2z"/></svg>
+              </div>
+              <p class="text-[0.9375rem] leading-relaxed mb-6 text-ink/85">
+                „Szybka reakcja na awarię, problem rozwiązany tego samego dnia. Pełen profesjonalizm.”
+              </p>
+              <div class="flex items-center gap-3">
+                <img src="/demos/elektryk/images/avatar-3.jpg" alt="" class="w-10 h-10 rounded-full object-cover" />
+                <div>
+                  <p class="font-semibold text-[0.875rem]">Tomasz</p>
+                  <p class="text-muted text-[0.75rem]">Pruszków</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section class="bg-cream pb-8 pt-8 lg:pt-4" id="wycena" data-reveal="pricing">
+        <div class="container-site grid grid-cols-1 lg:grid-cols-[1fr_1.35fr] gap-10 lg:gap-12 items-center">
+          <div class="reveal-item">
+            <p class="section-label mb-5">Cennik</p>
+            <h2 class="font-display text-[2rem] sm:text-[2.35rem] lg:text-[2.75rem] leading-[1.12] tracking-[-0.02em] mb-5">
+              Ile to kosztuje?
+            </h2>
+            <p class="text-muted text-[1rem] leading-relaxed max-w-[26rem]">
+              Koszt instalacji zależy od zakresu prac, wielkości obiektu, wybranych materiałów i poziomu
+              skomplikowania. Dlatego przed realizacją wykonujemy bezpłatną wycenę, aby wszystko było jasne
+              od początku.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-6 items-stretch">
+            <div class="quote-card flex flex-col justify-between gap-6 rounded-2xl bg-white p-7 shadow-md">
+              <div class="flex gap-4 items-start">
+                <span class="quote-card-icon w-11 h-11 rounded-full bg-gold grid place-items-center shrink-0">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M9 18h6M10 21h4M12 3a6 6 0 0 1 3.5 10.8V16H8.5v-2.2A6 6 0 0 1 12 3z" />
+                  </svg>
+                </span>
+                <div>
+                  <h3 class="font-semibold text-[1.125rem] mb-1.5">Bezpłatna wycena na miejscu</h3>
+                  <p class="text-muted text-[0.875rem] leading-relaxed">
+                    Przyjedziemy, doradzimy i przygotujemy indywidualną ofertę.
+                  </p>
+                </div>
+              </div>
+              <a class="btn btn-gold self-start px-5 py-3 quote-card-btn" href="#wycena">
+                Umów wycenę
+                <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+
+            <ul class="self-center divide-y divide-black/8 quote-checklist">
+              <li class="flex items-center gap-3 py-4 first:pt-0 last:pb-0" style="--stagger: 0">
+                <span class="check-icon">
+                  <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                    <path d="M5 12l5 5L20 7" />
+                  </svg>
+                </span>
+                <span class="text-[0.9375rem] font-medium">Rzetelna wycena</span>
+              </li>
+              <li class="flex items-center gap-3 py-4 first:pt-0 last:pb-0" style="--stagger: 1">
+                <span class="check-icon">
+                  <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                    <path d="M5 12l5 5L20 7" />
+                  </svg>
+                </span>
+                <span class="text-[0.9375rem] font-medium">Bez ukrytych kosztów</span>
+              </li>
+              <li class="flex items-center gap-3 py-4 first:pt-0 last:pb-0" style="--stagger: 2">
+                <span class="check-icon">
+                  <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                    <path d="M5 12l5 5L20 7" />
+                  </svg>
+                </span>
+                <span class="text-[0.9375rem] font-medium">Dopasowane rozwiązania</span>
+              </li>
+              <li class="flex items-center gap-3 py-4 first:pt-0 last:pb-0" style="--stagger: 3">
+                <span class="check-icon">
+                  <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                    <path d="M5 12l5 5L20 7" />
+                  </svg>
+                </span>
+                <span class="text-[0.9375rem] font-medium">Pomoc w doborze materiałów</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="bg-cream py-16 lg:py-24" id="faq">
+        <div class="container-site grid grid-cols-1 lg:grid-cols-[0.85fr_1.5fr] gap-10 lg:gap-14 items-start">
+          <div>
+            <p class="section-label mb-5">FAQ</p>
+            <h2 class="font-display text-[2rem] sm:text-[2.35rem] lg:text-[2.75rem] leading-[1.12] tracking-[-0.02em] mb-6 lg:mb-8">
+              Najczęściej zadawane pytania.
+            </h2>
+            <a class="link-arrow" href="#faq">
+              Zobacz wszystkie pytania
+              <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="faq-list" role="list">
+            <div class="faq-item open" role="listitem">
+              <button class="faq-trigger" type="button" aria-expanded="true">
+                Czy wykonujecie bezpłatne wyceny?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <div class="faq-panel-inner">
+                  <p>
+                    Tak — wycena jest bezpłatna i niezobowiązująca. Po krótkiej rozmowie lub wizycie na miejscu
+                    przygotujemy przejrzystą ofertę dopasowaną do zakresu prac.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-trigger" type="button" aria-expanded="false">
+                Na jakim obszarze działacie?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <div class="faq-panel-inner">
+                  <p>
+                    Realizujemy zlecenia w Warszawie i okolicach — m.in. Piastów, Pruszków, Legionowo,
+                    Marki, Piaseczno i sąsiednie miejscowości.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-trigger" type="button" aria-expanded="false">
+                Czy realizujecie również małe naprawy?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <div class="faq-panel-inner">
+                  <p>
+                    Oczywiście. Zajmujemy się zarówno kompleksowymi instalacjami, jak i doraźnymi awariami,
+                    wymianą gniazd, oświetlenia czy drobnymi modernizacjami.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-trigger" type="button" aria-expanded="false">
+                Ile trwa realizacja?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <div class="faq-panel-inner">
+                  <p>
+                    Czas zależy od zakresu. Drobne naprawy często kończymy tego samego dnia, a większe
+                    instalacje planujemy z góry i trzymamy się ustalonego harmonogramu.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-trigger" type="button" aria-expanded="false">
+                Czy pomagacie w doborze rozwiązań?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <div class="faq-panel-inner">
+                  <p>
+                    Tak — doradzamy w wyborze materiałów, rozdzielnic, oświetlenia i systemów smart home,
+                    tak aby rozwiązanie było bezpieczne, trwałe i dopasowane do budżetu.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-trigger" type="button" aria-expanded="false">
+                Czy wystawiacie fakturę?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <div class="faq-panel-inner">
+                  <p>
+                    Tak, do każdej realizacji wystawiamy fakturę VAT. Na życzenie możemy też przygotować
+                    kosztorys i dokumentację powykonawczą.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FINAL CTA -->
+      <section class="bg-cream pb-12 lg:pb-16" id="kontakt" data-reveal="cta">
+        <div class="container-site">
+          <div class="cta-banner px-6 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-14 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-10">
+            <h2 class="font-display text-[1.85rem] sm:text-[2.1rem] lg:text-[2.35rem] leading-[1.15] tracking-[-0.02em] max-w-[22rem] shrink-0 cta-title">
+              Masz pytania?<br />Skontaktuj się z nami.
+            </h2>
+            <p class="text-white/65 text-[0.9875rem] leading-relaxed max-w-[18rem] cta-desc">
+              Doradzimy, przygotujemy wycenę i dopasujemy rozwiązanie do Twoich potrzeb.
+            </p>
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 w-full lg:w-auto cta-actions">
+              <a
+                class="btn-electric inline-flex items-center justify-center gap-2 rounded-full bg-gold px-5 py-3.5 text-[0.9375rem] font-semibold text-ink transition-colors duration-200 hover:bg-gold-deep"
+                href="tel:+48123456789"
+              >
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.97.35 1.92.67 2.83a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.86.54 2.83.67A2 2 0 0 1 22 16.92z" />
+                </svg>
+                Zadzwoń teraz
+              </a>
+              <a
+                class="inline-flex items-center justify-center gap-2 rounded-full border border-white/45 bg-transparent px-5 py-3.5 text-[0.9375rem] font-semibold text-white transition-colors duration-200 hover:border-white/80 hover:bg-white/10"
+                href="#wycena"
+              >
+                Bezpłatna wycena
+                <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-cream border-t border-black/8 py-8">
+      <div class="container-site flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+        <a href="#top" class="flex items-center gap-2.5 no-underline shrink-0">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M13 2L4 14h7l-1 8 10-14h-7l1-6z" fill="#f0b429" />
+          </svg>
+          <span class="text-ink font-semibold tracking-[0.12em] text-[0.875rem]">Elektro-Max</span>
+        </a>
+
+        <nav class="flex flex-wrap items-center gap-x-6 gap-y-3" aria-label="Stopka">
+          <a class="text-muted text-[0.875rem] no-underline hover:text-ink transition-colors" href="#o-nas">O nas</a>
+          <a class="text-muted text-[0.875rem] no-underline hover:text-ink transition-colors" href="#uslugi">Usługi</a>
+          <a class="text-muted text-[0.875rem] no-underline hover:text-ink transition-colors" href="#realizacje">Realizacje</a>
+          <a class="text-muted text-[0.875rem] no-underline hover:text-ink transition-colors" href="#opinie">Opinie</a>
+          <a class="text-muted text-[0.875rem] no-underline hover:text-ink transition-colors" href="#kontakt">Kontakt</a>
+        </nav>
+
+        <div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-6 text-muted text-[0.8125rem]">
+          <a class="inline-flex items-center gap-2 no-underline text-muted hover:text-ink transition-colors" href="tel:+48123456789">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.97.35 1.92.67 2.83a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.86.54 2.83.67A2 2 0 0 1 22 16.92z" />
+            </svg>
+            +48 123 456 789
+          </a>
+          <a class="inline-flex items-center gap-2 no-underline text-muted hover:text-ink transition-colors" href="mailto:kontakt@elektro-max.pl">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="m3 7 9 6 9-6" />
+            </svg>
+            kontakt@elektro-max.pl
+          </a>
+          <span class="inline-flex items-center gap-2">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z" />
+              <circle cx="12" cy="10" r="2.5" />
+            </svg>
+            Warszawa i okolice
+          </span>
+        </div>
+      </div>
+      <div class="container-site mt-6 pt-5 border-t border-black/6">
+        <p class="text-muted-light text-[0.75rem]">© 2026 Elektro-Max. Wszelkie prawa zastrzeżone.</p>
+      </div>
+    </footer>
+
+  </body>
+</html>

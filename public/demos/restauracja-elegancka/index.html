@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <base href="/demos/restauracja-elegancka/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="meta.title">VELORA — Więcej niż restauracja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body data-page="home" class="bg-cream text-ink antialiased">
+  <!-- ========== HERO ========== -->
+  <header id="strona-glowna" class="relative h-screen min-h-[780px] max-h-[980px] overflow-hidden text-white">
+    <div class="hero-media absolute inset-0">
+      <img src="./assets/hero.jpg" alt="Wnętrze restauracji VELORA" class="h-full w-full object-cover object-center" />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/60"></div>
+    </div>
+
+    <nav class="header-bar hero-reveal relative z-20 px-6 pt-7 sm:px-10 lg:px-14" data-hero-delay="0" aria-label="Główna nawigacja">
+      <a href="./" class="site-logo font-display text-[1.65rem] font-semibold tracking-[0.28em]">VELORA</a>
+
+      <ul class="desktop-nav">
+        <li><a class="nav-link" href="./" data-i18n="nav.home">Strona główna</a></li>
+        <li><a class="nav-link" href="./#o-nas" data-i18n="nav.about">O nas</a></li>
+        <li><a class="nav-link" href="menu.html" data-i18n="nav.menu">Menu</a></li>
+        <li><a class="nav-link" href="galeria.html" data-i18n="nav.gallery">Galeria</a></li>
+        <li><a class="nav-link" href="./#rezerwacja" data-i18n="nav.reservation">Rezerwacja</a></li>
+        <li><a class="nav-link" href="./#kontakt" data-i18n="nav.contact">Kontakt</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <div class="lang-switch">
+          <button type="button" data-lang="pl" class="is-lang-active" aria-current="true">PL</button>
+          <span aria-hidden="true">|</span>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+        <a href="./#rezerwacja" class="nav-cta-desktop" data-i18n="nav.cta">REZERWACJA</a>
+        <button type="button" class="nav-toggle" aria-expanded="false" data-i18n-aria="nav.open" aria-label="Otwórz menu">
+          <span class="nav-toggle-lines" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-nav" aria-hidden="true">
+      <a href="./" data-i18n="nav.home">Strona główna</a>
+      <a href="./#o-nas" data-i18n="nav.about">O nas</a>
+      <a href="menu.html" data-i18n="nav.menu">Menu</a>
+      <a href="galeria.html" data-i18n="nav.gallery">Galeria</a>
+      <a href="./#rezerwacja" data-i18n="nav.reservation">Rezerwacja</a>
+      <a href="./#kontakt" data-i18n="nav.contact">Kontakt</a>
+      <div class="lang-switch">
+        <button type="button" data-lang="pl" class="is-lang-active" aria-current="true">PL</button>
+        <span aria-hidden="true">|</span>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a href="./#rezerwacja" class="nav-cta" data-i18n="nav.cta">REZERWACJA</a>
+    </div>
+
+    <div class="hero-reveal absolute left-8 top-1/2 z-20 hidden -translate-y-1/2 flex-col items-center gap-4 lg:left-10 lg:flex" data-hero-delay="5">
+      <span class="mb-1 h-10 w-px bg-white/35"></span>
+      <button type="button" class="slide-num is-active" data-slide="0">01</button>
+      <button type="button" class="slide-num" data-slide="1">02</button>
+      <button type="button" class="slide-num" data-slide="2">03</button>
+      <span class="mt-1 h-10 w-px bg-white/35"></span>
+    </div>
+
+    <div class="relative z-10 flex h-[calc(100%-5.5rem)] flex-col items-center justify-center px-6 pb-16 text-center">
+      <h1 class="hero-reveal hero-reveal--rise font-display text-[7.5rem] font-medium leading-none tracking-[0.08em] sm:text-[9rem] lg:text-[11.5rem]" data-hero-delay="1">VELORA</h1>
+      <p class="hero-reveal hero-reveal--rise mt-3 text-[0.78rem] font-medium tracking-[0.42em] uppercase sm:text-[0.85rem]" data-hero-delay="2" data-i18n="hero.tagline">Więcej niż restauracja</p>
+      <p class="hero-reveal hero-reveal--rise mt-4 text-[0.62rem] font-light tracking-[0.28em] text-white/80 uppercase sm:text-[0.68rem]" data-hero-delay="3" data-i18n="hero.sub">Wyjątkowe smaki · Ludzie · Niezapomniane chwile</p>
+      <div class="hero-reveal hero-reveal--rise mt-10 flex flex-wrap items-center justify-center gap-4" data-hero-delay="4">
+        <a href="menu.html" class="btn-solid"><span data-i18n="hero.cta.menu">Zobacz menu</span> <span class="btn-arrow" aria-hidden="true">→</span></a>
+        <a href="./#rezerwacja" class="btn-ghost"><span data-i18n="hero.cta.book">Zarezerwuj stolik</span> <span class="btn-arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+
+    <p class="hero-reveal vertical-tagline absolute bottom-10 right-8 z-20 hidden text-[0.55rem] font-medium tracking-[0.32em] text-white/70 uppercase lg:right-12 lg:block" data-hero-delay="6" data-i18n="hero.side">Dobre jedzenie lepsze historie</p>
+  </header>
+
+  <main>
+    <!-- ========== NASZA KUCHNIA ========== -->
+    <section id="kuchnia" class="kuchnia-section" aria-label="Nasza kuchnia">
+      <div class="kuchnia-copy">
+        <p class="label text-ink/65" data-i18n="kuchnia.label">Nasza kuchnia</p>
+        <h2 class="heading-serif mt-6 text-[2.35rem] sm:text-[2.75rem] lg:text-[3.15rem]" data-i18n-html="kuchnia.h">
+          Smak zaczyna się<br />od dobrego produktu.
+        </h2>
+        <div class="mt-7 max-w-[28rem] space-y-4 font-display text-[1.05rem] leading-relaxed text-ink/70">
+          <p data-i18n="kuchnia.p1">
+            W VELORA łączymy nowoczesne podejście do kuchni z produktami, które bronią się jakością. Menu zmienia się wraz z sezonem, a każde danie budujemy wokół kilku dobrze dobranych składników.
+          </p>
+          <p data-i18n="kuchnia.p2">
+            Bez niepotrzebnego komplikowania. Liczy się smak, balans i detal.
+          </p>
+        </div>
+
+        <ul class="kuchnia-highlights" aria-label="Wyróżniki kuchni">
+          <li data-i18n="kuchnia.h1">Sezonowe składniki</li>
+          <li data-i18n="kuchnia.h2">Autorskie kompozycje</li>
+          <li data-i18n="kuchnia.h3">Nowoczesna kuchnia</li>
+        </ul>
+
+        <a href="./#o-nas" class="link-arrow mt-10 text-ink">
+          <span data-i18n="kuchnia.link">Poznaj naszą kuchnię</span> <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <figure class="kuchnia-image image-motion m-0">
+        <img src="./assets/menu-dania.jpg" alt="Eleganckie danie z kuchni VELORA" />
+      </figure>
+    </section>
+
+    <!-- ========== SMAK SEZONU ========== -->
+    <section id="smak-sezonu" class="season-section" aria-label="Smak sezonu">
+      <figure class="season-image image-motion m-0">
+        <img src="./assets/dish-scallop.jpg" alt="Przegrzebki — smak sezonu" />
+      </figure>
+
+      <div class="season-copy">
+        <p class="label text-white/55" data-i18n="season.label">Smak sezonu</p>
+        <h2 class="heading-serif mt-5 text-[3rem] text-white sm:text-[3.6rem] lg:text-[4.2rem]" data-i18n="dish.scallops">
+          Przegrzebki
+        </h2>
+        <p class="mt-4 text-[0.72rem] font-light tracking-[0.14em] text-white/55 uppercase" data-i18n="season.ing">
+          kalafior · beurre noisette · jabłko · zioła
+        </p>
+        <p class="mt-6 font-display text-[1.85rem] tracking-[0.04em] text-[#c9b8a0]">
+          52 zł
+        </p>
+        <p class="mt-6 max-w-[24rem] font-display text-[1.05rem] leading-relaxed text-white/78" data-i18n="season.p">
+          Delikatne przegrzebki, słodycz pieczonego kalafiora i lekka kwasowość jabłka. Jedno z dań, które najlepiej pokazuje sposób, w jaki myślimy o smaku w VELORA.
+        </p>
+        <a href="menu.html" class="link-arrow mt-10 text-white">
+          <span data-i18n="season.link">Zobacz menu</span> <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========== WYBRANE Z MENU ========== -->
+    <section id="menu" class="selected-menu" aria-label="Wybrane z menu">
+      <div class="selected-menu-inner">
+        <header class="selected-menu-intro">
+          <div>
+            <p class="label text-ink/65" data-i18n="selected.label">Wybrane z menu</p>
+            <h2 class="heading-serif mt-5 text-[2.35rem] sm:text-[2.7rem] lg:text-[3rem]" data-i18n-html="selected.h">
+              Kilka smaków,<br />od których warto zacząć.
+            </h2>
+          </div>
+          <p class="selected-menu-subtext font-display text-[1.02rem] leading-relaxed text-ink/65" data-i18n="selected.p">
+            Menu VELORA zmienia się wraz z sezonem. Poniżej znajdziesz kilka pozycji, które najlepiej pokazują charakter naszej kuchni.
+          </p>
+        </header>
+
+        <div class="selected-menu-layout">
+          <ul class="menu-list">
+            <li class="menu-item">
+              <div class="menu-item-row">
+                <h3 class="menu-item-name" data-i18n="dish.tatar">Tatar wołowy</h3>
+                <span class="menu-item-dots" aria-hidden="true"></span>
+                <p class="menu-item-price">48 zł</p>
+              </div>
+              <p class="menu-item-meta" data-i18n="dish.meta.tatar">kapary · żółtko · musztarda francuska · brioche</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-row">
+                <h3 class="menu-item-name" data-i18n="dish.scallops">Przegrzebki</h3>
+                <span class="menu-item-dots" aria-hidden="true"></span>
+                <p class="menu-item-price">52 zł</p>
+              </div>
+              <p class="menu-item-meta" data-i18n="dish.meta.scallops">kalafior · beurre noisette · jabłko · zioła</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-row">
+                <h3 class="menu-item-name" data-i18n="dish.risotto">Risotto z borowikami</h3>
+                <span class="menu-item-dots" aria-hidden="true"></span>
+                <p class="menu-item-price">54 zł</p>
+              </div>
+              <p class="menu-item-meta" data-i18n="dish.meta.risotto">parmezan · tymianek · palone masło</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-row">
+                <h3 class="menu-item-name" data-i18n="dish.beef">Polędwica wołowa</h3>
+                <span class="menu-item-dots" aria-hidden="true"></span>
+                <p class="menu-item-price">92 zł</p>
+              </div>
+              <p class="menu-item-meta" data-i18n="dish.meta.beef">ziemniak fondant · demi-glace · sezonowe warzywa</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-row">
+                <h3 class="menu-item-name" data-i18n="dish.zander">Sandacz</h3>
+                <span class="menu-item-dots" aria-hidden="true"></span>
+                <p class="menu-item-price">76 zł</p>
+              </div>
+              <p class="menu-item-meta" data-i18n="dish.meta.zander">por · beurre blanc · koper · młode ziemniaki</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-row">
+                <h3 class="menu-item-name" data-i18n="dish.chocolate">Czekolada &amp; malina</h3>
+                <span class="menu-item-dots" aria-hidden="true"></span>
+                <p class="menu-item-price">36 zł</p>
+              </div>
+              <p class="menu-item-meta" data-i18n="dish.meta.chocolate">ciemna czekolada · malina · wanilia</p>
+            </li>
+          </ul>
+
+          <aside class="selected-menu-accent" aria-hidden="true">
+            <figure class="img-zoom m-0 h-full">
+              <img src="./assets/gallery-dessert.jpg" alt="" />
+            </figure>
+          </aside>
+        </div>
+
+        <a href="menu.html" class="link-arrow mt-12 text-ink">
+          <span data-i18n="selected.link">Zobacz pełne menu</span> <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- ========== O NAS ========== -->
+    <section id="o-nas" class="onas-section" aria-label="O nas">
+      <div class="onas-inner">
+        <header class="onas-intro">
+          <p class="label text-ink/65" data-i18n="about.label">O nas</p>
+          <h2 class="heading-serif mt-5 max-w-[40rem] text-[2.35rem] sm:text-[2.75rem] lg:text-[3.15rem]" data-i18n="about.h">
+            Restauracja tworzona wokół smaku, ludzi i dobrych chwil.
+          </h2>
+          <p class="mt-6 max-w-[36rem] font-display text-[1.05rem] leading-relaxed text-ink/65" data-i18n="about.intro">
+            VELORA powstała z myślą o miejscu, w którym dobre jedzenie spotyka się z atmosferą, do której chce się wracać. Łączymy sezonowe produkty, nowoczesną kuchnię i swobodną elegancję.
+          </p>
+        </header>
+
+        <ol class="about-points">
+          <li class="about-point">
+            <p class="about-point-num">01</p>
+            <h3 class="about-point-title" data-i18n="about.1.t">Produkt</h3>
+            <p class="about-point-text" data-i18n="about.1.p">Zaczynamy od jakości. Wybieramy składniki, które nie potrzebują zbędnych dodatków.</p>
+          </li>
+          <li class="about-point">
+            <p class="about-point-num">02</p>
+            <h3 class="about-point-title" data-i18n="about.2.t">Smak</h3>
+            <p class="about-point-text" data-i18n="about.2.p">Budujemy dania wokół balansu, sezonowości i prostych, świadomych połączeń.</p>
+          </li>
+          <li class="about-point">
+            <p class="about-point-num">03</p>
+            <h3 class="about-point-title" data-i18n="about.3.t">Atmosfera</h3>
+            <p class="about-point-text" data-i18n="about.3.p">Chcemy, żeby VELORA była miejscem zarówno na kolację we dwoje, jak i długi wieczór z przyjaciółmi.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========== ZA KUCHNIĄ VELORA / SZEF ========== -->
+    <section id="o-nova" class="about-section" aria-label="Za kuchnią VELORA">
+      <div class="about-inner">
+        <div class="about-copy">
+          <p class="label text-white/55" data-i18n="chef.label">Za kuchnią VELORA</p>
+          <h2 class="heading-serif mt-6 text-[2.4rem] text-white sm:text-[2.9rem] lg:text-[3.35rem]" data-i18n-html="chef.h">
+            Smak ma swoją<br />historię.
+          </h2>
+          <div class="mt-7 max-w-[30rem] space-y-4 font-display text-[1.05rem] leading-relaxed text-white/78">
+            <p data-i18n="chef.p">
+              Za menu VELORA stoi kuchnia oparta na sezonowości, dobrym produkcie i prostych połączeniach. Każde danie powstaje z myślą o balansie — bez zbędnego komplikowania tego, co już jest dobre.
+            </p>
+          </div>
+
+          <blockquote class="about-quote">
+            <span class="about-quote-mark" aria-hidden="true">„</span>
+            <span data-i18n="chef.quote">Najlepsze danie nie potrzebuje wielu składników. Potrzebuje właściwych.</span>
+          </blockquote>
+
+          <div class="about-chef-inline">
+            <p class="about-portrait-name">Jan Nowak</p>
+            <p class="about-portrait-role" data-i18n="chef.role">Szef kuchni VELORA</p>
+          </div>
+
+          <a href="./#rezerwacja" class="link-arrow mt-10 text-white">
+            <span data-i18n="evening.link">Zarezerwuj stolik</span> <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <aside class="about-portrait">
+          <figure class="about-portrait-frame image-motion m-0">
+            <img src="./assets/chef-plating.jpg" alt="Jan Nowak — szef kuchni VELORA podczas pracy" />
+          </figure>
+          <p class="about-portrait-caption">
+            <span class="about-portrait-name">Jan Nowak</span>
+            <span class="about-portrait-role" data-i18n="chef.role">Szef kuchni VELORA</span>
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ========== WIECZÓR W VELORA ========== -->
+    <section id="wieczor" class="evening-section" aria-label="Wieczór w VELORA">
+      <figure class="evening-image image-motion m-0">
+        <img src="./assets/gallery-interior.jpg" alt="Klimat restauracji VELORA wieczorem" />
+      </figure>
+
+      <div class="evening-copy">
+        <p class="label text-white/55" data-i18n="evening.label">Wieczór w VELORA</p>
+        <h2 class="heading-serif mt-5 text-[2.4rem] text-white sm:text-[2.85rem] lg:text-[3.2rem]" data-i18n-html="evening.h">
+          Miejsce stworzone<br />do długich rozmów.
+        </h2>
+        <div class="mt-7 max-w-[26rem] space-y-4 font-display text-[1.05rem] leading-relaxed text-white/78">
+          <p data-i18n="evening.p1">
+            VELORA to nie tylko kuchnia. To światło, muzyka, zapach, kieliszek wina i czas spędzony z ludźmi, z którymi chcesz zostać trochę dłużej.
+          </p>
+          <p data-i18n="evening.p2">
+            Niezależnie od tego, czy przychodzisz na kolację we dwoje, spotkanie z przyjaciółmi czy wyjątkową okazję — chcemy, żeby wieczór miał swój własny rytm.
+          </p>
+        </div>
+
+        <ul class="evening-tags" aria-label="Okazje">
+          <li data-i18n="evening.t1">Kolacje</li>
+          <li data-i18n="evening.t2">Spotkania</li>
+          <li data-i18n="evening.t3">Wyjątkowe okazje</li>
+        </ul>
+
+        <a href="./#rezerwacja" class="link-arrow mt-10 text-white">
+          <span data-i18n="evening.link">Zarezerwuj stolik</span> <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========== NA KAŻDĄ OKAZJĘ ========== -->
+    <section id="okazje" class="occasions-section" aria-label="Na każdą okazję">
+      <div class="occasions-inner">
+        <header class="occasions-intro">
+          <div>
+            <p class="label text-ink/65" data-i18n="occasions.label">Na każdą okazję</p>
+            <h2 class="heading-serif mt-5 text-[2.35rem] sm:text-[2.75rem] lg:text-[3.1rem]" data-i18n-html="occasions.h">
+              Każdy wieczór może<br />mieć swój powód.
+            </h2>
+          </div>
+          <p class="occasions-lead font-display text-[1.05rem] leading-relaxed text-ink/65" data-i18n="occasions.lead">
+            VELORA to miejsce na spokojną kolację, wspólny stół z przyjaciółmi i wieczory, które warto zapamiętać.
+          </p>
+        </header>
+
+        <div class="occasions-layout">
+          <ol class="occasions-list">
+            <li class="occasion-item">
+              <span class="occasion-num" aria-hidden="true">01</span>
+              <div class="occasion-body">
+                <h3 class="occasion-title" data-i18n="occasions.1.t">Kolacja we dwoje</h3>
+                <p class="occasion-text" data-i18n="occasions.1.p">
+                  Spokojny wieczór, dobre wino i kuchnia, przy której nie trzeba się spieszyć.
+                </p>
+              </div>
+            </li>
+            <li class="occasion-item">
+              <span class="occasion-num" aria-hidden="true">02</span>
+              <div class="occasion-body">
+                <h3 class="occasion-title" data-i18n="occasions.2.t">Spotkanie z przyjaciółmi</h3>
+                <p class="occasion-text" data-i18n="occasions.2.p">
+                  Stół pełen dań, rozmów i czasu spędzonego bez patrzenia na zegarek.
+                </p>
+              </div>
+            </li>
+            <li class="occasion-item">
+              <span class="occasion-num" aria-hidden="true">03</span>
+              <div class="occasion-body">
+                <h3 class="occasion-title" data-i18n="occasions.3.t">Wyjątkowe okazje</h3>
+                <p class="occasion-text" data-i18n="occasions.3.p">
+                  Urodziny, rocznica czy ważny moment — VELORA tworzy odpowiednią oprawę.
+                </p>
+              </div>
+            </li>
+          </ol>
+
+          <aside class="occasions-accent" aria-hidden="true">
+            <figure class="img-zoom m-0 h-full">
+              <img src="./assets/gallery-table.jpg" alt="" />
+            </figure>
+          </aside>
+        </div>
+
+        <a href="./#rezerwacja" class="link-arrow mt-10 text-ink">
+          <span data-i18n="occasions.link">Zapytaj o rezerwację</span> <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========== WYDARZENIA W VELORA ========== -->
+    <section id="wydarzenia" class="events-section" aria-label="Wydarzenia w VELORA">
+      <div class="events-inner">
+        <div class="events-copy">
+          <p class="label text-white/55" data-i18n="events.label">Wydarzenia w VELORA</p>
+          <h2 class="heading-serif mt-6 text-[2.4rem] text-white sm:text-[2.85rem] lg:text-[3.2rem]" data-i18n-html="events.h">
+            Wieczory, które<br />smakują inaczej.
+          </h2>
+          <p class="mt-7 max-w-[28rem] font-display text-[1.05rem] leading-relaxed text-white/78" data-i18n="events.p">
+            Od sezonowych kolacji po specjalne menu i kameralne wydarzenia. Od czasu do czasu VELORA zmienia rytm wieczoru i zaprasza Gości na coś wyjątkowego.
+          </p>
+
+          <ul class="events-tags" aria-label="Przykłady wydarzeń">
+            <li data-i18n="events.t1">Menu sezonowe</li>
+            <li data-i18n="events.t2">Kolacje specjalne</li>
+            <li data-i18n="events.t3">Degustacje</li>
+          </ul>
+
+          <a href="./#rezerwacja" class="link-arrow mt-10 text-white">
+            <span data-i18n="events.link">Zapytaj o najbliższe wydarzenia</span> <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <figure class="events-image img-zoom m-0">
+          <img src="./assets/gallery-cocktail.jpg" alt="Klimat wieczoru specjalnego w VELORA" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- ========== OPINIE GOŚCI ========== -->
+    <section id="opinie" class="reviews-section" aria-label="Opinie gości">
+      <div class="reviews-inner">
+        <header class="reviews-intro">
+          <p class="label text-ink/65" data-i18n="reviews.label">Opinie gości</p>
+          <h2 class="heading-serif mt-5 text-[2.35rem] sm:text-[2.75rem] lg:text-[3.1rem]" data-i18n-html="reviews.h">
+            Historie opowiedziane<br />po kolacji.
+          </h2>
+        </header>
+
+        <ul class="reviews-list">
+          <li class="review-item">
+            <p class="review-text" data-i18n="reviews.1">
+              „Świetne miejsce na spokojną kolację. Piękne wnętrze, bardzo dobre jedzenie i obsługa, która naprawdę dba o atmosferę.”
+            </p>
+            <div class="review-meta">
+              <p class="review-author">Anna M.</p>
+              <p class="review-stars" aria-label="Ocena 5 na 5">★★★★★</p>
+            </div>
+          </li>
+          <li class="review-item">
+            <p class="review-text" data-i18n="reviews.2">
+              „Menu nie jest przeładowane, ale każde danie jest dopracowane. Zdecydowanie miejsce, do którego chce się wracać.”
+            </p>
+            <div class="review-meta">
+              <p class="review-author">Michał K.</p>
+              <p class="review-stars" aria-label="Ocena 5 na 5">★★★★★</p>
+            </div>
+          </li>
+          <li class="review-item">
+            <p class="review-text" data-i18n="reviews.3">
+              „Przyszliśmy na rocznicę i dokładnie takiego wieczoru szukaliśmy — spokojnie, elegancko i bez przesadnej formalności.”
+            </p>
+            <div class="review-meta">
+              <p class="review-author">Karolina P.</p>
+              <p class="review-stars" aria-label="Ocena 5 na 5">★★★★★</p>
+            </div>
+          </li>
+        </ul>
+
+        <p class="reviews-footer" data-i18n="reviews.footer">
+          Dobre jedzenie · Lepsze historie
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== INFORMACJE PRAKTYCZNE ========== -->
+    <section id="informacje" class="info-section" aria-label="Informacje praktyczne">
+      <div class="info-inner">
+        <header class="info-intro">
+          <p class="label text-ink/65" data-i18n="info.label">Przed wizytą</p>
+          <h2 class="heading-serif mt-5 text-[2.35rem] sm:text-[2.75rem] lg:text-[3.1rem]" data-i18n="info.h">
+            Zanim nas odwiedzisz.
+          </h2>
+        </header>
+
+        <div class="info-layout">
+          <ul class="info-grid">
+            <li class="info-item">
+              <h3 class="info-title" data-i18n="info.hours">Godziny</h3>
+              <p class="info-text" data-i18n-html="info.hours.v">Pn–Nd<br />12:00–23:00</p>
+            </li>
+            <li class="info-item">
+              <h3 class="info-title" data-i18n="info.loc">Lokalizacja</h3>
+              <p class="info-text" data-i18n-html="info.loc.v">ul. Mokotowska 12<br />00-561 Warszawa</p>
+            </li>
+            <li class="info-item">
+              <h3 class="info-title" data-i18n="info.book">Rezerwacje</h3>
+              <p class="info-text">
+                <a href="tel:+48123456789">+48 123 456 789</a><br />
+                <a href="mailto:kontakt@nova.pl">kontakt@nova.pl</a>
+              </p>
+            </li>
+            <li class="info-item">
+              <h3 class="info-title" data-i18n="info.on">Na miejscu</h3>
+              <p class="info-text" data-i18n-html="info.on.v">Kolacje<br />Spotkania<br />Wyjątkowe okazje</p>
+            </li>
+          </ul>
+
+          <aside class="info-map" aria-label="Lokalizacja VELORA">
+            <div class="nova-map nova-map--light">
+              <svg class="nova-map-svg" viewBox="0 0 420 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <rect width="420" height="300" fill="currentColor" class="nova-map-fill" />
+                <g class="nova-map-streets" fill="none" stroke-linecap="square">
+                  <path d="M0 48h420M0 96h420M0 144h420M0 192h420M0 240h420" />
+                  <path d="M52 0v300M104 0v300M168 0v300M236 0v300M304 0v300M360 0v300" />
+                  <path d="M0 120h168M168 0v192M236 96h184M104 192h260" stroke-width="1.35" />
+                </g>
+                <circle class="nova-map-marker-ring" cx="214" cy="148" r="18" fill="none" />
+                <circle class="nova-map-marker" cx="214" cy="148" r="5.5" />
+              </svg>
+              <div class="nova-map-caption">
+                <p class="info-map-label">VELORA</p>
+                <p class="info-map-address">ul. Mokotowska 12<br />Warszawa</p>
+                <p class="info-map-note" data-i18n="info.map">Mokotowska · Centrum</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <a href="./#rezerwacja" class="link-arrow mt-12 text-ink">
+          <span data-i18n="info.link">Zarezerwuj stolik</span> <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========== RESERVATION ========== -->
+    <section id="rezerwacja" class="reservation-section" aria-label="Rezerwacja">
+      <div class="reservation-copy bg-ink px-8 py-14 text-white sm:px-12 lg:px-16 lg:py-16">
+        <p class="label text-white/55" data-i18n="form.label">Rezerwacja</p>
+        <h2 class="heading-serif mt-5 text-[2.5rem] lg:text-[2.9rem]" data-i18n="form.h">Zarezerwuj stolik.</h2>
+        <p class="mt-4 max-w-[28rem] font-display text-[1rem] leading-relaxed text-white/78" data-i18n="form.p">Wybierz dogodny termin, a my zajmiemy się resztą.</p>
+
+        <div id="reservation-success" class="reserve-success" hidden></div>
+        <p id="reservation-error" class="reserve-error" hidden></p>
+
+        <form id="reservation-form" class="reserve-form" novalidate>
+          <div class="reserve-field reserve-field--full">
+            <label for="name" data-i18n="form.name">Imię i nazwisko</label>
+            <input id="name" name="name" type="text" required autocomplete="name" />
+          </div>
+          <div class="reserve-field">
+            <label for="phone" data-i18n="form.phone">Numer telefonu</label>
+            <input id="phone" name="phone" type="tel" required autocomplete="tel" />
+          </div>
+          <div class="reserve-field">
+            <label for="email" data-i18n="form.email">E-mail</label>
+            <input id="email" name="email" type="email" required autocomplete="email" />
+          </div>
+          <div class="reserve-field">
+            <label for="date" data-i18n="form.date">Data</label>
+            <input id="date" name="date" type="date" required />
+          </div>
+          <div class="reserve-field">
+            <label for="time" data-i18n="form.time">Godzina</label>
+            <input id="time" name="time" type="time" required />
+          </div>
+          <div class="reserve-field reserve-field--full">
+            <label for="guests" data-i18n="form.guests">Liczba osób</label>
+            <select id="guests" name="guests" required>
+              <option value="">—</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8+</option>
+            </select>
+          </div>
+          <div class="reserve-field reserve-field--full">
+            <label for="message" data-i18n="form.message">Uwagi (opcjonalnie)</label>
+            <textarea id="message" name="message" rows="3"></textarea>
+          </div>
+          <div class="reserve-actions">
+            <button type="submit" class="btn-ghost-dark"><span data-i18n="form.submit">Wyślij rezerwację</span> <span class="btn-arrow" aria-hidden="true">→</span></button>
+            <p class="reserve-note" data-i18n="form.note">Rezerwacja zostanie potwierdzona przez obsługę restauracji.</p>
+          </div>
+        </form>
+      </div>
+      <figure class="reservation-image image-motion m-0">
+        <img src="./assets/reservation.jpg" alt="Nakryty stolik w restauracji VELORA" />
+      </figure>
+    </section>
+
+    <!-- ========== KONTAKT ========== -->
+    <section id="kontakt" class="contact-section" aria-label="Kontakt">
+      <div class="contact-inner">
+        <div>
+          <p class="label text-white/55" data-i18n="contact.label">Kontakt</p>
+          <h2 class="heading-serif mt-5 text-[2.5rem] lg:text-[3rem]" data-i18n="contact.h">Zapraszamy.</h2>
+          <p class="mt-5 max-w-[28rem] font-display text-[1.05rem] leading-relaxed text-white/78" data-i18n="contact.p">Masz pytanie o menu, wydarzenie lub rezerwację? Napisz lub zadzwoń — chętnie pomożemy.</p>
+
+          <div class="contact-details">
+            <div>
+              <p class="contact-detail-label" data-i18n="info.loc">Lokalizacja</p>
+              <p class="contact-detail-value" data-i18n-html="info.loc.v">ul. Mokotowska 12<br />00-561 Warszawa</p>
+            </div>
+            <div>
+              <p class="contact-detail-label" data-i18n="info.book">Rezerwacje</p>
+              <p class="contact-detail-value">
+                <a href="tel:+48123456789">+48 123 456 789</a><br />
+                <a href="mailto:kontakt@nova.pl">kontakt@nova.pl</a>
+              </p>
+            </div>
+            <div>
+              <p class="contact-detail-label" data-i18n="contact.hours">Godziny otwarcia</p>
+              <p class="contact-detail-value" data-i18n="contact.hours.v">Pn–Nd · 12:00–23:00</p>
+            </div>
+          </div>
+
+          <a href="./#rezerwacja" class="link-arrow mt-10 text-white"><span data-i18n="contact.link">Zarezerwuj stolik</span> <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+
+        <aside class="contact-map" aria-label="Lokalizacja VELORA">
+          <div class="nova-map nova-map--dark">
+            <svg class="nova-map-svg" viewBox="0 0 420 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="420" height="300" fill="currentColor" class="nova-map-fill" />
+              <g class="nova-map-streets" fill="none" stroke-linecap="square">
+                <path d="M0 48h420M0 96h420M0 144h420M0 192h420M0 240h420" />
+                <path d="M52 0v300M104 0v300M168 0v300M236 0v300M304 0v300M360 0v300" />
+                <path d="M0 120h168M168 0v192M236 96h184M104 192h260" stroke-width="1.35" />
+              </g>
+              <circle class="nova-map-marker-ring" cx="214" cy="148" r="18" fill="none" />
+              <circle class="nova-map-marker" cx="214" cy="148" r="5.5" />
+            </svg>
+            <div class="nova-map-caption">
+              <p class="info-map-label">VELORA</p>
+              <p class="info-map-address">ul. Mokotowska 12<br />Warszawa</p>
+              <p class="info-map-note" data-i18n="info.map">Mokotowska · Centrum</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-ink text-cream">
+    <div class="mx-auto flex max-w-[1440px] flex-col gap-12 px-10 py-14 lg:flex-row lg:items-start lg:justify-between lg:px-14 lg:py-16">
+      <div class="max-w-xs">
+        <a href="./" class="font-display text-[1.75rem] font-semibold tracking-[0.32em]">VELORA</a>
+        <p class="mt-4 font-display text-[0.85rem] tracking-[0.12em] text-cream/55" data-i18n="footer.tag">Restauracja · Ludzie · Wyjątkowe chwile</p>
+      </div>
+
+      <div class="flex flex-1 flex-wrap gap-10 lg:justify-center lg:gap-16">
+        <div class="flex items-start gap-3">
+          <svg class="mt-0.5 h-4 w-4 shrink-0 text-cream/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+          <p class="text-[0.78rem] leading-relaxed text-cream/80">ul. Mokotowska 12<br />00-561 Warszawa</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <svg class="mt-0.5 h-4 w-4 shrink-0 text-cream/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.9v2a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h2a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L7.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z" /></svg>
+          <p class="text-[0.78rem] leading-relaxed text-cream/80">
+            <a href="tel:+48123456789" class="transition hover:text-white">+48 123 456 789</a><br />
+            <span data-i18n="footer.hours">Pn–Nd 12:00–23:00</span>
+          </p>
+        </div>
+        <div class="flex items-start gap-3">
+          <svg class="mt-0.5 h-4 w-4 shrink-0 text-cream/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5" /><path d="m3 7 9 7 9-7" /></svg>
+          <p class="text-[0.78rem] leading-relaxed text-cream/80"><a href="mailto:kontakt@nova.pl" class="transition hover:text-white">kontakt@nova.pl</a></p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-8 lg:flex-col lg:items-end lg:gap-6">
+        <div class="flex items-center gap-4">
+          <a href="https://instagram.com" class="text-cream/70 transition hover:text-white" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" /></svg></a>
+          <a href="https://facebook.com" class="text-cream/70 transition hover:text-white" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 8h2V5h-2a4 4 0 0 0-4 4v2H8v3h2v7h3v-7h2.2l.8-3H13V9a1 1 0 0 1 1-1z" /></svg></a>
+        </div>
+        <p class="text-right text-[0.55rem] font-medium tracking-[0.22em] text-cream/50 uppercase leading-relaxed">
+          <span data-i18n="footer.side1">Dobre jedzenie</span><br />
+          <span class="mt-1 inline-block h-px w-8 bg-cream/25 align-middle"></span><br />
+          <span data-i18n="footer.side2">Lepsze historie</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/i18n.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>

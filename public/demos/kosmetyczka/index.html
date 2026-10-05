@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AURA Beauty</title>
+    <meta
+      name="description"
+      content="AURA Beauty — zaawansowane zabiegi pielęgnacyjne, spersonalizowana opieka i przestrzeń, by poczuć się najlepiej."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <script type="module" crossorigin src="/demos/kosmetyczka/assets/index-CfV4_dqK.js"></script>
+    <link rel="stylesheet" crossorigin href="/demos/kosmetyczka/assets/index-iycTBln1.css">
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <div class="shell">
+          <nav class="nav" aria-label="Główna nawigacja">
+            <a href="#start" class="logo" aria-label="AURA Beauty">
+              <div class="logo-main">AURA</div>
+              <div class="logo-sub">Beauty</div>
+            </a>
+
+            <div class="nav-links" data-nav-links>
+              <a href="#start">Start</a>
+              <a href="#treatments">Zabiegi</a>
+              <a href="#studio">O nas</a>
+              <a href="#pricing">Cennik</a>
+              <a href="#contact">Kontakt</a>
+            </div>
+
+            <a
+              href="https://booksy.com/"
+              class="btn-primary nav-cta"
+              data-booking
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Umów wizytę
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <button
+              class="nav-toggle"
+              type="button"
+              data-nav-toggle
+              aria-expanded="false"
+              aria-controls="mobile-nav"
+              aria-label="Otwórz menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </nav>
+        </div>
+        <div class="mobile-nav" id="mobile-nav" data-mobile-nav hidden>
+          <a href="#start">Start</a>
+          <a href="#treatments">Zabiegi</a>
+          <a href="#studio">O nas</a>
+          <a href="#pricing">Cennik</a>
+          <a href="#contact">Kontakt</a>
+          <a
+            href="https://booksy.com/"
+            class="btn-primary"
+            data-booking
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Umów wizytę →
+          </a>
+        </div>
+      </header>
+
+      <main>
+        <!-- Hero -->
+        <section class="hero" id="start">
+          <div class="hero-stage">
+            <div class="hero-left">
+              <img
+                class="hero-left-img"
+                src="/demos/kosmetyczka/images/hero-portrait.jpg"
+                alt="Kobieta z promienną, zdrową skórą"
+                width="720"
+                height="900"
+              />
+              <div class="hero-badge" aria-hidden="true">
+                <p>Naturalne<br />Piękno<br />Zdrowa<br />Ty</p>
+                <span class="hero-badge-line"></span>
+              </div>
+            </div>
+
+            <div class="hero-center">
+              <p class="hero-eyebrow">Skóra · Pielęgnacja · Pewność siebie</p>
+              <h1 class="hero-title">
+                Piękno<br />
+                w nowej<br />
+                <em>Tobie</em>
+              </h1>
+              <p class="hero-text">
+                Zaawansowane zabiegi pielęgnacyjne,<br />
+                spersonalizowana opieka i&nbsp;przestrzeń, by<br />
+                poczuć się najlepiej — wewnątrz i&nbsp;na zewnątrz.
+              </p>
+              <div class="hero-actions">
+                <a href="#treatments" class="btn-primary btn-primary--taupe">
+                  Odkryj zabiegi
+                  <span aria-hidden="true">→</span>
+                </a>
+                <a href="#studio" class="btn-text">
+                  <span class="play-icon" aria-hidden="true">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
+                      <path d="M2 1.5v7l6-3.5L2 1.5z" />
+                    </svg>
+                  </span>
+                  <span>Zobacz<br />naszą historię</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="hero-right">
+              <img
+                class="hero-right-img"
+                src="/demos/kosmetyczka/images/hero-room.jpg"
+                alt="Elegancki pokój zabiegowy AURA"
+                width="640"
+                height="800"
+              />
+              <p class="hero-script" aria-hidden="true">Bardziej<br />promienna Ty</p>
+            </div>
+
+            <span class="hero-side-label" aria-hidden="true">
+              Pielęgnacja<br />
+              Rytuały piękna<br />
+              Wellness<br />
+              Pewność siebie
+              <span class="hero-side-line"></span>
+            </span>
+          </div>
+        </section>
+
+        <!-- Treatments -->
+        <section class="treatments" id="treatments">
+          <div class="shell">
+            <div class="treatments-grid">
+              <div class="treatments-intro">
+                <p class="section-label">Nasze zabiegi</p>
+                <h2 class="section-title">
+                  Ekspercka<br />pielęgnacja<br />dla promiennej<br />skóry
+                </h2>
+                <p class="section-text">
+                  Zabiegi nastawione na efekt, dopasowane do Twojej skóry —
+                  łączące zaawansowane techniki ze spokojnym, osobistym podejściem.
+                </p>
+                <a href="#treatments" class="btn-ghost">
+                  Wszystkie zabiegi
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+
+              <div class="treatment-cards">
+                <article class="treatment-card">
+                  <img
+                    class="treatment-card-img"
+                    src="/demos/kosmetyczka/images/tx-facial.jpg"
+                    alt="Zabieg na twarz z serum"
+                    width="360"
+                    height="420"
+                  />
+                  <div class="treatment-card-body">
+                    <div>
+                      <h3 class="treatment-card-title">Zabiegi na twarz</h3>
+                      <p class="treatment-card-sub">Głęboka pielęgnacja, trwały blask</p>
+                    </div>
+                    <a
+                      href="https://booksy.com/"
+                      class="arrow-circle"
+                      data-booking
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Zobacz zabiegi na twarz"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M3 7h8M7 3l4 4-4 4" />
+                      </svg>
+                    </a>
+                  </div>
+                </article>
+
+                <article class="treatment-card">
+                  <img
+                    class="treatment-card-img"
+                    src="/demos/kosmetyczka/images/tx-rejuvenation.jpg"
+                    alt="Masaż twarzy odmładzający"
+                    width="360"
+                    height="420"
+                  />
+                  <div class="treatment-card-body">
+                    <div>
+                      <h3 class="treatment-card-title">Odmładzanie skóry</h3>
+                      <p class="treatment-card-sub">Odnowa · Regeneracja · Blask</p>
+                    </div>
+                    <a
+                      href="https://booksy.com/"
+                      class="arrow-circle"
+                      data-booking
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Zobacz odmładzanie skóry"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M3 7h8M7 3l4 4-4 4" />
+                      </svg>
+                    </a>
+                  </div>
+                </article>
+
+                <article class="treatment-card">
+                  <img
+                    class="treatment-card-img"
+                    src="/demos/kosmetyczka/images/tx-rituals.jpg"
+                    alt="Produkty do rytuałów pielęgnacyjnych"
+                    width="360"
+                    height="420"
+                  />
+                  <div class="treatment-card-body">
+                    <div>
+                      <h3 class="treatment-card-title">Rytuały pielęgnacyjne</h3>
+                      <p class="treatment-card-sub">Dobór pod zdrową skórę</p>
+                    </div>
+                    <a
+                      href="https://booksy.com/"
+                      class="arrow-circle"
+                      data-booking
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Zobacz rytuały pielęgnacyjne"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M3 7h8M7 3l4 4-4 4" />
+                      </svg>
+                    </a>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Studio -->
+        <section class="studio" id="studio">
+          <div class="studio-layout">
+            <div class="studio-image-wrap">
+              <img
+                class="studio-image"
+                src="/demos/kosmetyczka/images/studio-reception.jpg"
+                alt="Recepcja AURA Beauty"
+                width="700"
+                height="520"
+              />
+              <p class="studio-image-logo" aria-hidden="true">
+                AURA
+                <span>Beauty</span>
+              </p>
+            </div>
+
+            <div class="studio-copy">
+              <p class="section-label">Nasze studio</p>
+              <h2 class="section-title">
+                Przestrzeń<br />stworzona<br />dla realnych<br />efektów
+              </h2>
+              <p class="section-text studio-lead">
+                AURA Beauty to nowoczesne studio beauty i&nbsp;pielęgnacji
+                skóry, skupione na zaawansowanych zabiegach, holistycznej opiece
+                i&nbsp;spersonalizowanym doświadczeniu.
+              </p>
+              <a href="#first-visit" class="btn-ghost">
+                Nasza historia
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <ul class="studio-features">
+              <li>
+                <span class="feature-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                    <circle cx="8" cy="8" r="2.2" />
+                    <circle cx="16" cy="8" r="2.2" />
+                    <circle cx="8" cy="16" r="2.2" />
+                    <circle cx="16" cy="16" r="2.2" />
+                  </svg>
+                </span>
+                <span class="feature-text">Spersonalizowane zabiegi</span>
+              </li>
+              <li>
+                <span class="feature-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                    <circle cx="12" cy="7" r="3" />
+                    <path d="M5 20c1.5-3.5 4-5 7-5s5.5 1.5 7 5" />
+                  </svg>
+                </span>
+                <span class="feature-text">Eksperci pielęgnacji skóry</span>
+              </li>
+              <li>
+                <span class="feature-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                    <path d="M4 20V10l8-6 8 6v10H4z" />
+                  </svg>
+                </span>
+                <span class="feature-text">Spokojna i nowoczesna przestrzeń</span>
+              </li>
+              <li>
+                <span class="feature-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                    <path d="M7 8h10l1 12H6L7 8z" />
+                    <path d="M9 8V6a3 3 0 016 0v2" />
+                  </svg>
+                </span>
+                <span class="feature-text">Premium produkty</span>
+              </li>
+              <li>
+                <span class="feature-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                    <circle cx="12" cy="12" r="8" />
+                    <path d="M8 12.5l2.5 2.5L16 9.5" />
+                  </svg>
+                </span>
+                <span class="feature-text">Efekty, które widać</span>
+              </li>
+            </ul>
+
+            <div class="studio-accent-wrap">
+              <img
+                class="studio-accent"
+                src="/demos/kosmetyczka/images/studio-accent.jpg"
+                alt="Detal kwiatowy w studiu"
+                width="200"
+                height="400"
+              />
+              <p class="studio-accent-text">
+                Więcej<br />niż piękno,<br />jaśniejsza,<br />szczęśliwsza Ty
+                <span class="studio-accent-line" aria-hidden="true"></span>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pricing -->
+        <section class="pricing" id="pricing">
+          <div class="shell">
+            <div class="pricing-layout">
+              <div class="pricing-intro">
+                <p class="section-label">Cennik</p>
+                <h2 class="section-title">Wybrane zabiegi<br />i konsultacje</h2>
+                <p class="section-text">
+                  Orientacyjne ceny zabiegów. Dobór pielęgnacji zawsze dopasowujemy
+                  indywidualnie do Twojej skóry.
+                </p>
+                <a
+                  href="https://booksy.com/"
+                  class="btn-ghost"
+                  data-booking
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Umów konsultację
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+
+              <div class="pricing-list">
+                <div class="pricing-row">
+                  <span class="pricing-name">Zabieg pielęgnacyjny twarzy</span>
+                  <span class="pricing-dots" aria-hidden="true"></span>
+                  <span class="pricing-price">od 220 zł</span>
+                </div>
+                <div class="pricing-row">
+                  <span class="pricing-name">Intensywne nawilżenie</span>
+                  <span class="pricing-dots" aria-hidden="true"></span>
+                  <span class="pricing-price">od 250 zł</span>
+                </div>
+                <div class="pricing-row">
+                  <span class="pricing-name">Zabieg regenerujący</span>
+                  <span class="pricing-dots" aria-hidden="true"></span>
+                  <span class="pricing-price">od 280 zł</span>
+                </div>
+                <div class="pricing-row">
+                  <span class="pricing-name">Rytuał anti-aging</span>
+                  <span class="pricing-dots" aria-hidden="true"></span>
+                  <span class="pricing-price">od 320 zł</span>
+                </div>
+                <div class="pricing-row">
+                  <span class="pricing-name">Konsultacja kosmetologiczna</span>
+                  <span class="pricing-dots" aria-hidden="true"></span>
+                  <span class="pricing-price">od 100 zł</span>
+                </div>
+                <p class="pricing-note">
+                  Dokładna cena zależy od dobranego zabiegu i potrzeb skóry.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- First Visit -->
+        <section class="first-visit" id="first-visit">
+          <div class="shell">
+            <div class="first-visit-intro">
+              <p class="section-label">Pierwsza wizyta</p>
+              <h2 class="section-title">Jak wygląda pierwsza wizyta?</h2>
+              <p class="section-text first-visit-lead">
+                Spokojnie, bez pośpiechu i&nbsp;bez przypadkowych decyzji.
+                Każdy zabieg zaczynamy od poznania potrzeb Twojej skóry.
+              </p>
+            </div>
+
+            <ol class="visit-steps">
+              <li class="visit-step">
+                <span class="visit-step-num" aria-hidden="true">01</span>
+                <h3 class="visit-step-title">Konsultacja</h3>
+                <p class="visit-step-text">
+                  Rozmawiamy o&nbsp;Twojej skórze, potrzebach i&nbsp;oczekiwanym efekcie.
+                </p>
+              </li>
+              <li class="visit-step">
+                <span class="visit-step-num" aria-hidden="true">02</span>
+                <h3 class="visit-step-title">Dobór zabiegu</h3>
+                <p class="visit-step-text">
+                  Dobieramy pielęgnację i&nbsp;technologię odpowiednią do aktualnej
+                  kondycji skóry.
+                </p>
+              </li>
+              <li class="visit-step">
+                <span class="visit-step-num" aria-hidden="true">03</span>
+                <h3 class="visit-step-title">Zabieg i zalecenia</h3>
+                <p class="visit-step-text">
+                  Wykonujemy zabieg, a&nbsp;po wizycie otrzymujesz proste wskazówki
+                  dotyczące dalszej pielęgnacji.
+                </p>
+              </li>
+            </ol>
+
+            <a
+              href="https://booksy.com/"
+              class="btn-ghost first-visit-cta"
+              data-booking
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Umów konsultację
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- Kind Words -->
+        <section class="testimonials" id="kind-words">
+          <div class="shell">
+            <div class="testimonials-layout">
+              <div class="testimonials-intro">
+                <p class="section-label">Słowa uznania</p>
+                <h2 class="section-title">
+                  Prawdziwi ludzie.<br />Promienne efekty.
+                </h2>
+                <div class="testimonials-nav" role="group" aria-label="Nawigacja opinii">
+                  <button class="nav-arrow" type="button" data-testimonial-prev aria-label="Poprzednia opinia">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M10 3L5 8l5 5" />
+                    </svg>
+                  </button>
+                  <button class="nav-arrow" type="button" data-testimonial-next aria-label="Następna opinia">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M6 3l5 5-5 5" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="testimonial-cards" data-testimonials>
+                <article class="testimonial-card">
+                  <img class="avatar" src="/demos/kosmetyczka/images/avatar-1.jpg" alt="" width="52" height="52" />
+                  <div class="testimonial-body">
+                    <div class="stars" aria-label="5 na 5 gwiazdek">★★★★★</div>
+                    <p class="testimonial-quote">
+                      „Moja skóra nigdy nie wyglądała i&nbsp;nie czuła się lepiej.
+                      Zespół AURA jest po prostu niesamowity.”
+                    </p>
+                    <p class="testimonial-name">Zofia L.</p>
+                  </div>
+                </article>
+
+                <article class="testimonial-card">
+                  <img class="avatar" src="/demos/kosmetyczka/images/avatar-2.jpg" alt="" width="52" height="52" />
+                  <div class="testimonial-body">
+                    <div class="stars" aria-label="5 na 5 gwiazdek">★★★★★</div>
+                    <p class="testimonial-quote">
+                      „Piękna przestrzeń i&nbsp;doświadczenie od początku do końca.
+                      Gorąco polecam!”
+                    </p>
+                    <p class="testimonial-name">Emma R.</p>
+                  </div>
+                </article>
+
+                <article class="testimonial-card">
+                  <img class="avatar" src="/demos/kosmetyczka/images/avatar-3.jpg" alt="" width="52" height="52" />
+                  <div class="testimonial-body">
+                    <div class="stars" aria-label="5 na 5 gwiazdek">★★★★★</div>
+                    <p class="testimonial-quote">
+                      „Profesjonalnie, ciepło i&nbsp;z&nbsp;dużą wiedzą. Zawsze
+                      wychodzę, czując się najlepiej.”
+                    </p>
+                    <p class="testimonial-name">Oliwia M.</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq" id="faq">
+          <div class="shell">
+            <div class="faq-layout">
+              <div class="faq-intro">
+                <p class="section-label">FAQ</p>
+                <h2 class="section-title">Najczęściej zadawane pytania.</h2>
+                <p class="section-text">
+                  Wszystko, co warto wiedzieć przed pierwszą wizytą.
+                </p>
+              </div>
+
+              <div class="faq-list" data-faq>
+                <details class="faq-item" open>
+                  <summary>
+                    <span>Jak dobrać odpowiedni zabieg?</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                  </summary>
+                  <p>
+                    Nie musisz wiedzieć tego przed wizytą. Podczas konsultacji
+                    ocenimy potrzeby skóry i&nbsp;dobierzemy odpowiednią pielęgnację.
+                  </p>
+                </details>
+
+                <details class="faq-item">
+                  <summary>
+                    <span>Czy przed zabiegiem odbywa się konsultacja?</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                  </summary>
+                  <p>
+                    Tak. Każdą wizytę rozpoczynamy krótką rozmową dotyczącą skóry,
+                    oczekiwań i&nbsp;ewentualnych przeciwwskazań.
+                  </p>
+                </details>
+
+                <details class="faq-item">
+                  <summary>
+                    <span>Ile trwa wizyta?</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                  </summary>
+                  <p>
+                    Czas zależy od wybranego zabiegu. Większość wizyt trwa około
+                    60–90 minut.
+                  </p>
+                </details>
+
+                <details class="faq-item">
+                  <summary>
+                    <span>Jak przygotować się do wizyty?</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                  </summary>
+                  <p>
+                    W&nbsp;większości przypadków nie jest wymagane specjalne przygotowanie.
+                    Jeśli dany zabieg tego wymaga, poinformujemy Cię wcześniej.
+                  </p>
+                </details>
+
+                <details class="faq-item">
+                  <summary>
+                    <span>Kiedy zobaczę efekty?</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                  </summary>
+                  <p>
+                    To zależy od rodzaju zabiegu i&nbsp;kondycji skóry. Część efektów
+                    może być widoczna od razu, a&nbsp;inne rozwijają się stopniowo.
+                  </p>
+                </details>
+
+                <details class="faq-item">
+                  <summary>
+                    <span>Jak często warto wykonywać zabiegi?</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                  </summary>
+                  <p>
+                    Częstotliwość dobieramy indywidualnie do potrzeb skóry
+                    i&nbsp;wybranego planu pielęgnacji.
+                  </p>
+                </details>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta" id="contact">
+          <img class="cta-bg" src="/demos/kosmetyczka/images/cta-bg.jpg" alt="" />
+          <div class="cta-overlay" aria-hidden="true"></div>
+
+          <p class="cta-side-label" aria-hidden="true">
+            Twoja skóra<br />Twoja historia<br />Nasza wiedza
+            <span class="cta-side-line"></span>
+          </p>
+
+          <div class="cta-content">
+            <h2 class="cta-title">Gotowa, by <em>poczuć swój pełny blask</em>?</h2>
+            <p class="cta-text">Umów się na spersonalizowaną konsultację już dziś.</p>
+          </div>
+
+          <a
+            href="https://booksy.com/"
+            class="btn-primary cta-btn"
+            data-booking
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Umów wizytę
+            <span aria-hidden="true">→</span>
+          </a>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>© 2026 AURA Beauty</p>
+        <p>
+          <a href="#start">Do góry</a>
+          ·
+          <a href="mailto:hello@aurabeauty.pl">hello@aurabeauty.pl</a>
+        </p>
+      </footer>
+    </div>
+
+  </body>
+</html>

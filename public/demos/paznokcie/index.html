@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NÉRA Nails — Warszawa</title>
+    <meta
+      name="description"
+      content="NÉRA Nails — zdrowe paznokcie, ponadczasowy styl. Manicure i pedicure w centrum Warszawy."
+    />
+    <meta name="theme-color" content="#fdfbf8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/demos/paznokcie/assets/index-CFOpmeRc.js"></script>
+    <link rel="stylesheet" crossorigin href="/demos/paznokcie/assets/index-B04j5Hhe.css">
+  </head>
+  <body>
+    <!-- SVG sprite -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <symbol id="i-diamond" viewBox="0 0 24 24">
+        <path d="M6.5 4h11l3.5 5-9 11L3 9l3.5-5Z" />
+        <path d="M3 9h18M9.5 4 8 9l4 11 4-11-1.5-5" />
+      </symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24">
+        <path d="M12 3l7 3v5c0 5-3.2 8.5-7 10-3.8-1.5-7-5-7-10V6l7-3Z" />
+        <path d="M9 12l2 2 4-4" />
+      </symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24">
+        <path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.4C19.5 15.4 12 20 12 20Z" />
+      </symbol>
+      <symbol id="i-leaf" viewBox="0 0 24 24">
+        <path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14" />
+        <path d="M5 19c2-4 5-7 9-9" />
+      </symbol>
+      <symbol id="i-lotus" viewBox="0 0 24 24">
+        <path d="M12 19c-3-2-4.5-5-4.5-8.5 2 .6 3.7 2 4.5 4 .8-2 2.5-3.4 4.5-4 0 3.5-1.5 6.5-4.5 8.5Z" />
+        <path d="M12 14.5c-1.2-2.5-1.2-5.5 0-8.5 1.2 3 1.2 6 0 8.5Z" />
+        <path d="M4 12c2 .2 3.5 1 4.5 2.5M20 12c-2 .2-3.5 1-4.5 2.5" />
+      </symbol>
+      <symbol id="i-sparkle" viewBox="0 0 24 24">
+        <path d="M11 3l1.8 5.2L18 10l-5.2 1.8L11 17l-1.8-5.2L4 10l5.2-1.8L11 3Z" />
+        <path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2Z" />
+      </symbol>
+      <symbol id="i-bag" viewBox="0 0 24 24">
+        <path d="M5 8h14l-1 12H6L5 8Z" />
+        <path d="M9 8V6.5a3 3 0 0 1 6 0V8" />
+      </symbol>
+      <symbol id="i-home" viewBox="0 0 24 24">
+        <path d="M4 11l8-7 8 7" />
+        <path d="M6 10v10h12V10" />
+        <path d="M10 20v-5h4v5" />
+      </symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24">
+        <rect x="3.5" y="5" width="17" height="15" rx="2" />
+        <path d="M3.5 10h17M8 3v4M16 3v4" />
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path d="M5 12h14M13 6l6 6-6 6" />
+      </symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24">
+        <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17" cy="7" r=".6" />
+      </symbol>
+      <symbol id="i-tiktok" viewBox="0 0 24 24">
+        <path d="M14 4c.5 2.5 2.1 3.9 4.5 4.2v2.4c-1.6-.1-3-.7-4.2-1.7v6.4a5.1 5.1 0 1 1-4.9-5.1v2.4a2.7 2.7 0 1 0 2.5 2.7V4H14Z" />
+      </symbol>
+    </svg>
+
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-taupe focus:px-4 focus:py-2 focus:text-white"
+      >Przejdź do treści</a
+    >
+
+    <main id="main">
+      <!-- HERO (z nawigacją) -->
+      <section id="top" class="hero" aria-label="Hero">
+
+        <!-- Tło: zdjęcie -->
+        <div class="hero-bg absolute inset-0 z-0">
+          <img
+            src="/demos/paznokcie/images/hero.jpg"
+            alt="Zadbana dłoń z manicure nude na miękkiej tkaninie"
+            class="hero-bg-img h-full w-full object-cover object-[center_38%]"
+            fetchpriority="high"
+          />
+          <!-- Miękki biały blask — centrum jasne, krawędzie ciemniejsze -->
+          <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.18) 100%);"></div>
+        </div>
+
+        <!-- Navbar — floating absolute nad zdjęciem -->
+        <header class="site-header" id="site-header">
+          <div class="container-page">
+            <nav
+              class="site-nav grid grid-cols-[1fr_auto_1fr] items-center gap-4 py-4 lg:py-[22px]"
+              aria-label="Główna nawigacja"
+            >
+              <ul class="nav-list hidden lg:flex items-center gap-9 justify-self-start">
+                <li><a class="nav-link" href="#o-nas">O nas</a></li>
+                <li><a class="nav-link" href="#uslugi">Usługi</a></li>
+                <li><a class="nav-link" href="#cennik">Cennik</a></li>
+              </ul>
+              <span class="lg:hidden" aria-hidden="true"></span>
+
+              <a href="#top" class="logo text-center" aria-label="NÉRA Nails — początek strony">
+                <span class="logo-main block font-serif text-[26px] lg:text-[30px] leading-none tracking-[0.16em] uppercase"
+                  >NÉRA</span
+                >
+                <span class="logo-sub mt-[5px] block text-[7.5px] lg:text-[8px] font-medium tracking-[0.42em] uppercase"
+                  >Nails</span
+                >
+              </a>
+
+              <div class="nav-right flex items-center gap-7 justify-self-end">
+                <ul class="nav-list hidden lg:flex items-center gap-9">
+                  <li><a class="nav-link" href="#galeria">Galeria</a></li>
+                  <li><a class="nav-link" href="#kontakt">Kontakt</a></li>
+                </ul>
+                <a class="btn-nav hidden lg:inline-flex shrink-0" href="https://booksy.com" target="_blank" rel="noopener noreferrer">
+                  Umów wizytę
+                  <svg class="icon h-[13px] w-[13px]" aria-hidden="true"><use href="#i-calendar" /></svg>
+                </a>
+                <button
+                  type="button"
+                  id="menu-toggle"
+                  class="menu-toggle lg:hidden"
+                  aria-expanded="false"
+                  aria-controls="mobile-menu"
+                  aria-label="Otwórz menu"
+                >
+                  <span></span><span></span>
+                </button>
+              </div>
+            </nav>
+          </div>
+
+          <div id="mobile-menu" class="mobile-menu lg:hidden" hidden>
+            <ul class="container-page flex flex-col py-2">
+              <li><a class="mobile-link" href="#o-nas">O nas</a></li>
+              <li><a class="mobile-link" href="#uslugi">Usługi</a></li>
+              <li><a class="mobile-link" href="#cennik">Cennik</a></li>
+              <li><a class="mobile-link" href="#galeria">Galeria</a></li>
+              <li><a class="mobile-link" href="#kontakt">Kontakt</a></li>
+              <li class="py-4">
+                <a class="btn-primary w-full" href="https://booksy.com" target="_blank" rel="noopener noreferrer">
+                  Umów wizytę
+                  <svg class="icon h-[14px] w-[14px]" aria-hidden="true"><use href="#i-calendar" /></svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </header>
+
+        <!-- Centralny content -->
+        <div class="hero-content relative z-10 flex flex-1 flex-col items-center justify-center px-5 text-center pb-36 lg:pb-32">
+          <p class="hero-eyebrow font-sans text-[10px] sm:text-[11px] font-medium tracking-[0.38em] uppercase mb-5 lg:mb-6">
+            Piękno w szczegółach
+          </p>
+          <h1 class="hero-title font-serif leading-none">
+            <span class="hero-title-main block font-medium" data-mask-title>NÉRA</span>
+            <span class="hero-title-sub mt-3 block font-sans font-medium uppercase"
+              >Nails</span
+            >
+          </h1>
+          <p class="hero-tagline mt-6 lg:mt-7 max-w-[20rem] sm:max-w-xl font-serif italic leading-relaxed">
+            Zdrowe paznokcie. Ponadczasowy styl. Lepsza wersja Ciebie.
+          </p>
+          <a class="btn-primary mt-8 lg:mt-9" href="https://booksy.com" target="_blank" rel="noopener noreferrer">
+            Umów wizytę
+            <svg class="icon h-[15px] w-[15px]" aria-hidden="true"><use href="#i-arrow" /></svg>
+          </a>
+        </div>
+
+        <!-- Pasek benefitów — przyklejony do dołu hero wewnątrz sekcji -->
+        <div class="hero-features absolute bottom-0 left-0 right-0 z-10">
+          <div class="container-page">
+            <ul class="hero-features-list" aria-label="Atuty studia">
+              <li class="hero-feature">
+                <svg class="icon-line" aria-hidden="true"><use href="#i-lotus" /></svg>
+                <span class="hero-feature-text">Profesjonalna pielęgnacja</span>
+              </li>
+              <li class="hero-feature">
+                <svg class="icon-line" aria-hidden="true"><use href="#i-heart" /></svg>
+                <span class="hero-feature-text">Indywidualne podejście</span>
+              </li>
+              <li class="hero-feature">
+                <svg class="icon-line" aria-hidden="true"><use href="#i-sparkle" /></svg>
+                <span class="hero-feature-text">Styl, który podkreśla Ciebie</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+        <!-- O NAS -->
+        <section id="o-nas" data-silk="ltr" class="bg-cream py-14 lg:py-[80px]">
+          <div class="container-page grid grid-cols-1 gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 items-start">
+            <div class="about-text">
+              <p class="section-label mb-5">O nas</p>
+              <h2 class="font-serif text-[36px] sm:text-[42px] lg:text-[48px] leading-[1.12] text-brown font-medium max-w-md">
+                Piękno zaczyna się od detali.
+              </h2>
+              <p class="about-copy mt-6 lg:mt-7 text-[14px] lg:text-[14.5px] leading-[1.8] text-brown-soft max-w-[430px]">
+                W NÉRA łączymy precyzję rzemiosła z atmosferą spokojnej elegancji.
+                Każda stylizacja powstaje z dbałością o zdrowie płytki i naturalny wygląd
+                dłoni — bez pośpiechu, z pełnym skupieniem na efekcie.
+              </p>
+              <a class="btn-outline mt-8 lg:mt-9" href="#dlaczego-my">
+                Poznaj nas
+                <svg class="icon h-[13px] w-[13px]" aria-hidden="true"><use href="#i-arrow" /></svg>
+              </a>
+            </div>
+
+            <ul class="about-list flex flex-col gap-6 lg:gap-7 lg:pt-4">
+              <li class="flex gap-4 items-start">
+                <svg class="icon-line mt-0.5" aria-hidden="true"><use href="#i-shield" /></svg>
+                <div>
+                  <h3 class="text-[14px] font-semibold text-brown">Sterylność i higiena</h3>
+                  <p class="mt-1 text-[13px] text-muted">To nasz standard.</p>
+                </div>
+              </li>
+              <li class="flex gap-4 items-start">
+                <svg class="icon-line mt-0.5" aria-hidden="true"><use href="#i-leaf" /></svg>
+                <div>
+                  <h3 class="text-[14px] font-semibold text-brown">Indywidualne podejście</h3>
+                  <p class="mt-1 text-[13px] text-muted">Dobieramy stylizację do Ciebie.</p>
+                </div>
+              </li>
+              <li class="flex gap-4 items-start">
+                <svg class="icon-line mt-0.5" aria-hidden="true"><use href="#i-bag" /></svg>
+                <div>
+                  <h3 class="text-[14px] font-semibold text-brown">Najwyższa jakość produktów</h3>
+                  <p class="mt-1 text-[13px] text-muted">Pracujemy na sprawdzonych markach.</p>
+                </div>
+              </li>
+              <li class="flex gap-4 items-start">
+                <svg class="icon-line mt-0.5" aria-hidden="true"><use href="#i-home" /></svg>
+                <div>
+                  <h3 class="text-[14px] font-semibold text-brown">Atmosfera, do której chcesz wracać</h3>
+                  <p class="mt-1 text-[13px] text-muted">Chwila tylko dla Ciebie.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- USŁUGI -->
+        <section id="uslugi" data-silk="up" class="bg-cream-soft py-12 lg:py-[70px]">
+          <div class="container-page">
+            <div class="sec-head flex items-end justify-between gap-4 mb-8 lg:mb-10">
+              <h2 class="section-label">Nasze usługi</h2>
+              <a class="text-link" href="#cennik">
+                Zobacz pełną ofertę
+                <svg class="icon h-[12px] w-[12px]" aria-hidden="true"><use href="#i-arrow" /></svg>
+              </a>
+            </div>
+
+            <div class="services-grid grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              <article class="service-card">
+                <span class="service-thumb-wrap"><img src="/demos/paznokcie/images/service-klasyczny.jpg" alt="Manicure klasyczny" class="service-thumb" loading="lazy" /></span>
+                <h3 class="mt-4 font-serif text-[20px] lg:text-[20px] font-medium text-brown">Manicure klasyczny</h3>
+                <p class="mt-2 text-[12.5px] leading-relaxed text-muted lg:min-h-[44px]">
+                  Delikatne opracowanie skórek i naturalne wykończenie.
+                </p>
+                <div class="card-foot mt-auto pt-4 w-full flex items-center justify-between">
+                  <span class="text-[13px] font-medium text-brown">od 90 zł</span>
+                  <a class="arrow-btn" href="#cennik" aria-label="Manicure klasyczny — zobacz cennik">
+                    <svg class="icon h-[13px] w-[13px]" aria-hidden="true"><use href="#i-arrow" /></svg>
+                  </a>
+                </div>
+              </article>
+
+              <article class="service-card">
+                <span class="service-thumb-wrap"><img src="/demos/paznokcie/images/service-hybrydowy.jpg" alt="Manicure hybrydowy" class="service-thumb" loading="lazy" /></span>
+                <h3 class="mt-4 font-serif text-[20px] lg:text-[20px] font-medium text-brown">Manicure hybrydowy</h3>
+                <p class="mt-2 text-[12.5px] leading-relaxed text-muted lg:min-h-[44px]">
+                  Trwały połysk i ochrona płytki na kilka tygodni.
+                </p>
+                <div class="card-foot mt-auto pt-4 w-full flex items-center justify-between">
+                  <span class="text-[13px] font-medium text-brown">od 140 zł</span>
+                  <a class="arrow-btn" href="#cennik" aria-label="Manicure hybrydowy — zobacz cennik">
+                    <svg class="icon h-[13px] w-[13px]" aria-hidden="true"><use href="#i-arrow" /></svg>
+                  </a>
+                </div>
+              </article>
+
+              <article class="service-card">
+                <span class="service-thumb-wrap"><img src="/demos/paznokcie/images/service-przedluzanie.jpg" alt="Przedłużanie paznokci" class="service-thumb" loading="lazy" /></span>
+                <h3 class="mt-4 font-serif text-[20px] lg:text-[20px] font-medium text-brown">Przedłużanie paznokci</h3>
+                <p class="mt-2 text-[12.5px] leading-relaxed text-muted lg:min-h-[44px]">
+                  Idealny kształt i długość dopasowane do dłoni.
+                </p>
+                <div class="card-foot mt-auto pt-4 w-full flex items-center justify-between">
+                  <span class="text-[13px] font-medium text-brown">od 180 zł</span>
+                  <a class="arrow-btn" href="#cennik" aria-label="Przedłużanie paznokci — zobacz cennik">
+                    <svg class="icon h-[13px] w-[13px]" aria-hidden="true"><use href="#i-arrow" /></svg>
+                  </a>
+                </div>
+              </article>
+
+              <article class="service-card">
+                <span class="service-thumb-wrap"><img src="/demos/paznokcie/images/service-pedicure.jpg" alt="Pedicure" class="service-thumb" loading="lazy" /></span>
+                <h3 class="mt-4 font-serif text-[20px] lg:text-[20px] font-medium text-brown">Pedicure</h3>
+                <p class="mt-2 text-[12.5px] leading-relaxed text-muted lg:min-h-[44px]">
+                  Kompleksowa pielęgnacja stóp i piękne wykończenie.
+                </p>
+                <div class="card-foot mt-auto pt-4 w-full flex items-center justify-between">
+                  <span class="text-[13px] font-medium text-brown">od 130 zł</span>
+                  <a class="arrow-btn" href="#cennik" aria-label="Pedicure — zobacz cennik">
+                    <svg class="icon h-[13px] w-[13px]" aria-hidden="true"><use href="#i-arrow" /></svg>
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+      <!-- DLACZEGO MY -->
+        <section id="dlaczego-my" data-silk="fade" class="bg-cream py-12 lg:py-[64px]">
+          <div class="container-page">
+            <h2 class="section-label text-center mb-8 lg:mb-10">Dlaczego my</h2>
+            <div class="why-grid grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+              <article class="why-col">
+                <svg class="icon-line mx-auto mb-5" aria-hidden="true"><use href="#i-diamond" /></svg>
+                <h3 class="font-serif text-[20px] lg:text-[18px] font-medium text-brown leading-snug">Perfekcja w każdym detalu</h3>
+                <p class="mt-3 text-[12.5px] leading-relaxed text-muted">
+                  Każda stylizacja jest dopracowana z najwyższą precyzją.
+                </p>
+              </article>
+              <article class="why-col">
+                <svg class="icon-line mx-auto mb-5" aria-hidden="true"><use href="#i-shield" /></svg>
+                <h3 class="font-serif text-[20px] lg:text-[18px] font-medium text-brown leading-snug">Bezpieczeństwo i higiena</h3>
+                <p class="mt-3 text-[12.5px] leading-relaxed text-muted">
+                  Pracujemy na sterylnych narzędziach i sprawdzonych produktach.
+                </p>
+              </article>
+              <article class="why-col">
+                <svg class="icon-line mx-auto mb-5" aria-hidden="true"><use href="#i-heart" /></svg>
+                <h3 class="font-serif text-[20px] lg:text-[18px] font-medium text-brown leading-snug">Naturalny, elegancki efekt</h3>
+                <p class="mt-3 text-[12.5px] leading-relaxed text-muted">
+                  Podkreślamy Twoje naturalne piękno i styl.
+                </p>
+              </article>
+              <article class="why-col">
+                <svg class="icon-line mx-auto mb-5" aria-hidden="true"><use href="#i-leaf" /></svg>
+                <h3 class="font-serif text-[20px] lg:text-[18px] font-medium text-brown leading-snug">Atmosfera, do której chce się wracać</h3>
+                <p class="mt-3 text-[12.5px] leading-relaxed text-muted">
+                  Spokojna przestrzeń, chwila tylko dla Ciebie.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- CENNIK -->
+        <section id="cennik" data-silk="up" class="bg-beige py-12 lg:py-[70px]">
+          <div class="container-page">
+            <div class="sec-head flex items-end justify-between gap-4 mb-8 lg:mb-10">
+              <h2 class="section-label">Cennik</h2>
+              <a class="text-link" href="#umow">
+                Zobacz pełny cennik
+                <svg class="icon h-[12px] w-[12px]" aria-hidden="true"><use href="#i-arrow" /></svg>
+              </a>
+            </div>
+
+            <div class="price-grid grid grid-cols-1 gap-5 lg:grid-cols-3">
+              <div class="price-card">
+                <h3 class="font-serif text-[24px] font-medium text-brown mb-3">Manicure</h3>
+                <ul>
+                  <li class="price-row"><span class="name">Manicure klasyczny</span><span class="value">od 90 zł</span></li>
+                  <li class="price-row"><span class="name">Manicure hybrydowy</span><span class="value">od 140 zł</span></li>
+                  <li class="price-row"><span class="name">Uzupełnienie hybrydy</span><span class="value">od 120 zł</span></li>
+                  <li class="price-row"><span class="name">Przedłużanie</span><span class="value">od 180 zł</span></li>
+                </ul>
+              </div>
+              <div class="price-card">
+                <h3 class="font-serif text-[24px] font-medium text-brown mb-3">Pedicure</h3>
+                <ul>
+                  <li class="price-row"><span class="name">Pedicure klasyczny</span><span class="value">od 130 zł</span></li>
+                  <li class="price-row"><span class="name">Pedicure hybrydowy</span><span class="value">od 170 zł</span></li>
+                  <li class="price-row"><span class="name">Pedicure SPA</span><span class="value">od 190 zł</span></li>
+                  <li class="price-row"><span class="name">Pedicure męski</span><span class="value">od 140 zł</span></li>
+                </ul>
+              </div>
+              <div class="price-card">
+                <h3 class="font-serif text-[24px] font-medium text-brown mb-3">Dodatki</h3>
+                <ul>
+                  <li class="price-row"><span class="name">Zdobienia</span><span class="value">od 20 zł</span></li>
+                  <li class="price-row"><span class="name">French</span><span class="value">od 20 zł</span></li>
+                  <li class="price-row"><span class="name">Naprawa paznokcia</span><span class="value">od 15 zł</span></li>
+                  <li class="price-row"><span class="name">Zdejmowanie stylizacji</span><span class="value">od 40 zł</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- GALERIA -->
+        <section id="galeria" class="gallery-section bg-cream-soft py-12 lg:py-[70px]" aria-label="Galeria realizacji">
+          <div class="container-page">
+            <div class="sec-head flex items-end justify-between gap-4 mb-8 lg:mb-10">
+              <h2 class="section-label">Galeria</h2>
+              <a class="text-link" href="https://booksy.com" target="_blank" rel="noopener noreferrer">
+                Zobacz więcej
+                <svg class="icon h-[12px] w-[12px]" aria-hidden="true"><use href="#i-arrow" /></svg>
+              </a>
+            </div>
+          </div>
+          <div class="gallery-strip">
+            <figure class="gallery-item">
+              <img src="/demos/paznokcie/images/gallery-01.jpg" alt="Manicure nude — realizacja NÉRA" loading="lazy" />
+            </figure>
+            <figure class="gallery-item">
+              <img src="/demos/paznokcie/images/gallery-02.jpg" alt="Manicure klasyczny — realizacja NÉRA" loading="lazy" />
+            </figure>
+            <figure class="gallery-item">
+              <img src="/demos/paznokcie/images/gallery-03.jpg" alt="Przedłużanie paznokci — realizacja NÉRA" loading="lazy" />
+            </figure>
+            <figure class="gallery-item">
+              <img src="/demos/paznokcie/images/gallery-04.jpg" alt="Manicure french — realizacja NÉRA" loading="lazy" />
+            </figure>
+            <figure class="gallery-item">
+              <img src="/demos/paznokcie/images/gallery-05.jpg" alt="Delikatne zdobienia — realizacja NÉRA" loading="lazy" />
+            </figure>
+            <figure class="gallery-item">
+              <img src="/demos/paznokcie/images/gallery-06.jpg" alt="Manicure hybrydowy — realizacja NÉRA" loading="lazy" />
+            </figure>
+          </div>
+        </section>
+
+        <!-- OPINIE -->
+        <section id="opinie" class="bg-cream py-12 lg:py-[70px]">
+          <div class="container-page">
+            <div class="sec-head flex items-end justify-between gap-4 mb-8 lg:mb-10">
+              <h2 class="section-label">Opinie klientek</h2>
+              <a class="text-link" href="#umow">
+                Zobacz wszystkie
+                <svg class="icon h-[12px] w-[12px]" aria-hidden="true"><use href="#i-arrow" /></svg>
+              </a>
+            </div>
+
+            <div class="reviews-grid grid grid-cols-1 gap-5 lg:grid-cols-3">
+              <article class="testimonial-card">
+                <div class="stars" role="img" aria-label="Ocena 5 na 5"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <blockquote class="font-serif text-[18px] lg:text-[17px] leading-relaxed text-brown italic">
+                  „Piękne miejsce i perfekcyjnie wykonany manicure. Wychodzę zawsze
+                  zachwycona — polecam z całego serca.”
+                </blockquote>
+                <div class="reviewer mt-auto flex items-center gap-3 pt-2">
+                  <img src="/demos/paznokcie/images/avatar-julia.jpg" alt="" class="h-10 w-10 rounded-full object-cover" loading="lazy" />
+                  <cite class="not-italic text-[13px] font-medium text-brown">Julia</cite>
+                </div>
+              </article>
+
+              <article class="testimonial-card">
+                <div class="stars" role="img" aria-label="Ocena 5 na 5"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <blockquote class="font-serif text-[18px] lg:text-[17px] leading-relaxed text-brown italic">
+                  „Atmosfera spa, ogromna precyzja i indywidualne podejście. Hybryda
+                  trzyma się dłużej niż gdziekolwiek indziej.”
+                </blockquote>
+                <div class="reviewer mt-auto flex items-center gap-3 pt-2">
+                  <img src="/demos/paznokcie/images/avatar-klaudia.jpg" alt="" class="h-10 w-10 rounded-full object-cover" loading="lazy" />
+                  <cite class="not-italic text-[13px] font-medium text-brown">Klaudia</cite>
+                </div>
+              </article>
+
+              <article class="testimonial-card">
+                <div class="stars" role="img" aria-label="Ocena 5 na 5"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <blockquote class="font-serif text-[18px] lg:text-[17px] leading-relaxed text-brown italic">
+                  „Najlepszy salon w okolicy. Delikatnie, estetycznie i zawsze w
+                  zgodzie z tym, czego naprawdę potrzebuję.”
+                </blockquote>
+                <div class="reviewer mt-auto flex items-center gap-3 pt-2">
+                  <img src="/demos/paznokcie/images/avatar-martyna.jpg" alt="" class="h-10 w-10 rounded-full object-cover" loading="lazy" />
+                  <cite class="not-italic text-[13px] font-medium text-brown">Martyna</cite>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" data-silk="ltr" class="bg-cream-soft py-14 lg:py-[80px]">
+          <div class="faq-grid container-page grid grid-cols-1 gap-8 lg:grid-cols-[0.85fr_1.35fr] lg:gap-14 items-start">
+            <div>
+              <h2 class="faq-title font-serif text-[44px] lg:text-[58px] leading-none text-brown font-medium">FAQ</h2>
+              <p class="faq-sub mt-3 lg:mt-4 text-[14px] text-muted">Najczęściej zadawane pytania</p>
+            </div>
+
+            <div id="faq-list">
+              <div class="faq-item">
+                <button class="faq-button" type="button" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">
+                  <span>Jak długo utrzymuje się manicure hybrydowy?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel" id="faq-a1" role="region" aria-labelledby="faq-q1">
+                  <div><p>Zazwyczaj od 2 do 3 tygodni, w zależności od tempa wzrostu płytki i codziennych nawyków pielęgnacyjnych.</p></div>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-button" type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
+                  <span>Czy pracujecie na sterylnych narzędziach?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel" id="faq-a2" role="region" aria-labelledby="faq-q2">
+                  <div><p>Tak. Każde narzędzie jest dezynfekowane i sterylizowane przed zabiegiem — to absolutny standard naszego studia.</p></div>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-button" type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
+                  <span>Jak przygotować się do wizyty?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel" id="faq-a3" role="region" aria-labelledby="faq-q3">
+                  <div><p>Wystarczy, że paznokcie będą czyste. Nie trzeba ich samodzielnie obcinać ani piłować — zajmiemy się tym na miejscu.</p></div>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-button" type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">
+                  <span>Czy mogę wykonać delikatne zdobienia?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel" id="faq-a4" role="region" aria-labelledby="faq-q4">
+                  <div><p>Oczywiście. Proponujemy subtelne zdobienia, folię, french i art dopasowane do Twojego stylu.</p></div>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-button" type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">
+                  <span>Jak odwołać lub przełożyć wizytę?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel" id="faq-a5" role="region" aria-labelledby="faq-q5">
+                  <div><p>Prosimy o kontakt minimum 24 godziny wcześniej — telefonicznie lub wiadomością.</p></div>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-button" type="button" aria-expanded="false" aria-controls="faq-a6" id="faq-q6">
+                  <span>Czy przyjmujecie bez umówienia?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel" id="faq-a6" role="region" aria-labelledby="faq-q6">
+                  <div><p>Preferujemy wcześniejszą rezerwację. W wolnych terminach staramy się jednak przyjąć również wizyty last minute.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="umow" data-silk="mask" class="relative py-16 lg:py-[96px]">
+          <div class="absolute inset-0">
+            <img src="/demos/paznokcie/images/cta-bg.jpg" alt="" class="cta-bg-img h-full w-full object-cover" loading="lazy" />
+            <div class="cta-wash absolute inset-0"></div>
+          </div>
+          <div class="cta-inner relative z-10 container-page text-center">
+            <h2 class="cta-title font-serif text-[34px] sm:text-[40px] lg:text-[46px] leading-[1.15] text-brown font-medium max-w-2xl mx-auto">
+              Zadbaj o dłonie, które pokochasz.
+            </h2>
+            <p class="cta-sub mt-5 text-[14px] lg:text-[15px] leading-relaxed text-brown-soft max-w-md mx-auto">
+              Umów wizytę i pozwól nam stworzyć stylizację dopasowaną do Ciebie.
+            </p>
+            <a class="btn-primary mt-9 lg:mt-10" href="https://booksy.com" target="_blank" rel="noopener noreferrer">
+              Umów wizytę
+              <svg class="icon h-[15px] w-[15px]" aria-hidden="true"><use href="#i-arrow" /></svg>
+            </a>
+          </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer id="kontakt" class="site-footer bg-cream border-t border-line">
+          <div class="footer-grid container-page grid grid-cols-1 gap-8 py-10 text-center lg:grid-cols-[1.1fr_1.5fr_1fr] lg:items-center lg:py-12 lg:text-left">
+            <div>
+              <p class="footer-logo font-serif text-[22px] lg:text-[20px] tracking-[0.12em] text-brown uppercase">NÉRA</p>
+              <p class="footer-logo-sub mt-1 text-[8px] font-medium tracking-[0.34em] text-brown-soft uppercase">Nail Studio</p>
+            </div>
+
+            <nav aria-label="Stopka">
+              <ul class="footer-links flex flex-wrap items-center justify-center gap-x-7 gap-y-3 lg:gap-x-8">
+                <li><a class="nav-link" href="#o-nas">O nas</a></li>
+                <li><a class="nav-link" href="#uslugi">Usługi</a></li>
+                <li><a class="nav-link" href="#cennik">Cennik</a></li>
+                <li><a class="nav-link" href="#galeria">Galeria</a></li>
+                <li><a class="nav-link" href="#kontakt">Kontakt</a></li>
+              </ul>
+            </nav>
+
+            <div class="footer-contact lg:justify-self-end lg:text-right">
+              <div class="footer-social flex justify-center gap-4 mb-3 lg:justify-end lg:gap-3">
+                <a href="https://instagram.com" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                  <svg class="icon h-[18px] w-[18px]" aria-hidden="true"><use href="#i-instagram" /></svg>
+                </a>
+                <a href="https://tiktok.com" class="social-link" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+                  <svg class="icon h-[18px] w-[18px]" aria-hidden="true"><use href="#i-tiktok" /></svg>
+                </a>
+              </div>
+              <address class="not-italic">
+                <p class="text-[12.5px] text-brown">ul. Mokotowska 12, Warszawa</p>
+                <p class="mt-1 text-[11.5px] text-muted">Pon – Sob 9:00 – 20:00</p>
+              </address>
+            </div>
+          </div>
+          <div class="footer-bottom border-t border-line">
+            <div class="container-page flex flex-col items-center gap-1 py-4 text-[11px] text-muted sm:flex-row sm:justify-between">
+              <p>© 2026 NÉRA Nails</p>
+              <p>Projekt i wdrożenie</p>
+            </div>
+          </div>
+        </footer>
+    </main>
+
+  </body>
+</html>

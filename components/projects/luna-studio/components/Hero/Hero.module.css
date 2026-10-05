@@ -1,0 +1,252 @@
+.hero {
+  position: relative;
+  min-height: calc(100dvh - var(--header-h));
+  background: var(--cream);
+  overflow: hidden;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 28% 22%;
+}
+
+.panel {
+  position: absolute;
+  z-index: 3;
+  /* Center within the right half (~75% of viewport), keep mid-hero vertical band */
+  top: 18%;
+  left: calc(50% + (50% - min(420px, 37vw)) / 2);
+  right: auto;
+  width: min(420px, 37vw);
+  padding: 44px 44px 40px;
+  background: rgba(248, 244, 239, 0.94);
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: var(--track-label);
+  color: var(--taupe);
+}
+
+.headline {
+  margin-top: 16px;
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 4.4vw, 64px);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: var(--near-black);
+}
+
+.line {
+  display: block;
+}
+
+.support {
+  margin-top: 18px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 22px;
+  margin-top: 28px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: var(--cta-h);
+  padding: 0 22px;
+  background: var(--ink);
+  color: var(--ivory);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: var(--track-nav);
+}
+
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: var(--track-nav);
+  color: var(--ink);
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.35s var(--ease);
+}
+
+.cta:hover .arrow,
+.secondary:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Tablet + phone: keep composed hero (image + card together) — never stack */
+@media (max-width: 899px) {
+  .hero {
+    display: block;
+    min-height: clamp(480px, 78dvh, 680px);
+    overflow: hidden;
+  }
+
+  .media {
+    position: absolute;
+    inset: 0;
+    width: auto;
+    height: auto;
+  }
+
+  .photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 16% 12%;
+  }
+
+  .panel {
+    position: absolute;
+    z-index: 3;
+    /* Lower so card clears face/upper hair; sits on shoulder / lower-right */
+    top: 70%;
+    left: auto;
+    right: clamp(12px, 3.2vw, 28px);
+    width: clamp(168px, 42vw, 230px);
+    margin: 0;
+    padding: 18px 16px 16px;
+    background: rgba(248, 244, 239, 0.95);
+    /* approximate vertical centering without transform (Framer uses transform) */
+    translate: 0 -50%;
+  }
+
+  .label {
+    font-size: 9px;
+  }
+
+  .headline {
+    margin-top: 10px;
+    font-size: clamp(22px, 5.4vw, 30px);
+    line-height: 1.08;
+  }
+
+  .support {
+    margin-top: 10px;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .cta {
+    min-height: 38px;
+    padding: 0 14px;
+    font-size: 10px;
+  }
+
+  .secondary {
+    font-size: 10px;
+  }
+}
+
+/* Tablet: closer to desktop proportions */
+@media (min-width: 700px) and (max-width: 899px) {
+  .hero {
+    min-height: calc(100dvh - var(--header-h));
+  }
+
+  .photo {
+    object-position: 22% 16%;
+  }
+
+  .panel {
+    top: 18%;
+    left: calc(50% + (50% - min(360px, 40vw)) / 2);
+    right: auto;
+    width: min(360px, 40vw);
+    padding: 36px 32px 32px;
+    translate: none;
+  }
+
+  .label {
+    font-size: 10px;
+  }
+
+  .headline {
+    margin-top: 14px;
+    font-size: clamp(32px, 4.2vw, 44px);
+  }
+
+  .support {
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .actions {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px 18px;
+    margin-top: 22px;
+  }
+
+  .cta {
+    min-height: var(--cta-h);
+    padding: 0 20px;
+    font-size: 11px;
+  }
+
+  .secondary {
+    font-size: 11px;
+  }
+}
+
+/* Very narrow phones: card sits lower-right, still one composition */
+@media (max-width: 389px) {
+  .hero {
+    min-height: clamp(440px, 74dvh, 560px);
+  }
+
+  .photo {
+    object-position: 12% 10%;
+  }
+
+  .panel {
+    top: auto;
+    bottom: 8%;
+    right: 3%;
+    width: min(48vw, 178px);
+    padding: 14px 12px 12px;
+    translate: none;
+  }
+
+  .headline {
+    font-size: clamp(20px, 5.8vw, 24px);
+  }
+
+  .support {
+    font-size: 10px;
+  }
+}

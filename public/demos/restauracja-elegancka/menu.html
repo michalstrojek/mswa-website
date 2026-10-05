@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <base href="/demos/restauracja-elegancka/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="menu.meta">Menu — VELORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body data-page="menu" class="bg-cream text-ink antialiased">
+  <header class="site-header">
+    <div class="header-bar site-header-inner">
+      <a href="./" class="site-logo font-display text-[1.65rem] font-semibold tracking-[0.28em] text-white">VELORA</a>
+
+      <ul class="desktop-nav">
+        <li><a class="nav-link" href="./" data-i18n="nav.home">Strona główna</a></li>
+        <li><a class="nav-link" href="./#o-nas" data-i18n="nav.about">O nas</a></li>
+        <li><a class="nav-link is-active" href="menu.html" data-i18n="nav.menu">Menu</a></li>
+        <li><a class="nav-link" href="galeria.html" data-i18n="nav.gallery">Galeria</a></li>
+        <li><a class="nav-link" href="./#rezerwacja" data-i18n="nav.reservation">Rezerwacja</a></li>
+        <li><a class="nav-link" href="./#kontakt" data-i18n="nav.contact">Kontakt</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <div class="lang-switch">
+          <button type="button" data-lang="pl" class="is-lang-active" aria-current="true">PL</button>
+          <span aria-hidden="true">|</span>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+        <a href="./#rezerwacja" class="nav-cta-desktop" data-i18n="nav.cta">REZERWACJA</a>
+        <button type="button" class="nav-toggle" aria-expanded="false" data-i18n-aria="nav.open" aria-label="Otwórz menu">
+          <span class="nav-toggle-lines" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav" aria-hidden="true">
+      <a href="./" data-i18n="nav.home">Strona główna</a>
+      <a href="./#o-nas" data-i18n="nav.about">O nas</a>
+      <a href="menu.html" data-i18n="nav.menu">Menu</a>
+      <a href="galeria.html" data-i18n="nav.gallery">Galeria</a>
+      <a href="./#rezerwacja" data-i18n="nav.reservation">Rezerwacja</a>
+      <a href="./#kontakt" data-i18n="nav.contact">Kontakt</a>
+      <div class="lang-switch">
+        <button type="button" data-lang="pl" class="is-lang-active" aria-current="true">PL</button>
+        <span aria-hidden="true">|</span>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a href="./#rezerwacja" class="nav-cta" data-i18n="nav.cta">REZERWACJA</a>
+    </div>
+  </header>
+  <main>
+    <section class="page-hero" aria-label="Menu">
+      <div class="page-hero-inner">
+        <p class="label text-white/55" data-i18n="menu.label">Menu</p>
+        <h1 class="heading-serif mt-5 text-[2.6rem] sm:text-[3.1rem] lg:text-[3.5rem]" data-i18n="menu.h">Karta dań.</h1>
+        <p class="mt-6 max-w-[32rem] font-display text-[1.05rem] leading-relaxed text-white/65" data-i18n="menu.lead">Menu zmienia się wraz z sezonem. Poniżej aktualna karta — przykładowa wersja demo.</p>
+      </div>
+    </section>
+
+    <section class="page-section--cream">
+      <div class="page-section-inner page-section">
+        <div class="menu-full">
+          <div class="menu-category">
+            <h2 class="label text-ink/65" data-i18n="menu.cat.starters">Przystawki</h2>
+            <ul class="menu-list">
+            <li class="menu-item">
+              <div class="menu-item-row">
+                <h3 class="menu-item-name" data-i18n="dish.tatar">Tatar wołowy</h3>
+                <span class="menu-item-dots" aria-hidden="true"></span>
+                <p class="menu-item-price">48 zł</p>
+              </div>
+              <p class="menu-item-meta" data-i18n="dish.meta.tatar">kapary · żółtko · musztarda francuska · brioche</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-row">
+                <h3 class="menu-item-name" data-i18n="dish.scallops">Przegrzebki</h3>
+                <span class="menu-item-dots" aria-hidden="true"></span>
+                <p class="menu-item-price">52 zł</p>
+              </div>
+              <p class="menu-item-meta" data-i18n="dish.meta.scallops">kalafior · beurre noisette · jabłko · zioła</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-row">
+                <h3 class="menu-item-name" data-i18n="dish.burrata">Burrata</h3>
+                <span class="menu-item-dots" aria-hidden="true"></span>
+                <p class="menu-item-price">46 zł</p>
+              </div>
+              <p class="menu-item-meta" data-i18n="dish.meta.burrata">pomidory · bazylia · oliwa · pieczywo</p>
+            </li>
+            </ul>
+          </div>
+
+          <div class="menu-category">
+            <h2 class="label text-ink/65" data-i18n="menu.cat.soups">Zupy</h2>
+            <ul class="menu-list">
+            <li class="menu-item">
+              <div class="menu-item-row">
+                <h3 class="menu-item-name" data-i18n="dish.tomato">Krem z pieczonych pomidorów</h3>
+                <span class="menu-item-dots" aria-hidden="true"></span>
+                <p class="menu-item-price">32 zł</p>
+              </div>
+              <p class="menu-item-meta" data-i18n="dish.meta.tomato">mascarpone · bazylia · oliwa ziołowa</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-row">
+                <h3 class="menu-item-name" data-i18n="dish.broth">Bulion wołowy</h3>
+                <span class="menu-item-dots" aria-hidden="true"></span>
+                <p class="menu-item-price">34 zł</p>
+              </div>
+              <p class="menu-item-meta" data-i18n="dish.meta.broth">pierożki · warzywa · zioła</p>
+            </li>
+            </ul>
+          </div>
+
+          <div class="menu-category">
+            <h2 class="label text-ink/65" data-i18n="menu.cat.mains">Dania główne</h2>
+            <ul class="menu-list">
+            <li class="menu-item">
+              <div class="menu-item-row">
+                <h3 class="menu-item-name" data-i18n="dish.risotto">Risotto z borowikami</h3>
+                <span class="menu-item-dots" aria-hidden="true"></span>
+                <p class="menu-item-price">54 zł</p>
+              </div>
+              <p class="menu-item-meta" data-i18n="dish.meta.risotto">parmezan · tymianek · palone masło</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-row">
+                <h3 class="menu-item-name" data-i18n="dish.zander">Sandacz</h3>
+                <span class="menu-item-dots" aria-hidden="true"></span>
+                <p class="menu-item-price">76 zł</p>
+              </div>
+              <p class="menu-item-meta" data-i18n="dish.meta.zander">por · beurre blanc · koper · młode ziemniaki</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-row">
+                <h3 class="menu-item-name" data-i18n="dish.beef">Polędwica wołowa</h3>
+                <span class="menu-item-dots" aria-hidden="true"></span>
+                <p class="menu-item-price">92 zł</p>
+              </div>
+              <p class="menu-item-meta" data-i18n="dish.meta.beef">ziemniak fondant · demi-glace · sezonowe warzywa</p>
+            </li>
+            </ul>
+          </div>
+
+          <div class="menu-category">
+            <h2 class="label text-ink/65" data-i18n="menu.cat.desserts">Desery</h2>
+            <ul class="menu-list">
+            <li class="menu-item">
+              <div class="menu-item-row">
+                <h3 class="menu-item-name" data-i18n="dish.chocolate">Czekolada & malina</h3>
+                <span class="menu-item-dots" aria-hidden="true"></span>
+                <p class="menu-item-price">36 zł</p>
+              </div>
+              <p class="menu-item-meta" data-i18n="dish.meta.chocolate">ciemna czekolada · malina · wanilia</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-row">
+                <h3 class="menu-item-name" data-i18n="dish.creme">Crème brûlée</h3>
+                <span class="menu-item-dots" aria-hidden="true"></span>
+                <p class="menu-item-price">34 zł</p>
+              </div>
+              <p class="menu-item-meta" data-i18n="dish.meta.creme">wanilia · karmel · owoce sezonowe</p>
+            </li>
+            </ul>
+          </div>
+
+          <div class="menu-category">
+            <h2 class="label text-ink/65" data-i18n="menu.cat.drinks">Napoje / Karta win</h2>
+            <p class="menu-wine-note" data-i18n="menu.wine">O kartę win zapytaj obsługę.</p>
+          </div>
+        </div>
+
+        <a href="./#rezerwacja" class="link-arrow mt-14 text-ink"><span data-i18n="menu.book">Zarezerwuj stolik</span> <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-ink text-cream">
+    <div class="mx-auto flex max-w-[1440px] flex-col gap-12 px-10 py-14 lg:flex-row lg:items-start lg:justify-between lg:px-14 lg:py-16">
+      <div class="max-w-xs">
+        <a href="./" class="font-display text-[1.75rem] font-semibold tracking-[0.32em]">VELORA</a>
+        <p class="mt-4 font-display text-[0.85rem] tracking-[0.12em] text-cream/55" data-i18n="footer.tag">Restauracja · Ludzie · Wyjątkowe chwile</p>
+      </div>
+
+      <div class="flex flex-1 flex-wrap gap-10 lg:justify-center lg:gap-16">
+        <div class="flex items-start gap-3">
+          <svg class="mt-0.5 h-4 w-4 shrink-0 text-cream/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+          <p class="text-[0.78rem] leading-relaxed text-cream/80">ul. Mokotowska 12<br />00-561 Warszawa</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <svg class="mt-0.5 h-4 w-4 shrink-0 text-cream/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.9v2a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h2a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L7.1 9.9a16 16 0 0 0 6 6l1.5-1.1a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z" /></svg>
+          <p class="text-[0.78rem] leading-relaxed text-cream/80">
+            <a href="tel:+48123456789" class="transition hover:text-white">+48 123 456 789</a><br />
+            <span data-i18n="footer.hours">Pn–Nd 12:00–23:00</span>
+          </p>
+        </div>
+        <div class="flex items-start gap-3">
+          <svg class="mt-0.5 h-4 w-4 shrink-0 text-cream/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5" /><path d="m3 7 9 7 9-7" /></svg>
+          <p class="text-[0.78rem] leading-relaxed text-cream/80"><a href="mailto:kontakt@nova.pl" class="transition hover:text-white">kontakt@nova.pl</a></p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-8 lg:flex-col lg:items-end lg:gap-6">
+        <div class="flex items-center gap-4">
+          <a href="https://instagram.com" class="text-cream/70 transition hover:text-white" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" /></svg></a>
+          <a href="https://facebook.com" class="text-cream/70 transition hover:text-white" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 8h2V5h-2a4 4 0 0 0-4 4v2H8v3h2v7h3v-7h2.2l.8-3H13V9a1 1 0 0 1 1-1z" /></svg></a>
+        </div>
+        <p class="text-right text-[0.55rem] font-medium tracking-[0.22em] text-cream/50 uppercase leading-relaxed">
+          <span data-i18n="footer.side1">Dobre jedzenie</span><br />
+          <span class="mt-1 inline-block h-px w-8 bg-cream/25 align-middle"></span><br />
+          <span data-i18n="footer.side2">Lepsze historie</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/i18n.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>

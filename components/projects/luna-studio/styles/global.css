@@ -1,0 +1,36 @@
+/* Neutralize MSWA chrome around this demo only */
+html:has(.luna-studio-root) {
+  background: #f8f4ef;
+  scroll-padding-top: 0;
+}
+
+body:has(.luna-studio-root) {
+  background: #f8f4ef;
+  color: #3a302c;
+}
+
+.luna-studio-root {
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+/* text-decoration only — do not set color here (would beat .cta ivory) */
+.luna-studio-root :where(a) {
+  text-decoration: none;
+}
+
+.luna-studio-root :where(button:focus-visible, a:focus-visible) {
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.luna-studio-root ::selection {
+  background: var(--beige);
+  color: var(--near-black);
+}

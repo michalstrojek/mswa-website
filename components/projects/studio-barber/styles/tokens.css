@@ -1,0 +1,46 @@
+.studio-barber-root {
+  --ivory: #f5f1e9;
+  --white: #fbfaf7;
+  --mist: #efe8dc;
+  --band: #e8e0d4;
+  --grey: #d4cdc2;
+  --stone: #b7aea2;
+  --charcoal: #20201e;
+  --black: #111111;
+  --sage: #8b9584;
+
+  --font-serif: var(--font-sb-serif), "Cormorant Garamond", "Times New Roman",
+    serif;
+  --font-sans: var(--font-sb-sans), "Outfit", system-ui, sans-serif;
+
+  --header-h: 80px;
+  --max: 1440px;
+  --rule: 1px solid rgb(183 174 162 / 0.28);
+  --rule-stone: 1px solid rgb(183 174 162 / 0.4);
+
+  --radius-sm: 4px;
+  --radius: 18px;
+
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 64px;
+  --space-page: clamp(20px, 4vw, 64px);
+  --section-y: clamp(72px, 12vh, 128px);
+
+  --track-label: 0.2em;
+  --track-nav: 0.14em;
+  --cta-h: 50px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --shadow: 0 24px 60px rgb(32 32 30 / 0.06);
+}
+
+@media (max-width: 899px) {
+  .studio-barber-root {
+    --header-h: 72px;
+    --section-y: clamp(56px, 9vh, 80px);
+    --space-page: clamp(18px, 5.2vw, 28px);
+  }
+}

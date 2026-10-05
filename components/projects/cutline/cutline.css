@@ -1,0 +1,581 @@
+/* CUTLINE demo styles — loaded only on /projekty/cutline */
+
+.cutline-root {
+  --cream: #f3ede3;
+  --ivory: #faf6f0;
+  --navy: #1a2332;
+  --walnut: #3d2b1f;
+  --brick: #5c4033;
+  --muted-red: #8b3a3a;
+  --chrome: #c5c0b8;
+  --tungsten: #e8c89a;
+  --font-display: var(--font-cutline-display), Georgia, "Times New Roman", serif;
+  --font-condensed: var(--font-cutline-condensed), "Arial Narrow", sans-serif;
+  --font-body: var(--font-cutline-body), "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  min-height: 100svh;
+  font-family: var(--font-body);
+  color: var(--navy);
+  background: var(--cream);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cutline-root a {
+  text-decoration: none;
+}
+
+.cutline-root button {
+  font: inherit;
+}
+
+.cutline-root img {
+  max-width: 100%;
+  display: block;
+}
+
+.cutline-root .font-display {
+  font-family: var(--font-display);
+}
+
+.cutline-root .font-condensed {
+  font-family: var(--font-condensed);
+}
+
+.cutline-root .font-body {
+  font-family: var(--font-body);
+}
+
+/* ——— Booking button ——— */
+.btn-book {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-condensed);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition:
+    transform 180ms ease,
+    background-color 220ms ease,
+    color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.btn-book:hover {
+  transform: translateY(-1px);
+}
+
+.btn-book:active {
+  transform: translateY(1px);
+}
+
+.btn-book-light {
+  background: var(--cream);
+  color: var(--navy);
+}
+
+.btn-book-light:hover {
+  background: var(--ivory);
+}
+
+.btn-book-arrow {
+  display: inline-block;
+  transition: transform 220ms ease;
+}
+
+.btn-book:hover .btn-book-arrow {
+  transform: translateX(5px);
+}
+
+.btn-ghost {
+  transition:
+    transform 180ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--ivory);
+  background: rgba(250, 246, 240, 0.05);
+}
+
+.btn-ghost:active {
+  transform: translateY(1px);
+}
+
+/* ——— Text links ——— */
+.text-link {
+  position: relative;
+  border-bottom: 1px solid transparent;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+
+.text-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0.28);
+  transform-origin: left;
+  transition: transform 280ms ease;
+}
+
+.text-link:hover {
+  color: var(--muted-red);
+}
+
+.text-link:hover::after {
+  transform: scaleX(1);
+}
+
+.text-link-arrow {
+  display: inline-block;
+  transition: transform 220ms ease;
+}
+
+.text-link:hover .text-link-arrow {
+  transform: translateX(4px);
+}
+
+/* ——— Nav ——— */
+.site-header {
+  transition:
+    background-color 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.site-header-scrolled {
+  box-shadow: 0 1px 0 rgba(197, 192, 184, 0.12), 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.nav-link {
+  position: relative;
+  color: rgba(250, 246, 240, 0.85);
+  padding-bottom: 2px;
+  transition: color 200ms ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--muted-red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
+}
+
+.nav-link:hover {
+  color: var(--ivory);
+}
+
+.nav-link:hover::after,
+.nav-link-active::after {
+  transform: scaleX(1);
+}
+
+.nav-link-active {
+  color: var(--ivory);
+}
+
+/* ——— Hero cinematic life ——— */
+.hero-photo {
+  transform: scale(1.03);
+  animation: hero-cinematic 16s ease-out forwards;
+}
+
+.hero-copy {
+  animation: hero-rise 1s ease-out both;
+}
+
+@keyframes hero-cinematic {
+  from {
+    transform: scale(1.03);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ——— About razor wipe (once) ——— */
+.razor-wipe {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
+
+.razor-wipe-media {
+  height: auto;
+  clip-path: inset(0 0 100% 0);
+  will-change: clip-path;
+}
+
+.razor-wipe-media img {
+  display: block;
+  width: 100%;
+}
+
+.razor-wipe-running .razor-wipe-media {
+  animation: razor-wipe-reveal 750ms cubic-bezier(0.33, 0.1, 0.2, 1) forwards;
+}
+
+.razor-wipe-done .razor-wipe-media {
+  clip-path: inset(0 0 0 0);
+  animation: none;
+}
+
+.razor-wipe-blade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1.5px;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(197, 192, 184, 0.35) 12%,
+    #e8e4de 35%,
+    #f7f4ef 50%,
+    #c5c0b8 65%,
+    rgba(197, 192, 184, 0.35) 88%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 6px rgba(232, 200, 154, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.razor-wipe-running .razor-wipe-blade {
+  opacity: 1;
+  animation: razor-blade-travel 750ms cubic-bezier(0.33, 0.1, 0.2, 1) forwards;
+}
+
+@keyframes razor-wipe-reveal {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes razor-blade-travel {
+  from {
+    top: 0%;
+    opacity: 1;
+  }
+  to {
+    top: 100%;
+    opacity: 0.85;
+  }
+}
+
+/* ——— Team portrait interaction ——— */
+.team-card-img {
+  transition:
+    transform 550ms ease,
+    object-position 550ms ease;
+}
+
+.team-card-img-michal {
+  filter: sepia(0.1) saturate(0.96) contrast(1.05) brightness(1.03);
+}
+
+.team-card-img-adam {
+  filter: sepia(0.12) saturate(0.93) contrast(1.02) brightness(1.04);
+}
+
+.team-card-img-kuba {
+  filter: sepia(0.08) saturate(0.88) contrast(1.04) brightness(0.97);
+}
+
+.team-card-name {
+  transition: transform 280ms ease;
+}
+
+.team-card:hover .team-card-img {
+  transform: scale(1.02) translateY(-3px);
+}
+
+.team-card:hover .team-card-name {
+  transform: translateY(-3px);
+}
+
+/* ——— Atmosphere media hover ——— */
+.atmosphere-media img {
+  transition: transform 500ms ease;
+}
+
+.atmosphere-media:hover img {
+  transform: scale(1.015);
+}
+
+/* ——— Price board (old-school menu) ——— */
+.price-board-row {
+  border-bottom: 1px solid rgba(61, 43, 31, 0.14);
+}
+
+.price-board-row:last-child {
+  border-bottom: none;
+}
+
+.price-board-row-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.95rem 0;
+}
+
+@media (min-width: 640px) {
+  .price-board-row-inner {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.85rem;
+    padding: 1.05rem 0;
+  }
+
+  .price-board-dots {
+    flex: 1 1 auto;
+    min-width: 1.5rem;
+    height: 1px;
+    align-self: center;
+    background-image: radial-gradient(
+      circle,
+      rgba(61, 43, 31, 0.28) 1px,
+      transparent 1.5px
+    );
+    background-size: 7px 1px;
+    background-repeat: repeat-x;
+    background-position: center;
+  }
+
+  .price-board-name {
+    transition: color 220ms ease;
+  }
+
+  .price-board-price {
+    transition: color 220ms ease;
+  }
+
+  .price-board-row:hover .price-board-name,
+  .price-board-row:hover .price-board-price {
+    color: var(--muted-red);
+  }
+}
+
+/* ——— Services precision line (desktop) ——— */
+.service-row {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(61, 43, 31, 0.15);
+  padding: 1.25rem 0;
+}
+
+.service-row:first-child {
+  border-top: 1px solid rgba(61, 43, 31, 0.15);
+}
+
+.service-row-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 640px) {
+  .service-row-inner {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .service-row {
+    padding: 1.5rem 0.25rem;
+  }
+
+  .service-row-name {
+    transition: transform 250ms ease;
+  }
+
+  .service-row-price {
+    transition: color 250ms ease;
+  }
+
+  .service-precision-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      var(--muted-red) 0%,
+      rgba(197, 192, 184, 0.7) 55%,
+      transparent 100%
+    );
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 260ms ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .service-row:hover .service-precision-line {
+    transform: scaleX(1);
+  }
+
+  .service-row:hover .service-row-name {
+    transform: translateX(4px);
+  }
+
+  .service-row:hover .service-row-price {
+    color: var(--muted-red);
+  }
+}
+
+/* ——— Gallery staggered mask reveal ——— */
+.gallery-cell {
+  position: relative;
+  height: auto;
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(12px);
+  transition:
+    clip-path 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gallery-cell-left {
+  transform: translateX(-14px);
+}
+
+.gallery-cell-right {
+  transform: translateX(14px);
+}
+
+.gallery-cell-shown {
+  clip-path: inset(0 0 0 0);
+  transform: translate(0, 0);
+}
+
+.gallery-cell-img {
+  transform: scale(1.02);
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gallery-cell-shown .gallery-cell-img {
+  transform: scale(1);
+}
+
+.gallery-cell-shown:hover .gallery-cell-img {
+  transform: scale(1.015);
+}
+
+/* ——— Instagram ——— */
+.ig-tile-img {
+  transition: transform 450ms ease;
+}
+
+.ig-tile-label {
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 280ms ease,
+    transform 280ms ease;
+}
+
+.ig-tile:hover .ig-tile-img {
+  transform: scale(1.015);
+}
+
+.ig-tile:hover .ig-tile-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cutline-root {
+    scroll-behavior: auto;
+  }
+
+  .cutline-root .hero-photo,
+  .cutline-root .hero-copy {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .cutline-root .razor-wipe-media {
+    clip-path: none !important;
+    animation: none !important;
+  }
+
+  .cutline-root .razor-wipe-blade {
+    display: none !important;
+  }
+
+  .cutline-root .gallery-cell,
+  .cutline-root .gallery-cell-left,
+  .cutline-root .gallery-cell-right {
+    clip-path: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .cutline-root .gallery-cell-img {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .cutline-root .service-precision-line {
+    display: none;
+  }
+
+  .cutline-root .btn-book,
+  .cutline-root .btn-ghost,
+  .cutline-root .btn-book-arrow,
+  .cutline-root .text-link,
+  .cutline-root .text-link-arrow,
+  .cutline-root .nav-link,
+  .cutline-root .team-card-img,
+  .cutline-root .team-card-name,
+  .cutline-root .ig-tile-img,
+  .cutline-root .ig-tile-label,
+  .cutline-root .atmosphere-media img,
+  .cutline-root .price-board-name,
+  .cutline-root .price-board-price {
+    transition: none !important;
+  }
+}

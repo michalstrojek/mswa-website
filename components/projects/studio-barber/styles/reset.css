@@ -1,0 +1,37 @@
+/* :where() keeps zero specificity so CSS modules win (same cascade as Vite source). */
+
+.studio-barber-root,
+.studio-barber-root :where(*, *::before, *::after) {
+  box-sizing: border-box;
+}
+
+.studio-barber-root {
+  margin: 0;
+  min-height: 100svh;
+}
+
+.studio-barber-root :where(img) {
+  display: block;
+  max-width: 100%;
+}
+
+.studio-barber-root :where(button, a) {
+  font: inherit;
+}
+
+.studio-barber-root :where(button) {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.studio-barber-root :where(ul, ol) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.studio-barber-root :where(h1, h2, h3, p) {
+  margin: 0;
+}

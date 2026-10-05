@@ -1,0 +1,40 @@
+.strip {
+  position: relative;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.photo {
+  width: 100%;
+  height: min(42vh, 380px);
+  object-fit: cover;
+  object-position: 70% 40%;
+}
+
+.copy {
+  position: absolute;
+  left: var(--space-page);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 16rem;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1.45;
+  color: var(--near-black);
+}
+
+@media (max-width: 639px) {
+  .photo {
+    height: 46vw;
+    min-height: 220px;
+  }
+
+  .copy {
+    max-width: 12.5rem;
+    font-size: 11.5px;
+  }
+}

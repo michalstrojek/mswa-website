@@ -1,0 +1,31 @@
+/* Neutralize MSWA chrome around this demo only */
+html:has(.atelier-root) {
+  background: #0c0c0c;
+  scroll-padding-top: 0;
+  overflow-x: hidden;
+}
+
+body:has(.atelier-root) {
+  background: #0c0c0c;
+  color: #0c0c0c;
+  overflow-x: hidden;
+}
+
+.atelier-root {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: normal;
+  color: var(--color-near-black);
+  background: var(--color-near-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+/* Match standalone `a { color: inherit; text-decoration: none }` with
+   zero specificity so module CTA colors still win. */
+.atelier-root :where(a) {
+  color: inherit;
+  text-decoration: none;
+}

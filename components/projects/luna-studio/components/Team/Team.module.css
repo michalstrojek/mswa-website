@@ -1,0 +1,206 @@
+.section {
+  scroll-margin-top: var(--header-h);
+  display: grid;
+  grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.55fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+  padding: clamp(72px, 10vw, 120px) var(--space-page);
+  background: var(--ivory);
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: var(--track-label);
+  color: var(--taupe);
+}
+
+.headline {
+  margin-top: 16px;
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 4.4vw, 64px);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: var(--near-black);
+}
+
+.line {
+  display: block;
+}
+
+.aside {
+  margin-top: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--taupe);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2.4vw, 36px);
+  width: 100%;
+  max-width: 980px;
+  justify-self: center;
+}
+
+.card {
+  min-width: 0;
+}
+
+.frame {
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.name {
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: var(--track-nav);
+  color: var(--near-black);
+}
+
+.focus {
+  margin-top: 4px;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: var(--track-nav);
+  color: var(--ink);
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.35s var(--ease);
+}
+
+.link:hover .arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 899px) {
+  .section {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding-top: clamp(56px, 9vw, 80px);
+    padding-bottom: clamp(16px, 3vw, 28px);
+  }
+
+  .headline {
+    font-size: clamp(34px, 8vw, 48px);
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(12px, 3vw, 18px);
+    row-gap: clamp(28px, 6vw, 40px);
+    max-width: none;
+  }
+
+  /* Julia centered on second row — intentional editorial placement */
+  .card:nth-child(3) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(100%, 54%);
+  }
+
+  .frame {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    height: auto;
+    object-fit: cover;
+    object-position: center 12%;
+  }
+
+  .name {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+
+  .focus {
+    margin-top: 2px;
+    font-size: 13px;
+  }
+
+  .link {
+    margin-top: 6px;
+    font-size: 10px;
+  }
+}
+
+/* Tablet: three columns when comfortable */
+@media (min-width: 700px) and (max-width: 899px) {
+  .section {
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.5fr);
+    gap: clamp(20px, 3vw, 36px);
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(16px, 2vw, 24px);
+  }
+
+  .card:nth-child(3) {
+    grid-column: auto;
+    justify-self: stretch;
+    width: auto;
+  }
+
+  .photo {
+    aspect-ratio: 1;
+    object-position: center 16%;
+  }
+
+  .name {
+    font-size: 12px;
+  }
+
+  .focus {
+    font-size: 14px;
+  }
+
+  .link {
+    font-size: 10px;
+  }
+}
+
+/* Very narrow: single column only if necessary */
+@media (max-width: 359px) {
+  .grid {
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+  }
+
+  .card:nth-child(3) {
+    grid-column: auto;
+    justify-self: stretch;
+    width: auto;
+  }
+
+  .photo {
+    aspect-ratio: 4 / 5;
+  }
+}

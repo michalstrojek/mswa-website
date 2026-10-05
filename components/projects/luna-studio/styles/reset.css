@@ -1,0 +1,38 @@
+/* Scoped to match original reset cascade: element-level rules must NOT
+   outrank CSS modules. :where() keeps zero specificity like the Vite source. */
+
+.luna-studio-root,
+.luna-studio-root :where(*, *::before, *::after) {
+  box-sizing: border-box;
+}
+
+.luna-studio-root {
+  margin: 0;
+  min-height: 100svh;
+}
+
+.luna-studio-root :where(img) {
+  display: block;
+  max-width: 100%;
+}
+
+.luna-studio-root :where(button, a) {
+  font: inherit;
+}
+
+.luna-studio-root :where(button) {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.luna-studio-root :where(ul, ol) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.luna-studio-root :where(h1, h2, h3, p) {
+  margin: 0;
+}

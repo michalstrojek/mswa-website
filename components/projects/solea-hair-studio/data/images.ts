@@ -1,0 +1,28 @@
+const img = (name: string) => `/projects/solea-hair-studio/images/${name}`;
+
+export const images = {
+  heroPortrait: img("hero-portrait.jpg"),
+  heroArch: img("hero-arch.jpg"),
+  atmosphere: img("atmosphere.jpg"),
+  cut: img("service-cut.jpg"),
+  color: img("service-color.jpg"),
+  blond: img("service-blond.jpg"),
+  care: img("service-care.jpg"),
+  style: img("service-style.jpg"),
+  consult: img("service-consult.jpg"),
+  before1: img("before-1.jpg"),
+  after1: img("after-1.jpg"),
+  before2: img("before-2.jpg"),
+  after2: img("after-2.jpg"),
+  before3: img("before-3.jpg"),
+  after3: img("after-3.jpg"),
+  maja: img("team-maja.jpg"),
+  natalia: img("team-natalia.jpg"),
+  julia: img("team-julia.jpg"),
+  lena: img("team-lena.jpg"),
+  zosia: img("team-zosia.jpg"),
+  salonHero: img("salon-hero.jpg"),
+  salonDetail1: img("salon-detail-1.jpg"),
+  salonDetail2: img("salon-detail-2.jpg"),
+  ctaBg: img("cta-bg.jpg"),
+} as const;

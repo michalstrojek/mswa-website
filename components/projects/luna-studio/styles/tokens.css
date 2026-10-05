@@ -1,0 +1,37 @@
+.luna-studio-root {
+  --ivory: #f8f4ef;
+  --cream: #f2eae2;
+  --beige: #e2d5c9;
+  --taupe: #c9ae9c;
+  --blush: #c4a396;
+  --ink: #3a302c;
+  --near-black: #171412;
+
+  --font-serif: var(--font-luna-serif), "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans: var(--font-luna-sans), "Manrope", system-ui, sans-serif;
+  --font-script: var(--font-luna-script), "Great Vibes", cursive;
+
+  --header-h: 84px;
+  --max: 1480px;
+  --rule: 1px solid var(--taupe);
+  --rule-soft: 1px solid rgba(201, 174, 156, 0.45);
+
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 72px;
+  --space-page: clamp(22px, 4vw, 64px);
+
+  --track-label: 0.18em;
+  --track-nav: 0.14em;
+  --cta-h: 48px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (max-width: 899px) {
+  .luna-studio-root {
+    --header-h: 72px;
+  }
+}

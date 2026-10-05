@@ -1,0 +1,121 @@
+.footer {
+  background: var(--color-footer);
+  color: #fff;
+  padding: clamp(4.5rem, 8vw, 7rem) var(--pad-x) 1.75rem;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-logo);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: clamp(2.75rem, 5vw, 4.5rem);
+  color: var(--color-off-white);
+}
+
+.logo span:last-child {
+  letter-spacing: 0.32em;
+  opacity: 0.72;
+  font-size: 0.625rem;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(2rem, 4vw, 4rem);
+  margin-bottom: 3.5rem;
+  max-width: 54rem;
+}
+
+.label {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  font-size: 0.625rem;
+  margin-bottom: 1rem;
+  color: var(--color-off-white);
+}
+
+.columns p,
+.columns address {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  font-weight: 300;
+  color: var(--color-warm-grey);
+}
+
+.columns a:hover {
+  color: var(--color-off-white);
+}
+
+.social {
+  display: flex;
+  gap: 1.75rem;
+  margin-top: 1.35rem;
+  color: var(--color-off-white);
+}
+
+.hours {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.hours p {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.hours span {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.625rem;
+  color: rgba(243, 238, 230, 0.55);
+}
+
+.bottom {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding-top: 1.35rem;
+  border-top: 1px solid rgba(243, 238, 230, 0.14);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.5625rem;
+  color: var(--color-text-soft);
+}
+
+.bottom p:last-of-type {
+  text-align: center;
+}
+
+.bottom a {
+  text-align: right;
+}
+
+.bottom a:hover {
+  color: #fff;
+}
+
+@media (max-width: 899px) {
+  .columns {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .bottom {
+    grid-template-columns: 1fr;
+    text-align: left;
+    gap: 0.65rem;
+  }
+
+  .bottom p:last-of-type,
+  .bottom a {
+    text-align: left;
+  }
+}
