@@ -1,7 +1,7 @@
 /**
  * Contact / lead form configuration.
- * Wire delivery by setting CONTACT_FORM_WEBHOOK_URL in the environment
- * (or extend app/api/contact/route.ts with your email provider).
+ * Wire delivery by setting CONTACT_FORM_WEBHOOK_URL on Cloudflare Pages
+ * (handled by functions/api/contact.ts for the static export).
  */
 
 export const contactForm = {

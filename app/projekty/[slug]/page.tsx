@@ -11,19 +11,23 @@ type PageProps = {
 
 export function generateStaticParams() {
   // Static demo routes take precedence for live projects.
-  return projectSlugs
-    .filter(
-      (slug) =>
-        slug !== "cutline" &&
-        slug !== "black-label" &&
-        slug !== "the-barber" &&
-        slug !== "luna-studio" &&
-        slug !== "studio-barber" &&
-        slug !== "atelier" &&
-        slug !== "nova-studio" &&
-        slug !== "solea",
-    )
+  // Keep at least one param for output: "export" (empty array fails the build).
+  // "solea" uses /projekty/solea-hair-studio, so the holding page still applies.
+  const dedicated = new Set([
+    "cutline",
+    "black-label",
+    "the-barber",
+    "luna-studio",
+    "studio-barber",
+    "atelier",
+    "nova-studio",
+  ]);
+
+  const params = projectSlugs
+    .filter((slug) => !dedicated.has(slug))
     .map((slug) => ({ slug }));
+
+  return params.length > 0 ? params : [{ slug: "solea" }];
 }
 
 export async function generateMetadata({
