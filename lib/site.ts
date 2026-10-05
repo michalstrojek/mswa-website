@@ -4,7 +4,7 @@ export const site = {
   title: "MSWA — Strony internetowe dla firm",
   description:
     "Tworzymy strony internetowe dla firm od A do Z. Indywidualny projekt, pełna realizacja i publikacja — bez zbędnej techniki.",
-  email: "hello@mswa.pl",
+  email: "kontakt@mswa.pl",
   instagram: {
     handle: "@mswa.agency",
     href: "https://instagram.com/mswa.agency",
