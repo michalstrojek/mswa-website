@@ -21,6 +21,13 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: site.title,
   description: site.description,
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png?v=4", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [{ url: "/apple-icon.png?v=4", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     title: site.title,
     description: site.description,
