@@ -1,7 +1,11 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { contactForm, type ContactPayload } from "@/lib/contact";
+import {
+  TurnstileWidget,
+  type TurnstileWidgetHandle,
+} from "@/components/home/TurnstileWidget";
 
 type FieldErrors = Partial<Record<keyof ContactPayload, string>>;
 
@@ -45,9 +49,17 @@ const inputClass =
 
 export function ContactForm() {
   const formId = useId();
+  const turnstileRef = useRef<TurnstileWidgetHandle>(null);
+  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim() ?? "";
   const [values, setValues] = useState<ContactPayload>(initialValues);
+  const [honeypot, setHoneypot] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>({ type: "idle" });
+
+  function clearTurnstileToken() {
+    setTurnstileToken("");
+  }
 
   function update<K extends keyof ContactPayload>(key: K, value: ContactPayload[K]) {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -73,6 +85,16 @@ export function ContactForm() {
       return;
     }
 
+    if (!siteKey) {
+      setStatus({ type: "error", message: contactForm.errorMessage });
+      return;
+    }
+
+    if (!turnstileToken) {
+      setStatus({ type: "error", message: contactForm.errorMessage });
+      return;
+    }
+
     setStatus({ type: "submitting" });
 
     try {
@@ -85,6 +107,8 @@ export function ContactForm() {
           phone: values.phone.trim(),
           business: values.business.trim(),
           message: values.message.trim(),
+          website: honeypot,
+          turnstileToken,
         }),
       });
 
@@ -95,12 +119,19 @@ export function ContactForm() {
       if (response.ok && data?.ok) {
         setStatus({ type: "success" });
         setValues(initialValues);
+        setHoneypot("");
+        clearTurnstileToken();
+        turnstileRef.current?.reset();
         setErrors({});
         return;
       }
 
+      clearTurnstileToken();
+      turnstileRef.current?.reset();
       setStatus({ type: "error", message: contactForm.errorMessage });
     } catch {
+      clearTurnstileToken();
+      turnstileRef.current?.reset();
       setStatus({ type: "error", message: contactForm.errorMessage });
     }
   }
@@ -123,9 +154,30 @@ export function ContactForm() {
   }
 
   const { fields } = contactForm;
+  const canSubmit =
+    Boolean(siteKey) &&
+    Boolean(turnstileToken) &&
+    status.type !== "submitting";
 
   return (
-    <form className="w-full max-w-[28rem] space-y-1" onSubmit={onSubmit} noValidate>
+    <form className="relative w-full max-w-[28rem] space-y-1" onSubmit={onSubmit} noValidate>
+      {/* Honeypot — off-screen; leave empty. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-[9999px] top-auto h-px w-px overflow-hidden opacity-0"
+      >
+        <label htmlFor={`${formId}-website`}>Website</label>
+        <input
+          id={`${formId}-website`}
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={honeypot}
+          onChange={(event) => setHoneypot(event.target.value)}
+        />
+      </div>
+
       <Field id={`${formId}-name`} label={fields.name.label} required error={errors.name}>
         <input
           id={`${formId}-name`}
@@ -204,6 +256,22 @@ export function ContactForm() {
         />
       </Field>
 
+      <div className="pt-5">
+        {siteKey ? (
+          <TurnstileWidget
+            ref={turnstileRef}
+            siteKey={siteKey}
+            onToken={setTurnstileToken}
+            onExpire={clearTurnstileToken}
+            onError={clearTurnstileToken}
+          />
+        ) : (
+          <p className="text-[13px] leading-relaxed text-muted">
+            Formularz jest chwilowo niedostępny. Napisz na kontakt@mswa.pl.
+          </p>
+        )}
+      </div>
+
       {status.type === "error" ? (
         <div
           className="pt-4 text-[14px] leading-relaxed text-muted"
@@ -217,7 +285,7 @@ export function ContactForm() {
       <div className="pt-7">
         <button
           type="submit"
-          disabled={status.type === "submitting"}
+          disabled={!canSubmit}
           className="group inline-flex items-center justify-center gap-2 rounded-full bg-accent px-7 py-3 text-[12px] tracking-[0.14em] text-bg uppercase transition-colors duration-300 hover:bg-accent-soft disabled:cursor-wait disabled:opacity-70"
         >
           {status.type === "submitting" ? "Wysyłanie…" : contactForm.submitLabel}

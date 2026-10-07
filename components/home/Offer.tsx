@@ -1,6 +1,7 @@
 import { Button } from "@/components/site/Button";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionLabel } from "@/components/site/SectionLabel";
+import { SiteLink } from "@/components/site/SiteLink";
 import { careOffer, websiteOffer } from "@/lib/pricing";
 
 export function Offer() {
@@ -44,6 +45,17 @@ export function Offer() {
                   →
                 </span>
               </Button>
+            </div>
+            <div className="mt-4">
+              <SiteLink
+                href={websiteOffer.pricingHref}
+                className="group inline-flex items-center gap-2 text-[11px] tracking-[0.16em] text-muted uppercase transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-accent"
+              >
+                {websiteOffer.pricingLinkLabel}
+                <span className="arrow-shift" aria-hidden>
+                  →
+                </span>
+              </SiteLink>
             </div>
           </Reveal>
 

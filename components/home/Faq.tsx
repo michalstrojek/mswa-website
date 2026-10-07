@@ -1,13 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
+import { useState, type ReactNode } from "react";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionLabel } from "@/components/site/SectionLabel";
 
-const questions = [
+const questions: ReadonlyArray<{ q: string; a: ReactNode }> = [
   {
     q: "Ile kosztuje strona?",
-    a: "Podstawowe projekty zaczynają się od 1 490 zł. Jeśli strona wymaga większej liczby podstron, dodatkowych funkcji albo bardziej rozbudowanego zakresu, wyceniamy ją indywidualnie przed rozpoczęciem pracy.",
+    a: (
+      <>
+        Strona firmowa zaczyna się od 1 490 zł. Najczęstsze rozszerzenia mają
+        jasno określone ceny w naszym{" "}
+        <Link
+          href="/cennik"
+          className="text-text underline decoration-accent/40 underline-offset-4 transition-colors hover:text-accent"
+        >
+          cenniku
+        </Link>
+        , dzięki czemu przed rozpoczęciem projektu wiesz, za co płacisz.
+        Nietypowe lub bardziej zaawansowane funkcjonalności wyceniamy
+        indywidualnie przed rozpoczęciem prac.
+      </>
+    ),
   },
   {
     q: "Ile trwa wykonanie strony?",
@@ -23,13 +38,13 @@ const questions = [
   },
   {
     q: "Czy mogę zgłaszać poprawki?",
-    a: "Tak. Przed publikacją dostajesz stronę do wglądu i nanosimy ustalone poprawki, żeby finalna wersja była zgodna z tym, czego potrzebujesz.",
+    a: "Tak. W cenie projektu są 2 tury poprawek przed publikacją strony. Jedna tura oznacza jedną zebraną listę uwag do przedstawionej wersji. Większe zmiany zakresu, nowe podstrony lub dodatkowe funkcjonalności są traktowane jako rozszerzenie projektu.",
   },
   {
     q: "Czy po publikacji muszę płacić abonament?",
     a: "Nie. Po wykonaniu strony nie ma obowiązkowego abonamentu. Możesz korzystać ze strony samodzielnie na własnej domenie i hostingu. Jeśli chcesz, możesz dodatkowo wybrać MSWA Care za 299 zł miesięcznie — wtedy zajmujemy się hostingiem, zmianami, aktualizacjami i bieżącą obsługą strony.",
   },
-] as const;
+];
 
 export function Faq() {
   const [open, setOpen] = useState<number | null>(0);

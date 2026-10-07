@@ -24,6 +24,7 @@ export const site = {
     { href: "/#portfolio", label: "Portfolio" },
     { href: "/#proces", label: "Proces" },
     { href: "/#oferta", label: "Oferta" },
+    { href: "/cennik", label: "Cennik" },
     { href: "/#faq", label: "FAQ" },
     { href: "/#kontakt", label: "Kontakt" },
   ],

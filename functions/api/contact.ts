@@ -1,6 +1,6 @@
 /**
  * Cloudflare Pages Function — contact form → Resend.
- * Uses RESEND_API_KEY from Pages secrets (never NEXT_PUBLIC_*).
+ * Uses RESEND_API_KEY + TURNSTILE_SECRET_KEY from Pages secrets (never NEXT_PUBLIC_*).
  */
 
 type ContactPayload = {
@@ -13,17 +13,38 @@ type ContactPayload = {
 
 type Env = {
   RESEND_API_KEY?: string;
+  TURNSTILE_SECRET_KEY?: string;
+};
+
+type TurnstileSiteverifyResponse = {
+  success: boolean;
+  "error-codes"?: string[];
 };
 
 const FROM = "MSWA <kontakt@mswa.pl>";
 const TO = "kontakt@mswa.pl";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_BODY_BYTES = 20 * 1024;
+const MAX_TURNSTILE_TOKEN = 2048;
+const LIMITS = {
+  name: 100,
+  email: 254,
+  phone: 50,
+  business: 300,
+  message: 5000,
+  subjectName: 80,
+} as const;
 
 function json(data: unknown, status = 200) {
   return new Response(JSON.stringify(data), {
     status,
     headers: { "Content-Type": "application/json" },
   });
+}
+
+/** Generic client error — no technical details. */
+function badRequest() {
+  return json({ ok: false, error: "invalid_request" }, 400);
 }
 
 function escapeHtml(value: string) {
@@ -35,15 +56,45 @@ function escapeHtml(value: string) {
     .replace(/'/g, "&#39;");
 }
 
-function isValidPayload(body: unknown): body is ContactPayload {
+/** Strip CR/LF and collapse control chars so values cannot influence headers. */
+function sanitizeHeaderFragment(value: string, maxLen: number) {
+  return value
+    .replace(/[\r\n\u0000-\u001f\u007f]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, maxLen);
+}
+
+function isValidPayload(
+  body: unknown,
+): body is ContactPayload & {
+  website?: string;
+  turnstileToken?: string;
+} {
   if (!body || typeof body !== "object") return false;
   const data = body as Record<string, unknown>;
+  const websiteOk =
+    data.website === undefined || typeof data.website === "string";
+  const turnstileOk =
+    data.turnstileToken === undefined || typeof data.turnstileToken === "string";
   return (
+    websiteOk &&
+    turnstileOk &&
     typeof data.name === "string" &&
     typeof data.email === "string" &&
     typeof data.phone === "string" &&
     typeof data.business === "string" &&
     typeof data.message === "string"
+  );
+}
+
+function withinLimits(payload: ContactPayload) {
+  return (
+    payload.name.length <= LIMITS.name &&
+    payload.email.length <= LIMITS.email &&
+    payload.phone.length <= LIMITS.phone &&
+    payload.business.length <= LIMITS.business &&
+    payload.message.length <= LIMITS.message
   );
 }
 
@@ -86,6 +137,34 @@ function buildHtml(payload: ContactPayload) {
 </html>`;
 }
 
+async function verifyTurnstile(
+  secret: string,
+  token: string,
+  remoteip: string | null,
+): Promise<boolean> {
+  const body = new URLSearchParams();
+  body.set("secret", secret);
+  body.set("response", token);
+  if (remoteip) body.set("remoteip", remoteip);
+
+  const response = await fetch(
+    "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body,
+    },
+  );
+
+  if (!response.ok) {
+    console.error("[contact] Turnstile siteverify HTTP", response.status);
+    return false;
+  }
+
+  const result = (await response.json()) as TurnstileSiteverifyResponse;
+  return result.success === true;
+}
+
 export async function onRequest(context: {
   request: Request;
   env: Env;
@@ -94,16 +173,33 @@ export async function onRequest(context: {
     return json({ ok: false, error: "method_not_allowed" }, 405);
   }
 
+  const contentType = context.request.headers.get("content-type") || "";
+  if (!contentType.toLowerCase().includes("application/json")) {
+    return badRequest();
+  }
+
+  const contentLength = context.request.headers.get("content-length");
+  if (contentLength) {
+    const size = Number(contentLength);
+    if (!Number.isFinite(size) || size < 0 || size > MAX_BODY_BYTES) {
+      return badRequest();
+    }
+  }
+
   let body: unknown;
 
   try {
-    body = await context.request.json();
+    const raw = await context.request.text();
+    if (raw.length > MAX_BODY_BYTES) {
+      return badRequest();
+    }
+    body = JSON.parse(raw) as unknown;
   } catch {
-    return json({ ok: false, error: "invalid_json" }, 400);
+    return badRequest();
   }
 
   if (!isValidPayload(body)) {
-    return json({ ok: false, error: "invalid_payload" }, 400);
+    return badRequest();
   }
 
   const payload: ContactPayload = {
@@ -115,11 +211,60 @@ export async function onRequest(context: {
   };
 
   if (!payload.name || !payload.email || !payload.business || !payload.message) {
-    return json({ ok: false, error: "missing_fields" }, 400);
+    return badRequest();
+  }
+
+  if (!withinLimits(payload)) {
+    return badRequest();
   }
 
   if (!EMAIL_RE.test(payload.email)) {
-    return json({ ok: false, error: "invalid_email" }, 400);
+    return badRequest();
+  }
+
+  const replyTo = sanitizeHeaderFragment(payload.email, LIMITS.email);
+  if (!EMAIL_RE.test(replyTo)) {
+    return badRequest();
+  }
+
+  const subjectName = sanitizeHeaderFragment(payload.name, LIMITS.subjectName);
+  if (!subjectName) {
+    return badRequest();
+  }
+
+  // Honeypot: bots fill "website"; humans leave it empty.
+  if (typeof body.website === "string" && body.website.trim() !== "") {
+    return json({ ok: true });
+  }
+
+  const turnstileSecret = context.env.TURNSTILE_SECRET_KEY?.trim();
+  if (!turnstileSecret) {
+    console.error("[contact] TURNSTILE_SECRET_KEY is not configured");
+    return json({ ok: false, error: "not_configured" }, 503);
+  }
+
+  const turnstileToken =
+    typeof body.turnstileToken === "string" ? body.turnstileToken.trim() : "";
+  if (!turnstileToken || turnstileToken.length > MAX_TURNSTILE_TOKEN) {
+    return badRequest();
+  }
+
+  const remoteip = context.request.headers.get("CF-Connecting-IP");
+
+  let turnstileOk = false;
+  try {
+    turnstileOk = await verifyTurnstile(
+      turnstileSecret,
+      turnstileToken,
+      remoteip,
+    );
+  } catch (error) {
+    console.error("[contact] Turnstile siteverify failed", error);
+    return badRequest();
+  }
+
+  if (!turnstileOk) {
+    return badRequest();
   }
 
   const apiKey = context.env.RESEND_API_KEY?.trim();
@@ -139,8 +284,8 @@ export async function onRequest(context: {
       body: JSON.stringify({
         from: FROM,
         to: [TO],
-        reply_to: payload.email,
-        subject: `Nowe zapytanie ze strony MSWA — ${payload.name}`,
+        reply_to: replyTo,
+        subject: `Nowe zapytanie ze strony MSWA — ${subjectName}`,
         text: buildText(payload),
         html: buildHtml(payload),
       }),

@@ -19,18 +19,21 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mswa.pl"),
   title: site.title,
   description: site.description,
   icons: {
     icon: [
+      { url: "/favicon-mswa.png", type: "image/png", sizes: "32x32" },
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.png?v=4", type: "image/png", sizes: "32x32" },
     ],
-    apple: [{ url: "/apple-icon.png?v=4", sizes: "180x180", type: "image/png" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
     title: site.title,
     description: site.description,
+    url: "https://mswa.pl",
+    siteName: site.name,
     locale: "pl_PL",
     type: "website",
   },
