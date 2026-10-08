@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@theme {
+  --color-taupe-deep: #3a2f2a;
+  --color-taupe: #5c4a42;
+  --color-stone: #a8988c;
+  --color-ivory: #f5f0e8;
+  --color-cream: #ede6da;
+  --color-ink: #2a221e;
+  --color-ink-soft: #6b5e56;
+  --color-surface: #f7f3ec;
+
+  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Great Vibes", cursive;
+
+  --shadow-soft: 0 24px 60px -32px rgb(42 34 30 / 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-taupe) 35%, transparent);
+  color: var(--color-ink);
+}
+
+/* Fixed header (4.5rem) + ~28px breathing room — covers nav anchors */
+section[id],
+footer[id],
+#oferta {
+  scroll-margin-top: calc(4.5rem + 1.75rem);
+}
+
+.campaign-photo {
+  filter: saturate(0.92) contrast(1.03) sepia(0.06) brightness(1.01);
+  will-change: transform;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .campaign-photo-zoom {
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: scale(1);
+  }
+
+  .campaign-photo-zoom:hover {
+    transform: scale(1.035);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .campaign-photo-zoom {
+    transition: none;
+  }
+}
+
+/* Subtle BEFORE / AFTER photographic distinction */
+.before-photo {
+  filter: saturate(0.82) contrast(0.96) sepia(0.08) brightness(0.97);
+}
+
+.after-photo {
+  filter: saturate(0.96) contrast(1.05) sepia(0.04) brightness(1.03);
+}
+
+/* Elegant nav underline — grows left → right */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.35rem;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0.55;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 80;
+  border-radius: 999px;
+  background: var(--color-taupe-deep);
+  color: var(--color-ivory);
+  padding: 0.6rem 1.1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+@keyframes hero-breathe {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.02);
+  }
+}
+
+.hero-photo {
+  animation: hero-breathe 22s ease-in-out infinite alternate;
+  transform-origin: 68% 22%;
+  animation-delay: 2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo {
+    animation: none;
+  }
+}

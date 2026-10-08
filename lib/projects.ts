@@ -46,7 +46,7 @@ export const portfolioProjects: Project[] = [
     imageAlt: "SOLÉA — ciepły, elegancki kierunek beauty",
     imagePosition: "50% 28%",
     href: "/projekty/solea-hair-studio",
-    demoUrl: "",
+    demoUrl: "/demos/solea-hair-studio/",
     span: "2x2",
   }),
   project({
