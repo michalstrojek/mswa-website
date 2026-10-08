@@ -42,7 +42,7 @@ const questions: ReadonlyArray<{ q: string; a: ReactNode }> = [
   },
   {
     q: "Czy po publikacji muszę płacić abonament?",
-    a: "Nie. Po wykonaniu strony nie ma obowiązkowego abonamentu. Możesz korzystać ze strony samodzielnie na własnej domenie i hostingu. Jeśli chcesz, możesz dodatkowo wybrać MSWA Care za 299 zł miesięcznie — wtedy zajmujemy się hostingiem, zmianami, aktualizacjami i bieżącą obsługą strony.",
+    a: "Nie. Po wykonaniu strony nie ma obowiązkowego abonamentu. Możesz korzystać ze strony samodzielnie na własnej domenie i hostingu. Jeśli chcesz, możesz dodatkowo wybrać MSWA Care za 299 zł miesięcznie — obejmuje hosting strony, bieżącą opiekę techniczną, kontrolę działania oraz 2 rundy drobnych zmian w każdym miesiącu. Nowe podstrony, duże przebudowy i dodatkowe funkcje są wyceniane osobno.",
   },
 ];
 

@@ -1,23 +1,48 @@
-import type { ReactNode } from 'react'
-import { getBooksyUrl, type BarberId } from './content/site'
+"use client";
+
+import type { ReactNode } from "react";
+import {
+  isDemoExternalBookingUrl,
+  notifyDemoBooking,
+} from "@/lib/demo-booking";
+import { getBooksyUrl, type BarberId } from "./content/site";
 
 type BookLinkProps = {
-  children: ReactNode
-  className?: string
-  barberId?: BarberId
-  onClick?: () => void
-}
+  children: ReactNode;
+  className?: string;
+  barberId?: BarberId;
+  onClick?: () => void;
+};
 
-/** Opens Booksy in a new tab. Swap URLs only in content/site.ts. */
+/** Booking CTA — real Booksy when configured, otherwise demo notice. */
 export function BookLink({
   children,
-  className = '',
+  className = "",
   barberId,
   onClick,
 }: BookLinkProps) {
+  const href = getBooksyUrl(barberId);
+
+  if (isDemoExternalBookingUrl(href)) {
+    return (
+      <button
+        type="button"
+        className={className}
+        title="Demonstracyjna rezerwacja"
+        aria-haspopup="dialog"
+        onClick={() => {
+          onClick?.();
+          notifyDemoBooking();
+        }}
+      >
+        {children}
+      </button>
+    );
+  }
+
   return (
     <a
-      href={getBooksyUrl(barberId)}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       className={className}
@@ -25,5 +50,5 @@ export function BookLink({
     >
       {children}
     </a>
-  )
+  );
 }

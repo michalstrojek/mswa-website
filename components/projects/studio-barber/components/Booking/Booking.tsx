@@ -1,3 +1,5 @@
+"use client";
+
 import { booksyProps, instagramProps } from "../../config/booking";
 import { booking, cta } from "../../data/content";
 import { images } from "../../data/images";
@@ -13,12 +15,12 @@ export default function Booking() {
       <div className={styles.inner}>
         <h2 className={styles.heading}>{booking.heading}</h2>
         <p className={styles.text}>{booking.copy}</p>
-        <a className={styles.cta} {...booksyProps()}>
+        <button className={styles.cta} {...booksyProps()}>
           {cta.heroLabel}
           <span className={styles.arrow} aria-hidden="true">
             →
           </span>
-        </a>
+        </button>
 
         <ul className={styles.meta}>
           {booking.meta.map((item) => (
@@ -29,7 +31,7 @@ export default function Booking() {
           ))}
           <li>
             <span>Online</span>
-            <a {...booksyProps()}>Booksy</a>
+            <button {...booksyProps()}>Booksy</button>
             {" · "}
             <a {...instagramProps()}>Instagram</a>
           </li>

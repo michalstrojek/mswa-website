@@ -1,5 +1,6 @@
 export const BOOKING = {
-  booksyUrl: "https://booksy.com/pl-pl/",
+  /** Empty until a real salon Booksy URL is available (demo notice via Button). */
+  booksyUrl: "",
   stylists: {
     maja: null,
     natalia: null,

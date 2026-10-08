@@ -1,3 +1,9 @@
+"use client";
+
+import {
+  isDemoExternalBookingUrl,
+  notifyDemoBooking,
+} from "@/lib/demo-booking";
 import { BOOKSY_URL } from "../lib/site";
 
 type Variant = "solid" | "light" | "ghost" | "underline";
@@ -24,15 +30,36 @@ export function BookingButton({
   className?: string;
   arrow?: boolean;
 }) {
+  const classNames = `${variants[variant]} ${className}`.trim();
+  const content = (
+    <>
+      {children}
+      {arrow ? <span aria-hidden="true">→</span> : null}
+    </>
+  );
+
+  if (isDemoExternalBookingUrl(BOOKSY_URL)) {
+    return (
+      <button
+        type="button"
+        className={classNames}
+        title="Demonstracyjna rezerwacja"
+        aria-haspopup="dialog"
+        onClick={notifyDemoBooking}
+      >
+        {content}
+      </button>
+    );
+  }
+
   return (
     <a
       href={BOOKSY_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${variants[variant]} ${className}`}
+      className={classNames}
     >
-      {children}
-      {arrow ? <span aria-hidden="true">→</span> : null}
+      {content}
     </a>
   );
 }

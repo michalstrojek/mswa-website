@@ -1,10 +1,16 @@
 "use client";
 
+import {
+  isDemoExternalBookingUrl,
+  notifyDemoBooking,
+} from "@/lib/demo-booking";
+import { BOOKSY_URL, services } from "../lib/site";
 import { Reveal } from "./Reveal";
 import { Label } from "./ui";
-import { BOOKSY_URL, services } from "../lib/site";
 
 export function Services() {
+  const demoBooking = isDemoExternalBookingUrl(BOOKSY_URL);
+
   return (
     <section
       id="uslugi"
@@ -32,14 +38,10 @@ export function Services() {
         </div>
 
         <div className="min-w-0 grid grid-cols-1 gap-x-10 gap-y-0 sm:grid-cols-2 lg:gap-x-12">
-          {services.map((item, i) => (
-            <Reveal key={item.n} variant="up-sm" delay={120 + i * 85}>
-              <a
-                href={BOOKSY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`group btn-arrow flex gap-4 py-6 ${i < 2 ? "border-b border-line" : ""}`}
-              >
+          {services.map((item, i) => {
+            const className = `group btn-arrow flex w-full gap-4 py-6 text-left ${i < 2 ? "border-b border-line" : ""}`;
+            const body = (
+              <>
                 <span className="font-display text-sm tracking-widest text-muted">
                   {item.n}
                 </span>
@@ -56,9 +58,34 @@ export function Services() {
                     {item.text}
                   </span>
                 </span>
-              </a>
-            </Reveal>
-          ))}
+              </>
+            );
+
+            return (
+              <Reveal key={item.n} variant="up-sm" delay={120 + i * 85}>
+                {demoBooking ? (
+                  <button
+                    type="button"
+                    className={className}
+                    title="Demonstracyjna rezerwacja"
+                    aria-haspopup="dialog"
+                    onClick={notifyDemoBooking}
+                  >
+                    {body}
+                  </button>
+                ) : (
+                  <a
+                    href={BOOKSY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={className}
+                  >
+                    {body}
+                  </a>
+                )}
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

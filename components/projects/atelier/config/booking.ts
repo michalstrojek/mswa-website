@@ -1,11 +1,12 @@
 export const booking = {
-  main: "https://booksy.com/pl-pl/atelier-barbershop",
+  /** Empty = demo notice via Cta (no invented Booksy salon). */
+  main: "",
   instagram: "https://instagram.com/atelierbarbershop",
   barbers: {
-    kuba: "https://booksy.com/pl-pl/atelier-barbershop/kuba",
-    michal: "https://booksy.com/pl-pl/atelier-barbershop/michal",
-    oskar: "https://booksy.com/pl-pl/atelier-barbershop/oskar",
-    mateusz: "https://booksy.com/pl-pl/atelier-barbershop/mateusz",
+    kuba: "",
+    michal: "",
+    oskar: "",
+    mateusz: "",
   },
 } as const;
 

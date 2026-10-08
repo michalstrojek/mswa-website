@@ -1,3 +1,5 @@
+"use client";
+
 import { booksyProps, instagramProps } from "../../config/booking";
 import { footer } from "../../data/content";
 import styles from "./Footer.module.css";
@@ -13,9 +15,13 @@ export default function Footer() {
             {footer.links.map((link) => {
               if ("booksy" in link) {
                 return (
-                  <a key={link.label} className={styles.link} {...booksyProps()}>
+                  <button
+                    key={link.label}
+                    className={styles.link}
+                    {...booksyProps()}
+                  >
                     {link.label}
-                  </a>
+                  </button>
                 );
               }
 

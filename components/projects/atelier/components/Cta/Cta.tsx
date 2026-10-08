@@ -1,3 +1,9 @@
+"use client";
+
+import {
+  isDemoExternalBookingUrl,
+  notifyDemoBooking,
+} from "@/lib/demo-booking";
 import styles from "./Cta.module.css";
 
 type CtaProps = {
@@ -12,17 +18,9 @@ function isExternal(href: string) {
 }
 
 export function Cta({ href, children, variant = "solid", onClick }: CtaProps) {
-  const external = isExternal(href);
-
-  return (
-    <a
-      href={href}
-      className={`${styles.cta} ${styles[variant]}`}
-      onClick={onClick}
-      {...(external
-        ? { target: "_blank", rel: "noopener noreferrer" }
-        : {})}
-    >
+  const className = `${styles.cta} ${styles[variant]}`;
+  const label = (
+    <>
       <span className={styles.label}>{children}</span>
       <span className={styles.arrow} aria-hidden="true">
         <svg viewBox="0 0 18 10" fill="none" aria-hidden="true">
@@ -33,6 +31,38 @@ export function Cta({ href, children, variant = "solid", onClick }: CtaProps) {
           />
         </svg>
       </span>
+    </>
+  );
+
+  if (isDemoExternalBookingUrl(href)) {
+    return (
+      <button
+        type="button"
+        className={className}
+        title="Demonstracyjna rezerwacja"
+        aria-haspopup="dialog"
+        onClick={() => {
+          onClick?.();
+          notifyDemoBooking();
+        }}
+      >
+        {label}
+      </button>
+    );
+  }
+
+  const external = isExternal(href);
+
+  return (
+    <a
+      href={href}
+      className={className}
+      onClick={onClick}
+      {...(external
+        ? { target: "_blank", rel: "noopener noreferrer" }
+        : {})}
+    >
+      {label}
     </a>
   );
 }

@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { notifyDemoBooking } from "@/lib/demo-booking";
 import { useReveal } from "./useReveal";
 
 const IMG = "/projects/the-barber/images";
-
-/** Placeholder Booksy destination — non-destructive until a real shop URL is set. */
-const BOOKSY = "https://booksy.com/pl-pl/";
 
 const services = [
   {
@@ -157,17 +155,18 @@ export function TheBarberPage() {
               Kontakt
             </a>
           </div>
-          <a
-            href={BOOKSY}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-none bg-gold px-4 py-3 text-[11px] font-bold uppercase tracking-[0.18em] text-gold-foreground transition-transform hover:-translate-y-0.5 sm:px-6 sm:text-xs"
+          <button
+            type="button"
+            title="Demonstracyjna rezerwacja"
+            aria-haspopup="dialog"
+            onClick={notifyDemoBooking}
+            className="cursor-pointer rounded-none bg-gold px-4 py-3 text-[11px] font-bold uppercase tracking-[0.18em] text-gold-foreground transition-transform hover:-translate-y-0.5 sm:px-6 sm:text-xs"
           >
             Zarezerwuj Fotel
             <span className="cta-arrow" aria-hidden="true">
               →
             </span>
-          </a>
+          </button>
         </nav>
       </header>
 
@@ -203,17 +202,18 @@ export function TheBarberPage() {
                 Precyzja brzytwy, rytuał fotela, charakter na całe tygodnie.
               </p>
               <div className="reveal mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
-                <a
-                  href={BOOKSY}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-none bg-gold px-6 py-4 text-center text-[12px] font-bold uppercase tracking-[0.18em] text-gold-foreground transition-transform hover:-translate-y-0.5 sm:px-8 sm:py-5 sm:text-sm sm:tracking-[0.2em]"
+                <button
+                  type="button"
+                  title="Demonstracyjna rezerwacja"
+                  aria-haspopup="dialog"
+                  onClick={notifyDemoBooking}
+                  className="cursor-pointer rounded-none bg-gold px-6 py-4 text-center text-[12px] font-bold uppercase tracking-[0.18em] text-gold-foreground transition-transform hover:-translate-y-0.5 sm:px-8 sm:py-5 sm:text-sm sm:tracking-[0.2em]"
                 >
                   Umów wizytę przez Booksy
                   <span className="cta-arrow" aria-hidden="true">
                     →
                   </span>
-                </a>
+                </button>
                 <a
                   href="#uslugi"
                   className="rounded-none border border-border px-6 py-4 text-center text-[12px] font-bold uppercase tracking-[0.18em] text-foreground transition-colors hover:border-gold hover:text-gold sm:px-8 sm:py-5 sm:text-sm sm:tracking-[0.2em]"
@@ -433,17 +433,18 @@ export function TheBarberPage() {
               Wybierz barbera, godzinę i przyjdź.
             </p>
 
-            <a
-              href={BOOKSY}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="reveal mt-12 inline-block rounded-none bg-gold px-10 py-5 text-[12px] font-bold uppercase tracking-[0.22em] text-gold-foreground transition-transform hover:-translate-y-0.5 sm:mt-14 sm:px-12 sm:py-6 sm:text-sm sm:tracking-[0.25em]"
+            <button
+              type="button"
+              title="Demonstracyjna rezerwacja"
+              aria-haspopup="dialog"
+              onClick={notifyDemoBooking}
+              className="reveal mt-12 inline-block cursor-pointer rounded-none bg-gold px-10 py-5 text-[12px] font-bold uppercase tracking-[0.22em] text-gold-foreground transition-transform hover:-translate-y-0.5 sm:mt-14 sm:px-12 sm:py-6 sm:text-sm sm:tracking-[0.25em]"
             >
               Rezerwuję przez Booksy
               <span className="cta-arrow" aria-hidden="true">
                 →
               </span>
-            </a>
+            </button>
 
             <div className="reveal mt-20 grid gap-8 border-t border-white/8 pt-12 text-left text-sm sm:mt-24 sm:grid-cols-3 sm:gap-10">
               <div>

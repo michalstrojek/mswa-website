@@ -1,3 +1,5 @@
+"use client";
+
 import { bookingLinks, booksyProps } from "../../config/booking";
 import { footer } from "../../data/content";
 import styles from "./Footer.module.css";
@@ -24,9 +26,13 @@ export default function Footer() {
         <div className={styles.social}>
           {footer.links.map((link) =>
             link.kind === "booksy" ? (
-              <a key={link.label} className={styles.link} {...booksyProps()}>
+              <button
+                key={link.label}
+                className={styles.link}
+                {...booksyProps()}
+              >
                 {link.label}
-              </a>
+              </button>
             ) : (
               <a
                 key={link.label}

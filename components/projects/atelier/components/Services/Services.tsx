@@ -1,5 +1,8 @@
-import { Cta } from "../Cta/Cta";
+"use client";
+
+import { notifyDemoBooking } from "@/lib/demo-booking";
 import { booking } from "../../config/booking";
+import { Cta } from "../Cta/Cta";
 import styles from "./Services.module.css";
 
 const services = [
@@ -32,12 +35,13 @@ export function Services() {
 
       <div className={styles.list}>
         {services.map((service) => (
-          <a
+          <button
             key={service.name}
+            type="button"
             className={styles.row}
-            href={booking.main}
-            target="_blank"
-            rel="noopener noreferrer"
+            title="Demonstracyjna rezerwacja"
+            aria-haspopup="dialog"
+            onClick={notifyDemoBooking}
           >
             <span className={styles.info}>
               <span className={styles.name}>{service.name}</span>
@@ -55,7 +59,7 @@ export function Services() {
                 </svg>
               </span>
             </span>
-          </a>
+          </button>
         ))}
         <div className={styles.more}>
           <Cta href={booking.main} variant="ghost">

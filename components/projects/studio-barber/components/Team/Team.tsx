@@ -1,4 +1,6 @@
-import { bookingLinks, booksyProps } from "../../config/booking";
+"use client";
+
+import { booksyProps } from "../../config/booking";
 import { team } from "../../data/content";
 import { images } from "../../data/images";
 import styles from "./Team.module.css";
@@ -27,15 +29,12 @@ export default function Team() {
             <div className={styles.meta}>
               <p className={styles.name}>{person.name}</p>
               <p className={styles.focus}>{person.focus}</p>
-              <a
-                className={styles.link}
-                {...booksyProps(bookingLinks[person.bookingId])}
-              >
+              <button className={styles.link} {...booksyProps()}>
                 {team.book}
                 <span className={styles.arrow} aria-hidden="true">
                   →
                 </span>
-              </a>
+              </button>
             </div>
           </li>
         ))}

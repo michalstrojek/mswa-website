@@ -1,16 +1,6 @@
 import { SiteLink } from "@/components/site/SiteLink";
 import { site } from "@/lib/site";
 
-function InstagramIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden>
-      <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" strokeWidth="1.4" />
-      <circle cx="12" cy="12" r="3.6" stroke="currentColor" strokeWidth="1.4" />
-      <circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" />
-    </svg>
-  );
-}
-
 function FacebookIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden>
@@ -58,15 +48,6 @@ export function Footer() {
             </a>
           </p>
           <div className="flex items-center gap-5 text-muted lg:justify-end">
-            <a
-              href={site.instagram.href}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`Instagram ${site.instagram.handle}`}
-              className="transition-colors hover:text-accent"
-            >
-              <InstagramIcon />
-            </a>
             <a
               href={site.facebook.href}
               target="_blank"

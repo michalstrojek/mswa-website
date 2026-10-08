@@ -25,12 +25,12 @@ export default function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <a className={styles.cta} {...booksyProps()}>
+          <button className={styles.cta} {...booksyProps()}>
             {cta.label}
             <span className={styles.arrow} aria-hidden="true">
               →
             </span>
-          </a>
+          </button>
           <button
             className={styles.menuBtn}
             type="button"
@@ -57,14 +57,13 @@ export default function Header() {
               {item.label}
             </a>
           ))}
-          <a
+          <button
             className={styles.mobileCta}
-            {...booksyProps()}
-            onClick={() => setOpen(false)}
+            {...booksyProps(() => setOpen(false))}
           >
             {cta.label}
             <span aria-hidden="true"> →</span>
-          </a>
+          </button>
         </div>
       ) : null}
     </header>

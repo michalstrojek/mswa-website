@@ -121,7 +121,7 @@
                   <li><a class="nav-link" href="#galeria">Galeria</a></li>
                   <li><a class="nav-link" href="#kontakt">Kontakt</a></li>
                 </ul>
-                <a class="btn-nav hidden lg:inline-flex shrink-0" href="https://booksy.com" target="_blank" rel="noopener noreferrer">
+                <a class="btn-nav hidden lg:inline-flex shrink-0" role="button" tabindex="0" data-demo-booking title="Demonstracyjna rezerwacja" aria-haspopup="dialog">
                   Umów wizytę
                   <svg class="icon h-[13px] w-[13px]" aria-hidden="true"><use href="#i-calendar" /></svg>
                 </a>
@@ -147,7 +147,7 @@
               <li><a class="mobile-link" href="#galeria">Galeria</a></li>
               <li><a class="mobile-link" href="#kontakt">Kontakt</a></li>
               <li class="py-4">
-                <a class="btn-primary w-full" href="https://booksy.com" target="_blank" rel="noopener noreferrer">
+                <a class="btn-primary w-full" role="button" tabindex="0" data-demo-booking title="Demonstracyjna rezerwacja" aria-haspopup="dialog">
                   Umów wizytę
                   <svg class="icon h-[14px] w-[14px]" aria-hidden="true"><use href="#i-calendar" /></svg>
                 </a>
@@ -170,7 +170,7 @@
           <p class="hero-tagline mt-6 lg:mt-7 max-w-[20rem] sm:max-w-xl font-serif italic leading-relaxed">
             Zdrowe paznokcie. Ponadczasowy styl. Lepsza wersja Ciebie.
           </p>
-          <a class="btn-primary mt-8 lg:mt-9" href="https://booksy.com" target="_blank" rel="noopener noreferrer">
+          <a class="btn-primary mt-8 lg:mt-9" role="button" tabindex="0" data-demo-booking title="Demonstracyjna rezerwacja" aria-haspopup="dialog">
             Umów wizytę
             <svg class="icon h-[15px] w-[15px]" aria-hidden="true"><use href="#i-arrow" /></svg>
           </a>
@@ -407,7 +407,7 @@
           <div class="container-page">
             <div class="sec-head flex items-end justify-between gap-4 mb-8 lg:mb-10">
               <h2 class="section-label">Galeria</h2>
-              <a class="text-link" href="https://booksy.com" target="_blank" rel="noopener noreferrer">
+              <a class="text-link" role="button" tabindex="0" data-demo-booking title="Demonstracyjna rezerwacja" aria-haspopup="dialog">
                 Zobacz więcej
                 <svg class="icon h-[12px] w-[12px]" aria-hidden="true"><use href="#i-arrow" /></svg>
               </a>
@@ -566,7 +566,7 @@
             <p class="cta-sub mt-5 text-[14px] lg:text-[15px] leading-relaxed text-brown-soft max-w-md mx-auto">
               Umów wizytę i pozwól nam stworzyć stylizację dopasowaną do Ciebie.
             </p>
-            <a class="btn-primary mt-9 lg:mt-10" href="https://booksy.com" target="_blank" rel="noopener noreferrer">
+            <a class="btn-primary mt-9 lg:mt-10" role="button" tabindex="0" data-demo-booking title="Demonstracyjna rezerwacja" aria-haspopup="dialog">
               Umów wizytę
               <svg class="icon h-[15px] w-[15px]" aria-hidden="true"><use href="#i-arrow" /></svg>
             </a>
@@ -615,5 +615,63 @@
         </footer>
     </main>
 
-  </body>
+<script>
+(function () {
+  var msg = "To demonstracyjna rezerwacja. W prawdziwym projekcie ten przycisk prowadziłby do systemu rezerwacji salonu (np. Booksy).";
+  function toast() {
+    var id = "mswa-demo-booking-toast";
+    var n = document.getElementById(id);
+    if (!n) {
+      n = document.createElement("div");
+      n.id = id;
+      n.setAttribute("role", "status");
+      n.setAttribute("aria-live", "polite");
+      Object.assign(n.style, {
+        position: "fixed",
+        left: "50%",
+        bottom: "1.5rem",
+        transform: "translateX(-50%)",
+        zIndex: "2147483646",
+        maxWidth: "min(24rem, calc(100vw - 2rem))",
+        padding: "0.85rem 1.1rem",
+        background: "rgba(17, 17, 17, 0.94)",
+        color: "#f4f4f4",
+        fontFamily: "system-ui, -apple-system, sans-serif",
+        fontSize: "13px",
+        lineHeight: "1.45",
+        borderRadius: "10px",
+        boxShadow: "0 12px 40px rgba(0,0,0,0.35)",
+        pointerEvents: "none",
+      });
+      document.body.appendChild(n);
+    }
+    n.textContent = msg;
+    n.style.display = "block";
+    clearTimeout(n._t);
+    n._t = setTimeout(function () { n.style.display = "none"; }, 4800);
+  }
+  document.querySelectorAll('[data-demo-booking]').forEach(function (el) {
+    el.removeAttribute("href");
+    el.removeAttribute("target");
+    el.removeAttribute("rel");
+    el.setAttribute("role", "button");
+    el.setAttribute("tabindex", "0");
+    el.setAttribute("title", "Demonstracyjna rezerwacja");
+    el.setAttribute("aria-haspopup", "dialog");
+    el.style.cursor = "pointer";
+    el.addEventListener("click", function (ev) {
+      ev.preventDefault();
+      toast();
+    });
+    el.addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter" || ev.key === " ") {
+        ev.preventDefault();
+        toast();
+      }
+    });
+  });
+})();
+</script>
+
+</body>
 </html>

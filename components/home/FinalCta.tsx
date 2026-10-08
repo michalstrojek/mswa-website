@@ -33,23 +33,13 @@ export function FinalCta() {
                 ))}
               </ul>
 
-              <div className="mt-8 space-y-2 border-t border-line pt-7 text-[13px] text-muted sm:mt-10 sm:pt-8">
+              <div className="mt-8 border-t border-line pt-7 text-[13px] text-muted sm:mt-10 sm:pt-8">
                 <p>
                   <a
                     href={`mailto:${site.email}`}
                     className="transition-colors hover:text-accent"
                   >
                     {site.email}
-                  </a>
-                </p>
-                <p>
-                  <a
-                    href={site.instagram.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="transition-colors hover:text-accent"
-                  >
-                    Instagram {site.instagram.handle}
                   </a>
                 </p>
               </div>

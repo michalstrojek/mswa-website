@@ -1,4 +1,10 @@
+"use client";
+
 import type { ButtonHTMLAttributes, ReactNode } from "react";
+import {
+  isDemoExternalBookingUrl,
+  notifyDemoBooking,
+} from "@/lib/demo-booking";
 
 type Variant = "primary" | "light" | "ghost" | "text";
 
@@ -26,9 +32,28 @@ export function Button({
   external,
   children,
   className = "",
+  onClick,
   ...props
 }: ButtonProps) {
   const cls = `${styles[variant]} ${className}`.trim();
+
+  if (href && isDemoExternalBookingUrl(href)) {
+    return (
+      <button
+        type="button"
+        className={cls}
+        title="Demonstracyjna rezerwacja"
+        aria-haspopup="dialog"
+        onClick={(event) => {
+          onClick?.(event);
+          notifyDemoBooking();
+        }}
+        {...props}
+      >
+        {children}
+      </button>
+    );
+  }
 
   if (href) {
     return (
@@ -45,7 +70,7 @@ export function Button({
   }
 
   return (
-    <button type="button" className={cls} {...props}>
+    <button type="button" className={cls} onClick={onClick} {...props}>
       {children}
     </button>
   );

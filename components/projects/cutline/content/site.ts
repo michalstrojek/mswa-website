@@ -1,18 +1,20 @@
 export const booksy = {
-  /** General shop booking — used by all global “Umów wizytę” CTAs */
-  general: 'https://booksy.com/PLACEHOLDER-CUTLINE',
-  /** Per-barber deep links. Set useBarberDeepLinks to false to fall back to general. */
+  /**
+   * Real salon Booksy URLs — empty while this is a conceptual demo.
+   * BookLink shows a demo notice instead of opening a fake URL.
+   */
+  general: '',
   barbers: {
-    michal: 'https://booksy.com/PLACEHOLDER-MICHAL',
-    adam: 'https://booksy.com/PLACEHOLDER-ADAM',
-    kuba: 'https://booksy.com/PLACEHOLDER-KUBA',
+    michal: '',
+    adam: '',
+    kuba: '',
   },
   useBarberDeepLinks: true,
 } as const
 
 export type BarberId = keyof typeof booksy.barbers
 
-/** Resolve a Booksy URL from one place — swap placeholders later here only. */
+/** Resolve a Booksy URL from one place — set real profiles here when available. */
 export function getBooksyUrl(barberId?: BarberId): string {
   if (!barberId || !booksy.useBarberDeepLinks) return booksy.general
   return booksy.barbers[barberId]

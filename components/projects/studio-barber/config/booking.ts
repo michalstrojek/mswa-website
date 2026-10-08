@@ -1,4 +1,7 @@
-export const BOOKSY_URL = "https://booksy.com/en-pl/";
+import { notifyDemoBooking } from "@/lib/demo-booking";
+
+/** Empty = demo notice (no invented Booksy profile). */
+export const BOOKSY_URL = "";
 
 export const INSTAGRAM_URL = "https://www.instagram.com/";
 
@@ -19,8 +22,17 @@ export function externalLinkProps(href: string) {
   };
 }
 
-export function booksyProps(href: string = bookingLinks.general) {
-  return externalLinkProps(href);
+/** Props for demo booking `<button>` CTAs. */
+export function booksyProps(onAfterClick?: () => void) {
+  return {
+    type: "button" as const,
+    title: "Demonstracyjna rezerwacja",
+    "aria-haspopup": "dialog" as const,
+    onClick: () => {
+      onAfterClick?.();
+      notifyDemoBooking();
+    },
+  };
 }
 
 export function instagramProps() {

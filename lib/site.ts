@@ -5,12 +5,8 @@ export const site = {
   description:
     "Tworzymy strony internetowe dla firm od A do Z. Indywidualny projekt, pełna realizacja i publikacja — bez zbędnej techniki.",
   email: "kontakt@mswa.pl",
-  instagram: {
-    handle: "@mswa.agency",
-    href: "https://instagram.com/mswa.agency",
-  },
   facebook: {
-    href: "https://facebook.com/mswa.agency",
+    href: "https://www.facebook.com/profile.php?id=61594893581893",
   },
   nav: [
     { href: "/#portfolio", label: "Portfolio" },

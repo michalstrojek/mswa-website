@@ -1,3 +1,5 @@
+"use client";
+
 import { booksyProps } from "../../config/booking";
 import { services } from "../../data/content";
 import { images } from "../../data/images";
@@ -37,12 +39,12 @@ export default function Services() {
             ))}
           </ul>
 
-          <a className={styles.more} {...booksyProps()}>
+          <button className={styles.more} {...booksyProps()}>
             {services.more}
             <span className={styles.arrow} aria-hidden="true">
               →
             </span>
-          </a>
+          </button>
         </div>
       </div>
     </section>

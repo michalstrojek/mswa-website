@@ -1,4 +1,5 @@
-export const BOOKSY_URL = "https://booksy.com/pl-pl/";
+/** Empty = demo notice (no invented salon Booksy profile). */
+export const BOOKSY_URL = "";
 
 const img = (name: string) => `/projects/nova-studio/images/${name}`;
 

@@ -1,8 +1,11 @@
+import { notifyDemoBooking } from "@/lib/demo-booking";
+
 export const bookingLinks = {
-  general: "https://booksy.com/pl-pl/",
-  maja: "https://booksy.com/pl-pl/",
-  ola: "https://booksy.com/pl-pl/",
-  julia: "https://booksy.com/pl-pl/",
+  /** Empty = demo notice (no invented Booksy profile). */
+  general: "",
+  maja: "",
+  ola: "",
+  julia: "",
   instagram: "https://instagram.com/lunastudio.waw",
 } as const;
 
@@ -11,10 +14,15 @@ export type StylistId = keyof Omit<
   "general" | "instagram"
 >;
 
-export function booksyProps(href: string = bookingLinks.general) {
+/** Props for demo booking `<button>` CTAs (same look as former Booksy links). */
+export function booksyProps(onAfterClick?: () => void) {
   return {
-    href,
-    target: "_blank" as const,
-    rel: "noopener noreferrer" as const,
+    type: "button" as const,
+    title: "Demonstracyjna rezerwacja",
+    "aria-haspopup": "dialog" as const,
+    onClick: () => {
+      onAfterClick?.();
+      notifyDemoBooking();
+    },
   };
 }

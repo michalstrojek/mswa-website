@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useRef, useState } from "react";
+import Link from "next/link";
 import { contactForm, type ContactPayload } from "@/lib/contact";
 import {
   TurnstileWidget,
@@ -283,6 +284,21 @@ export function ContactForm() {
       ) : null}
 
       <div className="pt-7">
+        <p className="mb-5 max-w-[28rem] text-[12px] leading-relaxed text-muted/90">
+          Administratorem Twoich danych jest Michał Strojek (MSWA). Dane z
+          formularza wykorzystujemy do obsługi zapytania i kontaktu w sprawie
+          oferty, na podstawie art. 6 ust. 1 lit. b lub f RODO, zależnie od
+          charakteru zapytania. W tym celu korzystamy z usług Cloudflare, Resend
+          i Google. Szczegółowe informacje o przetwarzaniu danych i
+          przysługujących Ci prawach znajdziesz w{" "}
+          <Link
+            href="/polityka-prywatnosci"
+            className="text-text underline decoration-accent/40 underline-offset-2 transition-colors hover:text-accent"
+          >
+            Polityce prywatności
+          </Link>
+          .
+        </p>
         <button
           type="submit"
           disabled={!canSubmit}

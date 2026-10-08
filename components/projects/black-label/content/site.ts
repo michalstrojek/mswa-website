@@ -7,11 +7,11 @@ export const site = {
     "Luksusowy barber shop dla mężczyzn. Klasyczne cięcie, precyzyjna broda i spokojna atmosfera — bez pośpiechu, bez przypadkowych gestów.",
   bookLabel: "Umów wizytę",
   /**
-   * Link Booksy do salonu.
-   * Podmień na właściwy URL, np.:
+   * Realny URL Booksy salonu — gdy pusty, BookLink pokazuje komunikat demo.
+   * Podmień na właściwy profil, np.:
    * https://booksy.com/pl-pl/XXXXX_black-label_...
    */
-  booksyUrl: "https://booksy.com/pl-pl/",
+  booksyUrl: "",
   homeHref: "/projekty/black-label",
   ofertaHref: "/projekty/black-label/oferta",
   galeriaHref: "/projekty/black-label/galeria",

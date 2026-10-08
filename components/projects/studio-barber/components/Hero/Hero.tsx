@@ -1,3 +1,5 @@
+"use client";
+
 import { booksyProps } from "../../config/booking";
 import { cta, hero } from "../../data/content";
 import { images } from "../../data/images";
@@ -29,12 +31,12 @@ export default function Hero() {
           <p className={styles.support}>{hero.support}</p>
 
           <div className={styles.actions}>
-            <a className={styles.primary} {...booksyProps()}>
+            <button className={styles.primary} {...booksyProps()}>
               {cta.heroLabel}
               <span className={styles.arrow} aria-hidden="true">
                 →
               </span>
-            </a>
+            </button>
             <a className={styles.secondary} href="#salon">
               {cta.secondary}
             </a>
