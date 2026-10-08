@@ -64,7 +64,24 @@ function chunkProjects(projects: Project[], size: number) {
   return pages;
 }
 
-function ProjectTile({ project }: { project: Project }) {
+/**
+ * Hero intro finishes ~3s; native loading="lazy" still prefetches these tiles early.
+ * Gate network until intro ends, or the user scrolls the section near the viewport
+ * (IntersectionObserver alone would fire immediately — portfolio sits just under a
+ * full-viewport Hero).
+ */
+const HERO_INTRO_MS = 3200;
+/** Prefetch when portfolio top is within this many px below the viewport. */
+const PORTFOLIO_APPROACH_PX = 500;
+const MEDIA_SAFETY_MS = 8000;
+
+function ProjectTile({
+  project,
+  allowLoad,
+}: {
+  project: Project;
+  allowLoad: boolean;
+}) {
   const href = getProjectHref(project);
   const linked = hasProjectLink(project);
   const external = isExternalDemo(project);
@@ -72,14 +89,31 @@ function ProjectTile({ project }: { project: Project }) {
   const inner = (
     <>
       <div className="relative aspect-[4/5] w-full overflow-hidden bg-elevated">
-        <Image
-          src={project.image}
-          alt={project.imageAlt}
-          fill
-          className="object-cover transition-[transform,filter] duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.025] group-hover:brightness-[1.04]"
-          style={{ objectPosition: project.imagePosition }}
-          sizes="(min-width: 1024px) 22vw, (min-width: 768px) 33vw, 50vw"
-        />
+        {allowLoad ? (
+          <Image
+            src={project.image}
+            alt={project.imageAlt}
+            fill
+            loading="lazy"
+            fetchPriority="low"
+            decoding="async"
+            className="object-cover transition-[transform,filter] duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.025] group-hover:brightness-[1.04]"
+            style={{ objectPosition: project.imagePosition }}
+            sizes="(min-width: 1024px) 22vw, (min-width: 768px) 33vw, 50vw"
+          />
+        ) : (
+          <div className="absolute inset-0 bg-elevated" aria-hidden />
+        )}
+        {/* No-JS / hard-failure fallback — keeps images available without the gate */}
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={project.image}
+            alt={project.imageAlt}
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ objectPosition: project.imagePosition }}
+          />
+        </noscript>
         <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-bg/25 to-transparent opacity-80 transition-opacity duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-90" />
         <div className="absolute inset-x-0 bottom-0 p-3 sm:p-5">
           <p className="text-[8px] tracking-[0.2em] text-accent uppercase sm:text-[9px] sm:tracking-[0.22em]">
@@ -225,9 +259,11 @@ function useTileReveal(containerRef: RefObject<HTMLElement | null>) {
 }
 
 export function Portfolio() {
+  const sectionRef = useRef<HTMLElement>(null);
   const desktopGridRef = useRef<HTMLDivElement>(null);
   const mobileTrackRef = useRef<HTMLDivElement>(null);
   const [page, setPage] = useState(0);
+  const [allowLoad, setAllowLoad] = useState(false);
 
   const pages = useMemo(
     () => chunkProjects(portfolioProjects, MOBILE_PAGE_SIZE),
@@ -236,6 +272,36 @@ export function Portfolio() {
   const pageCount = pages.length;
 
   useTileReveal(desktopGridRef);
+
+  // Defer portfolio image network until Hero intro ends or user scrolls near it.
+  useEffect(() => {
+    let enabled = false;
+    const enable = () => {
+      if (enabled) return;
+      enabled = true;
+      setAllowLoad(true);
+    };
+
+    const nearPortfolio = () => {
+      const section = sectionRef.current;
+      if (!section) return;
+      const top = section.getBoundingClientRect().top;
+      if (top < window.innerHeight + PORTFOLIO_APPROACH_PX) enable();
+    };
+
+    const introTimer = window.setTimeout(enable, HERO_INTRO_MS);
+    const safetyTimer = window.setTimeout(enable, MEDIA_SAFETY_MS);
+
+    window.addEventListener("scroll", nearPortfolio, { passive: true });
+    window.addEventListener("resize", nearPortfolio, { passive: true });
+
+    return () => {
+      window.clearTimeout(introTimer);
+      window.clearTimeout(safetyTimer);
+      window.removeEventListener("scroll", nearPortfolio);
+      window.removeEventListener("resize", nearPortfolio);
+    };
+  }, []);
 
   // Mobile: reveal tiles when the carousel enters view / page changes.
   useEffect(() => {
@@ -277,7 +343,11 @@ export function Portfolio() {
   const goNext = () => setPage((p) => Math.min(pageCount - 1, p + 1));
 
   return (
-    <section id="portfolio" className="site-pad scroll-mt-24 md:px-10 lg:px-16">
+    <section
+      ref={sectionRef}
+      id="portfolio"
+      className="site-pad scroll-mt-24 md:px-10 lg:px-16"
+    >
       <div className="site-shell site-section-y border-t border-line md:pt-20 md:pb-20 lg:pt-24 lg:pb-24">
         <Reveal>
           <div className="max-w-2xl">
@@ -315,7 +385,12 @@ export function Portfolio() {
                       data-portfolio-tile
                       className={`w-full will-change-transform ${mobileScatter[index] ?? ""}`}
                     >
-                      <ProjectTile project={project} />
+                      <ProjectTile
+                        project={project}
+                        allowLoad={
+                          allowLoad && Math.abs(pageIndex - page) <= 1
+                        }
+                      />
                     </div>
                   ))}
                 </div>
@@ -381,7 +456,7 @@ export function Portfolio() {
               data-portfolio-tile
               className={`w-full will-change-transform ${desktopScatter[index] ?? ""}`}
             >
-              <ProjectTile project={project} />
+              <ProjectTile project={project} allowLoad={allowLoad} />
             </div>
           ))}
         </div>
