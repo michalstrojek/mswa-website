@@ -58,7 +58,7 @@ export const portfolioProjects: Project[] = [
     imageAlt: "NOVA STUDIO — nowoczesny, editorial beauty",
     imagePosition: "50% 18%",
     href: "/projekty/nova-studio",
-    demoUrl: "",
+    demoUrl: "/demos/nova-studio/",
     span: "1x1",
   }),
   project({
@@ -70,7 +70,7 @@ export const portfolioProjects: Project[] = [
     imageAlt: "ATELIER BARBERSHOP — elegancki, precyzyjny kierunek",
     imagePosition: "55% 45%",
     href: "/projekty/atelier",
-    demoUrl: "",
+    demoUrl: "/demos/atelier/",
     span: "1x1",
   }),
   project({

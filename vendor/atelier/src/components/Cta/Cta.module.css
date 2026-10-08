@@ -1,0 +1,184 @@
+.cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  border: 0;
+  border-radius: var(--radius);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  font: inherit;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  isolation: isolate;
+  cursor: pointer;
+  transition: color 0.45s var(--ease-out);
+}
+
+.ink {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.55s cubic-bezier(0.65, 0, 0.35, 1);
+  pointer-events: none;
+}
+
+.label,
+.arrow {
+  position: relative;
+  z-index: 1;
+}
+
+.solid {
+  background: #fff;
+  color: var(--color-near-black);
+  padding: 0.95rem 1.35rem;
+}
+
+.solid .ink {
+  background: var(--color-near-black);
+}
+
+.solid:hover {
+  color: #fff;
+}
+
+.solid:hover .ink {
+  transform: scaleX(1);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-near-black);
+  padding: 0;
+  gap: 1.1rem;
+  overflow: visible;
+}
+
+.ghost .ink {
+  display: none;
+}
+
+.ghost .arrow {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--color-near-black);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.ghost .arrow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-near-black);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: 0;
+}
+
+.ghost .arrow svg {
+  position: relative;
+  z-index: 1;
+  transition: color 0.45s var(--ease-out);
+}
+
+.ghost:hover .arrow::before {
+  transform: scaleX(1);
+}
+
+.ghost:hover .arrow {
+  color: #fff;
+}
+
+.solidDark {
+  background: var(--color-near-black);
+  color: #fff;
+  padding: 1.2rem 1.85rem;
+}
+
+.solidDark .ink {
+  background: #fff;
+}
+
+.solidDark:hover {
+  color: var(--color-near-black);
+}
+
+.solidDark:hover .ink {
+  transform: scaleX(1);
+}
+
+.text {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  gap: 0.65rem;
+  overflow: visible;
+}
+
+.text .ink {
+  display: none;
+}
+
+.arrow {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.arrow svg {
+  width: 1rem;
+  height: 0.6rem;
+  display: block;
+}
+
+.cta:hover .arrow {
+  transform: translateX(5px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta,
+  .ink,
+  .arrow,
+  .ghost .arrow::before,
+  .ghost .arrow svg {
+    transition: none;
+  }
+
+  .solid:hover .ink,
+  .solidDark:hover .ink,
+  .ghost:hover .arrow::before {
+    transform: none;
+  }
+
+  .solid:hover,
+  .solidDark:hover {
+    opacity: 0.88;
+  }
+
+  .solid:hover {
+    color: var(--color-near-black);
+  }
+
+  .solidDark:hover {
+    color: #fff;
+  }
+
+  .ghost:hover .arrow {
+    color: inherit;
+  }
+
+  .cta:hover .arrow {
+    transform: none;
+  }
+}
