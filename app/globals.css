@@ -661,10 +661,36 @@ a:hover .editorial-arrow {
   will-change: transform;
 }
 
+/* Tablet / phone mockups in Hero — fan cards override this below */
 .hero-fan-shell {
   box-shadow:
     0 18px 40px -24px rgba(0, 0, 0, 0.85),
     0 4px 14px -6px rgba(0, 0, 0, 0.55);
+}
+
+/*
+ * Five fan cards only: no soft shadows (Safari hitch during rotate/scale).
+ * Covers Tailwind shadow-* on DeviceMockup, .hero-fan-shell, and any
+ * ::before/::after plates. Borders / radius / chrome stay intact.
+ * Tablet, phone, and the rest of the site are unaffected.
+ */
+[data-hero-fan] [data-fan-card] .hero-fan-shell,
+[data-mobile-fan] [data-mobile-fan-card] .hero-fan-shell {
+  box-shadow: none !important;
+  filter: none;
+}
+
+[data-hero-fan] [data-fan-card] .hero-fan-shell::before,
+[data-hero-fan] [data-fan-card] .hero-fan-shell::after,
+[data-hero-fan] [data-fan-layer]::before,
+[data-hero-fan] [data-fan-layer]::after,
+[data-mobile-fan] [data-mobile-fan-card]::before,
+[data-mobile-fan] [data-mobile-fan-card]::after,
+[data-mobile-fan] [data-mobile-fan-card] .hero-fan-shell::before,
+[data-mobile-fan] [data-mobile-fan-card] .hero-fan-shell::after {
+  content: none !important;
+  box-shadow: none !important;
+  filter: none !important;
 }
 
 /* Fan stays stable; device idle float is handled in Hero via GSAP */
