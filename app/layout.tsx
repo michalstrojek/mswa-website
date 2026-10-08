@@ -23,11 +23,16 @@ export const metadata: Metadata = {
   title: site.title,
   description: site.description,
   icons: {
+    // v2 filenames bust Safari/Cloudflare favicon cache; sourced from public/brand/mswa-mark.jpg
     icon: [
-      { url: "/favicon-mswa.png", type: "image/png", sizes: "32x32" },
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-mswa-v2.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-mswa-v2-48.png", type: "image/png", sizes: "48x48" },
+      { url: "/favicon-v2.ico", type: "image/x-icon", sizes: "any" },
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: [{ url: "/favicon-mswa-v2.png", type: "image/png" }],
+    apple: [
+      { url: "/apple-touch-icon-v2.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   openGraph: {
     title: site.title,
