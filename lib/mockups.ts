@@ -84,6 +84,13 @@ export const showcaseMockups = {
     imageAlt: "CUTLINE — widok strony internetowej barbershopu",
     device: "desktop",
   },
+  elektryk: {
+    id: "elektryk",
+    name: "Elektro-Max",
+    image: "/images/mockups/elektryk-desktop.jpg",
+    imageAlt: "Elektro-Max — widok strony internetowej elektryka",
+    device: "desktop",
+  },
   masaz: {
     id: "masaz",
     name: "Dotyk Równowagi",

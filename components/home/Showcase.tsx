@@ -104,16 +104,16 @@ export function Showcase() {
   return (
     <section
       ref={rootRef}
-      id="prezentacja"
+      id="o-mswa"
       className="site-pad scroll-mt-24 md:px-10 lg:px-16"
     >
-      <div className="site-shell site-section-y border-t border-line md:pt-16 md:pb-16 lg:pt-20 lg:pb-20">
+      <div className="site-shell site-section-y border-t border-line pb-8 md:pt-16 md:pb-10 lg:pt-20 lg:pb-12">
         <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-12 xl:gap-16">
           <div
             data-showcase-copy
             className="lg:col-span-4 will-change-transform"
           >
-            <SectionLabel>MSWA</SectionLabel>
+            <SectionLabel>O MSWA</SectionLabel>
             <h2 className="mt-5 font-serif text-[clamp(1.9rem,5.2vw,2.55rem)] leading-[1.14] font-normal">
               Różne firmy.
               <br />

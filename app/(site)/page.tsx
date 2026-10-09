@@ -1,5 +1,4 @@
 import { About } from "@/components/home/About";
-import { Approach } from "@/components/home/Approach";
 import { Faq } from "@/components/home/Faq";
 import { FinalCta } from "@/components/home/FinalCta";
 import { Hero } from "@/components/home/Hero";
@@ -13,7 +12,6 @@ export default function HomePage() {
     <>
       <Hero />
       <Portfolio />
-      <Approach />
       <Process />
       <Offer />
       <Showcase />

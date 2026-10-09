@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { DeviceMockup } from "@/components/home/DeviceMockup";
-import { SectionLabel } from "@/components/site/SectionLabel";
 import { showcaseMockups } from "@/lib/mockups";
 
 const values = [
@@ -82,7 +81,7 @@ const templateTargets = [
 
 export function About() {
   const rootRef = useRef<HTMLElement>(null);
-  const mockup = showcaseMockups.cutline;
+  const mockup = showcaseMockups.elektryk;
 
   useEffect(() => {
     const root = rootRef.current;
@@ -194,17 +193,15 @@ export function About() {
   return (
     <section
       ref={rootRef}
-      id="o-mswa"
       className="site-pad scroll-mt-24 md:px-10 lg:px-16"
     >
-      <div className="site-shell site-section-y border-t border-line md:pt-20 md:pb-20 lg:pt-24 lg:pb-24">
+      <div className="site-shell site-section-y border-t-0 pt-8 md:pt-10 md:pb-20 lg:pt-12 lg:pb-24">
         <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-12 xl:gap-16">
           <div
             data-about-copy
             className="lg:col-span-6 xl:col-span-5 will-change-transform"
           >
-            <SectionLabel>MSWA</SectionLabel>
-            <h2 className="mt-5 max-w-xl font-serif text-[clamp(2.05rem,5.5vw,3.15rem)] leading-[1.12] font-normal">
+            <h2 className="max-w-xl font-serif text-[clamp(2.05rem,5.5vw,3.15rem)] leading-[1.12] font-normal">
               Dobra strona powinna wyglądać jak Twoja firma.
               <br />
               I działać tak, jak tego potrzebujesz.
@@ -271,7 +268,7 @@ export function About() {
               <TemplateFrame density="dense" />
             </div>
 
-            {/* Front — CUTLINE */}
+            {/* Front — Elektro-Max */}
             <div
               data-about-main
               className="absolute top-[14%] right-[10%] z-[4] w-[60%] will-change-transform sm:right-[12%] sm:w-[56%] md:w-[54%]"
