@@ -162,6 +162,19 @@ export function Hero() {
 
     const MOCKUP_DELAY_MS = 450;
 
+    /**
+     * Temporary diagnostic (?fanDelay=):
+     * - absent or 0 → production timing (fan starts at original positions)
+     * - 1000 → five-card fan only starts 1000ms later; tablet/phone unchanged
+     * Other values are ignored (treated as 0).
+     */
+    const fanDelayParam = new URLSearchParams(window.location.search).get(
+      "fanDelay",
+    );
+    // Only "1000" enables the delay; "0", absent, or anything else → 0 (production).
+    const fanDelayMs = fanDelayParam === "1000" ? 1000 : 0;
+    const fanDelayS = fanDelayMs / 1000;
+
     let cancelled = false;
     let startTimer = 0;
     let introTimer = 0;
@@ -256,6 +269,8 @@ export function Hero() {
         const tl = gsap.timeline({
           defaults: { ease: "power3.out", force3D: true },
         });
+        // Offset only fan-card start times; tablet/phone keep production positions.
+        const fanAt = (t: number) => t + fanDelayS;
 
         if (isMobile()) {
           const order: { id: string; duration: number; at: number }[] = [
@@ -297,7 +312,7 @@ export function Hero() {
                 force3D: true,
                 immediateRender: false,
               },
-              at,
+              fanAt(at),
             );
           });
           return;
@@ -309,27 +324,27 @@ export function Hero() {
         tl.to(
           solea,
           { opacity: 1, ...pose(solea), y: 0, duration: 1.05 },
-          0,
+          fanAt(0),
         );
         tl.to(
           lucente,
           { opacity: 1, ...pose(lucente), y: 0, duration: 1.15 },
-          0.08,
+          fanAt(0.08),
         );
         tl.to(
           velora,
           { opacity: 1, ...pose(velora), y: 0, duration: 1.15 },
-          0.08,
+          fanAt(0.08),
         );
         tl.to(
           atelier,
           { opacity: 1, ...pose(atelier), y: 0, duration: 1.25 },
-          0.16,
+          fanAt(0.16),
         );
         tl.to(
           detailer,
           { opacity: 1, ...pose(detailer), y: 0, duration: 1.25 },
-          0.16,
+          fanAt(0.16),
         );
 
         tl.to(
@@ -343,6 +358,8 @@ export function Hero() {
           0.9,
         );
 
+        // Pin idle-float start to production end of phone entrance (1.75s),
+        // so a delayed fan does not push it later via timeline duration.
         tl.add(() => {
           if (!tablet || !phone) return;
           gsap.to(tablet, {
@@ -360,7 +377,7 @@ export function Hero() {
             repeat: -1,
             delay: 0.4,
           });
-        });
+        }, 1.75);
       };
 
       // Start after a short delay — do not wait for window "load" (can stall).
