@@ -161,9 +161,9 @@ export function Hero() {
     }
 
     const MOCKUP_DELAY_MS = 450;
-    // Permanent: five-card fan starts 1000ms later than the original timeline
-    // positions (validated on mswa.pl via ?fanDelay=1000). Tablet/phone unchanged.
-    const FAN_DELAY_S = 1;
+    // Permanent: five-card fan starts 500ms later than the original timeline
+    // positions. Tablet/phone entrance timing unchanged.
+    const FAN_DELAY_S = 0.5;
 
     let cancelled = false;
     let startTimer = 0;
