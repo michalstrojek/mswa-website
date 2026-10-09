@@ -161,19 +161,9 @@ export function Hero() {
     }
 
     const MOCKUP_DELAY_MS = 450;
-
-    /**
-     * Temporary diagnostic (?fanDelay=):
-     * - absent or 0 → production timing (fan starts at original positions)
-     * - 1000 → five-card fan only starts 1000ms later; tablet/phone unchanged
-     * Other values are ignored (treated as 0).
-     */
-    const fanDelayParam = new URLSearchParams(window.location.search).get(
-      "fanDelay",
-    );
-    // Only "1000" enables the delay; "0", absent, or anything else → 0 (production).
-    const fanDelayMs = fanDelayParam === "1000" ? 1000 : 0;
-    const fanDelayS = fanDelayMs / 1000;
+    // Permanent: five-card fan starts 1000ms later than the original timeline
+    // positions (validated on mswa.pl via ?fanDelay=1000). Tablet/phone unchanged.
+    const FAN_DELAY_S = 1;
 
     let cancelled = false;
     let startTimer = 0;
@@ -269,8 +259,8 @@ export function Hero() {
         const tl = gsap.timeline({
           defaults: { ease: "power3.out", force3D: true },
         });
-        // Offset only fan-card start times; tablet/phone keep production positions.
-        const fanAt = (t: number) => t + fanDelayS;
+        // Offset only fan-card start times; tablet/phone keep original positions.
+        const fanAt = (t: number) => t + FAN_DELAY_S;
 
         if (isMobile()) {
           const order: { id: string; duration: number; at: number }[] = [
