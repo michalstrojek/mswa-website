@@ -3,6 +3,7 @@
 import { useId, useRef, useState } from "react";
 import Link from "next/link";
 import { contactForm, type ContactPayload } from "@/lib/contact";
+import { isValidEmail } from "@/lib/email";
 import {
   TurnstileWidget,
   type TurnstileWidgetHandle,
@@ -30,7 +31,7 @@ function validate(values: ContactPayload): FieldErrors {
   if (!values.name.trim()) errors.name = "Podaj imię lub nazwę firmy.";
   if (!values.email.trim()) {
     errors.email = "Podaj e-mail.";
-  } else if (!values.email.includes("@")) {
+  } else if (!isValidEmail(values.email)) {
     errors.email = "Wpisz prawidłowy e-mail.";
   }
   if (!values.business.trim()) {
@@ -129,7 +130,11 @@ export function ContactForm() {
 
       clearTurnstileToken();
       turnstileRef.current?.reset();
-      setStatus({ type: "error", message: contactForm.errorMessage });
+      const message =
+        response.status === 429 || data?.error === "rate_limited"
+          ? "Zbyt wiele prób. Odczekaj chwilę i spróbuj ponownie."
+          : contactForm.errorMessage;
+      setStatus({ type: "error", message });
     } catch {
       clearTurnstileToken();
       turnstileRef.current?.reset();
