@@ -16,7 +16,11 @@ vendor/**/dist
 
 # next.js
 /.next/
+/.next-local-prod-A/
 /out/
+
+# local backup / audit artifacts (do not commit)
+.backups/
 
 # production
 /build

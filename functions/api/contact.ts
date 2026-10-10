@@ -1,7 +1,15 @@
 /**
  * Cloudflare Pages Function — contact form → Resend.
  * Uses RESEND_API_KEY + TURNSTILE_SECRET_KEY from Pages secrets (never NEXT_PUBLIC_*).
+ *
+ * Rate limit: best-effort Cache API counter per CF-Connecting-IP.
+ * Not a guaranteed global quota — see enforceRateLimit().
+ *
+ * Optional Preview-only allowlist (set in CF Preview env, never required on Production):
+ *   CONTACT_ALLOWED_ORIGINS=https://<preview>.pages.dev
  */
+
+import { isValidEmail, EMAIL_MAX_LENGTH } from "../../lib/email";
 
 type ContactPayload = {
   name: string;
@@ -14,6 +22,8 @@ type ContactPayload = {
 type Env = {
   RESEND_API_KEY?: string;
   TURNSTILE_SECRET_KEY?: string;
+  /** Comma-separated extra Origins (e.g. CF Pages Preview). Production can omit. */
+  CONTACT_ALLOWED_ORIGINS?: string;
 };
 
 type TurnstileSiteverifyResponse = {
@@ -23,28 +33,40 @@ type TurnstileSiteverifyResponse = {
 
 const FROM = "MSWA <kontakt@mswa.pl>";
 const TO = "kontakt@mswa.pl";
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_BODY_BYTES = 20 * 1024;
 const MAX_TURNSTILE_TOKEN = 2048;
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW_SECONDS = 60;
+const ALLOWED_ORIGINS = new Set([
+  "https://mswa.pl",
+  "https://www.mswa.pl",
+]);
 const LIMITS = {
   name: 100,
-  email: 254,
+  email: EMAIL_MAX_LENGTH,
   phone: 50,
   business: 300,
   message: 5000,
   subjectName: 80,
 } as const;
 
-function json(data: unknown, status = 200) {
+function json(
+  data: unknown,
+  status = 200,
+  extraHeaders?: HeadersInit,
+) {
   return new Response(JSON.stringify(data), {
     status,
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      ...extraHeaders,
+    },
   });
 }
 
 /** Generic client error — no technical details. */
-function badRequest() {
-  return json({ ok: false, error: "invalid_request" }, 400);
+function badRequest(extraHeaders?: HeadersInit) {
+  return json({ ok: false, error: "invalid_request" }, 400, extraHeaders);
 }
 
 function escapeHtml(value: string) {
@@ -63,6 +85,45 @@ function sanitizeHeaderFragment(value: string, maxLen: number) {
     .replace(/\s+/g, " ")
     .trim()
     .slice(0, maxLen);
+}
+
+function resolveAllowedOrigins(env: Env): Set<string> {
+  const allowed = new Set(ALLOWED_ORIGINS);
+  const extra = env.CONTACT_ALLOWED_ORIGINS ?? "";
+  for (const origin of extra.split(",")) {
+    const trimmed = origin.trim();
+    if (trimmed.startsWith("https://")) {
+      allowed.add(trimmed);
+    }
+  }
+  return allowed;
+}
+
+function corsHeaders(
+  request: Request,
+  allowedOrigins: Set<string>,
+): Record<string, string> {
+  const origin = request.headers.get("Origin");
+  if (!origin || !allowedOrigins.has(origin)) {
+    return {};
+  }
+  return {
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Max-Age": "86400",
+    Vary: "Origin",
+  };
+}
+
+function isOriginAllowed(
+  request: Request,
+  allowedOrigins: Set<string>,
+): boolean {
+  const origin = request.headers.get("Origin");
+  // Same-origin / non-browser tools may omit Origin; Turnstile + rate limit still apply.
+  if (!origin) return true;
+  return allowedOrigins.has(origin);
 }
 
 function isValidPayload(
@@ -165,41 +226,113 @@ async function verifyTurnstile(
   return result.success === true;
 }
 
+/**
+ * Soft, best-effort rate limit (NOT a guaranteed global 5/60s quota).
+ *
+ * Cloudflare Cache API realities:
+ * - Counters are local to the data center (PoP), not replicated globally.
+ * - Concurrent requests are not collapsed — a burst can read the same count
+ *   and all pass before puts land (TOCTOU race).
+ * - Fail-open on cache errors so legitimate leads are not blocked.
+ *
+ * When the soft limit is exceeded in this PoP, responds with HTTP 429 +
+ * Retry-After and `{ ok: false, error: "rate_limited" }`.
+ * Real antispam remains Turnstile + honeypot + Resend.
+ */
+async function enforceRateLimit(
+  request: Request,
+  extraHeaders: Record<string, string>,
+): Promise<Response | null> {
+  try {
+    const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+    const bucket = Math.floor(Date.now() / (RATE_LIMIT_WINDOW_SECONDS * 1000));
+    const cacheKey = new Request(
+      `https://mswa.pl/__rate-limit/contact/${encodeURIComponent(ip)}/${bucket}`,
+    );
+    const cache = caches.default;
+    const existing = await cache.match(cacheKey);
+    let count = 0;
+    if (existing) {
+      count = Number.parseInt(await existing.text(), 10) || 0;
+    }
+    if (count >= RATE_LIMIT_MAX) {
+      return json(
+        { ok: false, error: "rate_limited" },
+        429,
+        {
+          ...extraHeaders,
+          "Retry-After": String(RATE_LIMIT_WINDOW_SECONDS),
+        },
+      );
+    }
+    await cache.put(
+      cacheKey,
+      new Response(String(count + 1), {
+        headers: {
+          "Content-Type": "text/plain",
+          "Cache-Control": `max-age=${RATE_LIMIT_WINDOW_SECONDS * 2}`,
+        },
+      }),
+    );
+  } catch (error) {
+    console.error("[contact] rate limit unavailable", error);
+  }
+  return null;
+}
+
 export async function onRequest(context: {
   request: Request;
   env: Env;
 }) {
-  if (context.request.method !== "POST") {
-    return json({ ok: false, error: "method_not_allowed" }, 405);
+  const { request, env } = context;
+  const allowedOrigins = resolveAllowedOrigins(env);
+  const headers = corsHeaders(request, allowedOrigins);
+
+  if (request.method === "OPTIONS") {
+    if (!isOriginAllowed(request, allowedOrigins)) {
+      return new Response(null, { status: 403 });
+    }
+    return new Response(null, { status: 204, headers });
   }
 
-  const contentType = context.request.headers.get("content-type") || "";
+  if (request.method !== "POST") {
+    return json({ ok: false, error: "method_not_allowed" }, 405, headers);
+  }
+
+  if (!isOriginAllowed(request, allowedOrigins)) {
+    return json({ ok: false, error: "invalid_request" }, 403, headers);
+  }
+
+  const rateLimited = await enforceRateLimit(request, headers);
+  if (rateLimited) return rateLimited;
+
+  const contentType = request.headers.get("content-type") || "";
   if (!contentType.toLowerCase().includes("application/json")) {
-    return badRequest();
+    return badRequest(headers);
   }
 
-  const contentLength = context.request.headers.get("content-length");
+  const contentLength = request.headers.get("content-length");
   if (contentLength) {
     const size = Number(contentLength);
     if (!Number.isFinite(size) || size < 0 || size > MAX_BODY_BYTES) {
-      return badRequest();
+      return badRequest(headers);
     }
   }
 
   let body: unknown;
 
   try {
-    const raw = await context.request.text();
+    const raw = await request.text();
     if (raw.length > MAX_BODY_BYTES) {
-      return badRequest();
+      return badRequest(headers);
     }
     body = JSON.parse(raw) as unknown;
   } catch {
-    return badRequest();
+    return badRequest(headers);
   }
 
   if (!isValidPayload(body)) {
-    return badRequest();
+    return badRequest(headers);
   }
 
   const payload: ContactPayload = {
@@ -211,45 +344,45 @@ export async function onRequest(context: {
   };
 
   if (!payload.name || !payload.email || !payload.business || !payload.message) {
-    return badRequest();
+    return badRequest(headers);
   }
 
   if (!withinLimits(payload)) {
-    return badRequest();
+    return badRequest(headers);
   }
 
-  if (!EMAIL_RE.test(payload.email)) {
-    return badRequest();
+  if (!isValidEmail(payload.email)) {
+    return badRequest(headers);
   }
 
   const replyTo = sanitizeHeaderFragment(payload.email, LIMITS.email);
-  if (!EMAIL_RE.test(replyTo)) {
-    return badRequest();
+  if (!isValidEmail(replyTo)) {
+    return badRequest(headers);
   }
 
   const subjectName = sanitizeHeaderFragment(payload.name, LIMITS.subjectName);
   if (!subjectName) {
-    return badRequest();
+    return badRequest(headers);
   }
 
   // Honeypot: bots fill "website"; humans leave it empty.
   if (typeof body.website === "string" && body.website.trim() !== "") {
-    return json({ ok: true });
+    return json({ ok: true }, 200, headers);
   }
 
   const turnstileSecret = context.env.TURNSTILE_SECRET_KEY?.trim();
   if (!turnstileSecret) {
     console.error("[contact] TURNSTILE_SECRET_KEY is not configured");
-    return json({ ok: false, error: "not_configured" }, 503);
+    return json({ ok: false, error: "not_configured" }, 503, headers);
   }
 
   const turnstileToken =
     typeof body.turnstileToken === "string" ? body.turnstileToken.trim() : "";
   if (!turnstileToken || turnstileToken.length > MAX_TURNSTILE_TOKEN) {
-    return badRequest();
+    return badRequest(headers);
   }
 
-  const remoteip = context.request.headers.get("CF-Connecting-IP");
+  const remoteip = request.headers.get("CF-Connecting-IP");
 
   let turnstileOk = false;
   try {
@@ -260,18 +393,18 @@ export async function onRequest(context: {
     );
   } catch (error) {
     console.error("[contact] Turnstile siteverify failed", error);
-    return badRequest();
+    return badRequest(headers);
   }
 
   if (!turnstileOk) {
-    return badRequest();
+    return badRequest(headers);
   }
 
   const apiKey = context.env.RESEND_API_KEY?.trim();
 
   if (!apiKey) {
     console.error("[contact] RESEND_API_KEY is not configured");
-    return json({ ok: false, error: "not_configured" }, 503);
+    return json({ ok: false, error: "not_configured" }, 503, headers);
   }
 
   try {
@@ -294,12 +427,12 @@ export async function onRequest(context: {
     if (!response.ok) {
       const detail = await response.text().catch(() => "");
       console.error("[contact] Resend error", response.status, detail);
-      return json({ ok: false, error: "delivery_failed" }, 502);
+      return json({ ok: false, error: "delivery_failed" }, 502, headers);
     }
 
-    return json({ ok: true });
+    return json({ ok: true }, 200, headers);
   } catch (error) {
     console.error("[contact] Resend request failed", error);
-    return json({ ok: false, error: "delivery_failed" }, 502);
+    return json({ ok: false, error: "delivery_failed" }, 502, headers);
   }
 }
