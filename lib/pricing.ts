@@ -4,8 +4,7 @@
 
 export const websiteOffer = {
   label: "Strona internetowa",
-  price: "1 490 zł",
-  pricePrefix: "od",
+  price: "1 500 zł",
   priceNote: "jednorazowo",
   headline: "Jedna strona. Cały proces po naszej stronie.",
   lead: "Podstawowa strona zawiera wszystko, czego potrzebuje większość lokalnych firm. Jeśli potrzebujesz dodatkowych funkcji lub większego zakresu, możesz dobrać je według jasnego cennika.",
@@ -20,8 +19,8 @@ export const websiteOffer = {
     "galeria, opinie, FAQ, mapa i inne sekcje dopasowane do firmy",
     "podstawowe SEO i przygotowanie techniczne",
     "podpięcie domeny i publikacja",
-    "2 tury poprawek przed publikacją",
-    "30 dni gwarancji technicznej",
+    "Poprawki w ramach ustalonego zakresu przed publikacją",
+    "30 dni bezpłatnego wsparcia technicznego po odbiorze",
   ],
   domainNote:
     "Domena pozostaje własnością klienta i jest kupowana bezpośrednio na jego dane. Pomagamy w jej wyborze, konfiguracji i podpięciu do strony.",
@@ -33,12 +32,49 @@ export const websiteOffer = {
   pricingHref: "/cennik",
 } as const;
 
+export const hostingOffer = {
+  label: "MSWA Hosting",
+  price: "199 zł",
+  priceSuffix: "/ 30 dni",
+  lead: "Dla klientów, którzy chcą, żeby ich strona po prostu działała — bez samodzielnego zarządzania hostingiem.",
+  included: [
+    "hosting na infrastrukturze zarządzanej przez MSWA",
+    "obsługa techniczna i utrzymanie strony",
+    "automatyczne monitorowanie dostępności",
+    "kopie zapasowe oraz możliwość przywrócenia działającej wersji",
+    "reagowanie na awarie i niezbędne naprawy techniczne",
+  ],
+  excludedNote:
+    "Bez zmian treści, zdjęć, cen ani wyglądu — takie prace wyceniamy indywidualnie.",
+} as const;
+
 export const careOffer = {
-  label: "Opieka po publikacji",
+  label: "MSWA Care",
   price: "299 zł",
-  priceSuffix: "/ mies.",
-  lead: "Chcesz, żebyśmy zajmowali się stroną również po publikacji? MSWA Care obejmuje hosting, bieżącą opiekę techniczną oraz 2 rundy drobnych zmian w każdym miesiącu.",
+  priceSuffix: "/ 30 dni",
+  lead: "Wszystko z MSWA Hosting oraz 2 rundy drobnych zmian na każde 30 dni.",
+  included: [
+    "wszystko z MSWA Hosting",
+    "2 rundy drobnych zmian na każde 30 dni",
+    "aktualizacje tekstów, zdjęć, cen, kolorów i podobnych elementów",
+    "jedna runda = jedno zbiorcze zgłoszenie drobnych zmian",
+    "wykonanie zwykle do 5 dni roboczych od kompletnego zgłoszenia",
+  ],
+  excludedNote:
+    "Nowe podstrony, sekcje, funkcje i większe przebudowy wyceniamy osobno. Niewykorzystane rundy nie przechodzą dalej.",
+} as const;
+
+export const subscriptionNotes = {
+  sectionLabel: "Po publikacji",
+  sectionLead:
+    "Abonamenty są opcjonalne. Płatność z góry za każde 30 dni. Domena pozostaje po stronie klienta.",
   optionalNote: "Opcjonalnie. Bez długoterminowego zobowiązania.",
+  shared: [
+    "Hosting zarządza MSWA — domena pozostaje u klienta.",
+    "Wypowiedzenie e-mailem; przy zwykłej rezygnacji abonament działa do końca opłaconego okresu.",
+    "Standardowe przeniesienie strony na hosting klienta po zakończeniu abonamentu jest darmowe.",
+    "Diagnozę awarii rozpoczynamy w ciągu 1 dnia roboczego. Nie gwarantujemy dostępności 100%.",
+  ],
 } as const;
 
 export const pricingPage = {
@@ -49,7 +85,7 @@ export const pricingPage = {
   },
   website: {
     eyebrow: "Strona firmowa",
-    price: "od 1 490 zł",
+    price: "1 500 zł",
     priceNote: "jednorazowo",
     lead: "Nie musisz mieć gotowego projektu ani tekstów. Opowiedz nam o swojej firmie, pokaż materiały, które masz, a my zajmiemy się strukturą, treścią, wyglądem i publikacją.",
     included: [
@@ -76,8 +112,8 @@ export const pricingPage = {
       "favicon i podstawowe meta dane",
       "podpięcie domeny",
       "publikacja",
-      "2 tury poprawek przed publikacją",
-      "30 dni gwarancji technicznej",
+      "Poprawki w ramach ustalonego zakresu przed publikacją",
+      "30 dni bezpłatnego wsparcia technicznego po odbiorze",
     ],
     domainNote:
       "Domena jest kupowana na dane klienta i pozostaje jego własnością.",
@@ -125,20 +161,48 @@ export const pricingPage = {
     externalFeesNote:
       "Ceny nie obejmują ewentualnych abonamentów, licencji ani opłat pobieranych przez zewnętrzne usługi, np. systemy rezerwacji.",
   },
-  care: {
-    eyebrow: "Opieka po publikacji",
-    title: "MSWA Care",
-    price: "299 zł",
-    priceSuffix: "/ mies.",
-    lead: "Nie chcesz zajmować się stroną po publikacji? My zrobimy to za Ciebie.",
-    included: [
-      "hosting strony",
-      "bieżąca opieka techniczna",
-      "kontrola działania strony",
-      "2 rundy drobnych zmian miesięcznie",
+  subscriptions: {
+    eyebrow: "Po publikacji",
+    title: "MSWA Hosting i MSWA Care",
+    lead: "Abonamenty są opcjonalne. Jeśli ich nie wybierzesz, korzystasz z hostingu na swoim koncie. Płatność z góry za każde 30 dni.",
+    plans: [
+      {
+        name: "MSWA Hosting",
+        price: "199 zł",
+        priceSuffix: "/ 30 dni",
+        lead: "Strona działa u nas — bez samodzielnego zarządzania hostingiem.",
+        included: [
+          "hosting na infrastrukturze zarządzanej przez MSWA",
+          "obsługa techniczna i utrzymanie strony",
+          "automatyczne monitorowanie dostępności",
+          "kopie zapasowe kodu i plików oraz przywracanie działającej wersji",
+          "reagowanie na awarie i niezbędne naprawy techniczne",
+          "techniczna obsługa istniejącego formularza kontaktowego",
+        ],
+        note: "Nie obejmuje zmian treści, zdjęć, cen, kolorów ani innych aktualizacji zamawianych przez klienta.",
+      },
+      {
+        name: "MSWA Care",
+        price: "299 zł",
+        priceSuffix: "/ 30 dni",
+        lead: "Hosting i utrzymanie oraz 2 rundy drobnych zmian na każde 30 dni.",
+        included: [
+          "wszystko z MSWA Hosting",
+          "2 rundy drobnych zmian na każde 30 dni",
+          "aktualizacje istniejących tekstów, zdjęć, cen, kolorów i podobnych elementów",
+          "jedna runda = jedno zbiorcze zgłoszenie drobnych zmian",
+          "standardowy termin: do 5 dni roboczych od kompletnego zgłoszenia",
+        ],
+        note: "Nowe podstrony, sekcje, funkcje i większe przebudowy wyceniamy indywidualnie. Niewykorzystane rundy nie przechodzą na kolejne okresy.",
+      },
     ],
-    note: "Nowe podstrony, większe przebudowy i dodatkowe funkcjonalności są wyceniane osobno.",
-    ctaLabel: "Chcę stronę z opieką",
+    sharedNotes: [
+      "Domena pozostaje po stronie klienta.",
+      "Abonament można wypowiedzieć e-mailem; przy zwykłej rezygnacji działa do końca opłaconego okresu.",
+      "Standardowe przeniesienie strony na hosting klienta po zakończeniu abonamentu jest darmowe.",
+      "Diagnozę zgłoszonej lub wykrytej awarii rozpoczynamy w ciągu 1 dnia roboczego. Nie gwarantujemy dostępności 100% ani naprawy każdej awarii w określonym czasie.",
+    ],
+    ctaLabel: "Zapytaj o hosting lub opiekę",
     ctaHref: "/#kontakt",
   },
 } as const;

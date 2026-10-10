@@ -198,8 +198,8 @@ export default function TermsPage() {
             dodatkowych.
           </li>
           <li>
-            Cena od 1490 zł oznacza cenę początkową realizacji w określonym
-            standardowym zakresie.
+            Cena 1 500 zł oznacza cenę realizacji strony internetowej w
+            określonym standardowym zakresie.
           </li>
           <li>
             Ostateczna cena może zależeć od zakresu projektu oraz uzgodnionych
@@ -211,7 +211,7 @@ export default function TermsPage() {
           </li>
           <li>
             Niniejszy regulamin nie określa pełnych warunków odpłatnych usług
-            realizacji stron ani abonamentu MSWA Care.
+            realizacji stron ani abonamentów MSWA Hosting i MSWA Care.
           </li>
         </ol>
       </section>

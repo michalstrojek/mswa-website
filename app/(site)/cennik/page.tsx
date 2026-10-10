@@ -8,11 +8,11 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: `Cennik — ${site.name}`,
   description:
-    "Jasny cennik stron internetowych MSWA. Strona firmowa od 1 490 zł oraz opcjonalne rozszerzenia i MSWA Care.",
+    "Jasny cennik stron internetowych MSWA. Strona firmowa 1 500 zł oraz opcjonalne MSWA Hosting i MSWA Care.",
 };
 
 export default function PricingPage() {
-  const { hero, website, extensions, care } = pricingPage;
+  const { hero, website, extensions, subscriptions } = pricingPage;
 
   return (
     <article>
@@ -108,52 +108,75 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* MSWA Care */}
+      {/* Abonamenty */}
       <section className="site-pad border-t border-line md:px-10 lg:px-16">
         <div className="site-shell site-section-y md:pt-20 md:pb-24 lg:pt-24 lg:pb-28">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16 lg:items-start">
-            <Reveal className="lg:col-span-5">
-              <SectionLabel>{care.eyebrow}</SectionLabel>
-              <h2 className="mt-5 font-serif text-[clamp(2.05rem,5.5vw,3.15rem)] leading-[1.12] font-normal">
-                {care.title}
-              </h2>
-              <p className="mt-6 font-serif text-[clamp(2.15rem,7vw,3rem)] leading-none text-text/90">
-                {care.price}
-                <span className="ml-2 text-[0.85rem] tracking-[0.08em] text-muted">
-                  {care.priceSuffix}
-                </span>
-              </p>
-              <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-muted">
-                {care.lead}
-              </p>
-            </Reveal>
+          <Reveal>
+            <SectionLabel>{subscriptions.eyebrow}</SectionLabel>
+            <h2 className="mt-5 max-w-2xl font-serif text-[clamp(2.05rem,5.5vw,3.15rem)] leading-[1.12] font-normal">
+              {subscriptions.title}
+            </h2>
+            <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted">
+              {subscriptions.lead}
+            </p>
+          </Reveal>
 
-            <div className="lg:col-span-7">
-              <ul className="divide-y divide-line border-y border-line">
-                {care.included.map((item, index) => (
-                  <Reveal key={item} delay={`${index * 55}ms`}>
-                    <li className="flex items-start gap-4 py-3.5 text-[15px] leading-relaxed text-text/90">
-                      <span
-                        className="mt-2 h-px w-4 shrink-0 bg-accent"
-                        aria-hidden
-                      />
-                      <span>{item}</span>
-                    </li>
-                  </Reveal>
-                ))}
-              </ul>
-              <p className="mt-5 max-w-md text-[12px] leading-relaxed text-muted/70">
-                {care.note}
-              </p>
-              <div className="mt-8">
-                <Button href={care.ctaHref}>
-                  {care.ctaLabel}
-                  <span className="arrow-shift" aria-hidden>
-                    →
-                  </span>
-                </Button>
-              </div>
-            </div>
+          <div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 md:gap-6 lg:gap-8">
+            {subscriptions.plans.map((plan, planIndex) => (
+              <Reveal key={plan.name} delay={`${planIndex * 70}ms`}>
+                <div className="flex h-full flex-col border border-line px-5 py-7 sm:px-6 md:py-8">
+                  <p className="text-[11px] tracking-[0.22em] text-muted uppercase">
+                    {plan.name}
+                  </p>
+                  <p className="mt-5 font-serif text-[clamp(2.15rem,6vw,2.75rem)] leading-none text-text/90">
+                    {plan.price}
+                    <span className="ml-2 text-[0.85rem] tracking-[0.08em] text-muted">
+                      {plan.priceSuffix}
+                    </span>
+                  </p>
+                  <p className="mt-5 text-[15px] leading-relaxed text-muted">
+                    {plan.lead}
+                  </p>
+                  <ul className="mt-6 flex-1 divide-y divide-line border-y border-line">
+                    {plan.included.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-4 py-3.5 text-[15px] leading-relaxed text-text/90"
+                      >
+                        <span
+                          className="mt-2 h-px w-4 shrink-0 bg-accent"
+                          aria-hidden
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-5 text-[12px] leading-relaxed text-muted/70">
+                    {plan.note}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <ul className="mt-8 max-w-2xl space-y-2 md:mt-10">
+            {subscriptions.sharedNotes.map((note) => (
+              <li
+                key={note}
+                className="text-[13px] leading-relaxed text-muted/80"
+              >
+                {note}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-8 md:mt-10">
+            <Button href={subscriptions.ctaHref}>
+              {subscriptions.ctaLabel}
+              <span className="arrow-shift" aria-hidden>
+                →
+              </span>
+            </Button>
           </div>
         </div>
       </section>

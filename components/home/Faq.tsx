@@ -10,7 +10,7 @@ const questions: ReadonlyArray<{ q: string; a: ReactNode }> = [
     q: "Ile kosztuje strona?",
     a: (
       <>
-        Strona firmowa zaczyna się od 1 490 zł. Najczęstsze rozszerzenia mają
+        Strona internetowa kosztuje 1 500 zł. Najczęstsze rozszerzenia mają
         jasno określone ceny w naszym{" "}
         <Link
           href="/cennik"
@@ -34,15 +34,15 @@ const questions: ReadonlyArray<{ q: string; a: ReactNode }> = [
   },
   {
     q: "Czy zajmujecie się domeną i hostingiem?",
-    a: "Tak. Pomagamy w wyborze i konfiguracji domeny, ale domena jest kupowana i rejestrowana bezpośrednio na klienta. Przy zakupie samej strony hosting również jest po stronie klienta. W przypadku MSWA Care hosting zapewnia i obsługuje MSWA.",
+    a: "Tak. Pomagamy w wyborze i konfiguracji domeny, ale domena jest kupowana i rejestrowana bezpośrednio na klienta. Przy zakupie samej strony hosting jest po stronie klienta. Jeśli wybierzesz MSWA Hosting lub MSWA Care, hosting zapewnia i obsługuje MSWA.",
   },
   {
     q: "Czy mogę zgłaszać poprawki?",
-    a: "Tak. W cenie projektu są 2 tury poprawek przed publikacją strony. Jedna tura oznacza jedną zebraną listę uwag do przedstawionej wersji. Większe zmiany zakresu, nowe podstrony lub dodatkowe funkcjonalności są traktowane jako rozszerzenie projektu.",
+    a: "Tak. W cenie projektu są poprawki w ramach ustalonego zakresu przed publikacją strony. Większe zmiany zakresu, nowe podstrony lub dodatkowe funkcjonalności są traktowane jako rozszerzenie projektu.",
   },
   {
     q: "Czy po publikacji muszę płacić abonament?",
-    a: "Nie. Po wykonaniu strony nie ma obowiązkowego abonamentu. Możesz korzystać ze strony samodzielnie na własnej domenie i hostingu. Jeśli chcesz, możesz dodatkowo wybrać MSWA Care za 299 zł miesięcznie — obejmuje hosting strony, bieżącą opiekę techniczną, kontrolę działania oraz 2 rundy drobnych zmian w każdym miesiącu. Nowe podstrony, duże przebudowy i dodatkowe funkcje są wyceniane osobno.",
+    a: "Nie. Po wykonaniu strony nie ma obowiązkowego abonamentu. Możesz korzystać ze strony samodzielnie na własnej domenie i hostingu. Opcjonalnie możesz wybrać MSWA Hosting za 199 zł / 30 dni (utrzymanie i hosting) albo MSWA Care za 299 zł / 30 dni (to samo plus 2 rundy drobnych zmian na każde 30 dni). Nowe podstrony, duże przebudowy i dodatkowe funkcje są wyceniane osobno.",
   },
 ];
 
