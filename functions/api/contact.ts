@@ -5,8 +5,13 @@
  * Rate limit: best-effort Cache API counter per CF-Connecting-IP.
  * Not a guaranteed global quota — see enforceRateLimit().
  *
- * Optional Preview-only allowlist (set in CF Preview env, never required on Production):
- *   CONTACT_ALLOWED_ORIGINS=https://<preview>.pages.dev
+ * Preview-only (set in CF Preview env, never on Production):
+ *   CONTACT_ALLOWED_ORIGINS=https://test-security-audit-fixes.mswa-website.pages.dev
+ *   CONTACT_DRY_RUN=true
+ *   CONTACT_DRY_RUN_BRANCH=test/security-audit-fixes
+ *
+ * CONTACT_DRY_RUN is intentionally absent from production merges — cherry-pick
+ * security commits without this dry-run block.
  */
 
 import { isValidEmail, EMAIL_MAX_LENGTH } from "../../lib/email";
@@ -24,7 +29,31 @@ type Env = {
   TURNSTILE_SECRET_KEY?: string;
   /** Comma-separated extra Origins (e.g. CF Pages Preview). Production can omit. */
   CONTACT_ALLOWED_ORIGINS?: string;
+  /**
+   * Preview-only dry-run (default off). Requires exact preview host +
+   * CONTACT_DRY_RUN_BRANCH. Never enable on Production.
+   */
+  CONTACT_DRY_RUN?: string;
+  /**
+   * Must equal test/security-audit-fixes for dry-run.
+   * CF_PAGES_BRANCH is build-time; Functions may not receive it — this is the
+   * reliable runtime branch confirmation (Preview env only).
+   */
+  CONTACT_DRY_RUN_BRANCH?: string;
+  /** Present only if the platform injects it into Functions; optional check. */
+  CF_PAGES_BRANCH?: string;
 };
+
+/** Exact Preview hostname — dry-run hard-locked to this host. */
+const DRY_RUN_HOST = "test-security-audit-fixes.mswa-website.pages.dev";
+const DRY_RUN_BRANCH = "test/security-audit-fixes";
+
+/** Official Cloudflare Turnstile dummy secrets — never accept on production hosts. */
+const TURNSTILE_DUMMY_SECRETS = new Set([
+  "1x0000000000000000000000000000000AA",
+  "2x0000000000000000000000000000000AA",
+  "3x0000000000000000000000000000000AA",
+]);
 
 type TurnstileSiteverifyResponse = {
   success: boolean;
@@ -124,6 +153,56 @@ function isOriginAllowed(
   // Same-origin / non-browser tools may omit Origin; Turnstile + rate limit still apply.
   if (!origin) return true;
   return allowedOrigins.has(origin);
+}
+
+function requestHostname(request: Request): string | null {
+  try {
+    return new URL(request.url).hostname.toLowerCase();
+  } catch {
+    return null;
+  }
+}
+
+function isProductionHostname(host: string): boolean {
+  return host === "mswa.pl" || host === "www.mswa.pl";
+}
+
+/**
+ * Dry-run is OFF by default. Enables only when every guard passes:
+ * - CONTACT_DRY_RUN === "true"
+ * - hostname === DRY_RUN_HOST (exact)
+ * - not a production hostname
+ * - CONTACT_DRY_RUN_BRANCH === test/security-audit-fixes
+ * - if CF_PAGES_BRANCH is present in env, it must also match
+ *
+ * CF_PAGES_BRANCH is documented as a build-time Pages variable. It is NOT
+ * assumed available in Functions runtime — do not rely on it alone.
+ */
+function allowContactDryRun(env: Env, request: Request): boolean {
+  if (env.CONTACT_DRY_RUN?.trim().toLowerCase() !== "true") {
+    return false;
+  }
+
+  const host = requestHostname(request);
+  if (!host || isProductionHostname(host) || host !== DRY_RUN_HOST) {
+    return false;
+  }
+
+  const configuredBranch = env.CONTACT_DRY_RUN_BRANCH?.trim();
+  if (configuredBranch !== DRY_RUN_BRANCH) {
+    return false;
+  }
+
+  const runtimeBranch = env.CF_PAGES_BRANCH?.trim();
+  if (runtimeBranch && runtimeBranch !== DRY_RUN_BRANCH) {
+    return false;
+  }
+
+  return true;
+}
+
+function isDummyTurnstileSecret(secret: string): boolean {
+  return TURNSTILE_DUMMY_SECRETS.has(secret);
 }
 
 function isValidPayload(
@@ -376,6 +455,15 @@ export async function onRequest(context: {
     return json({ ok: false, error: "not_configured" }, 503, headers);
   }
 
+  // Dummy Turnstile secrets are Preview-only (exact dry-run host).
+  if (isDummyTurnstileSecret(turnstileSecret)) {
+    const host = requestHostname(request);
+    if (!host || host !== DRY_RUN_HOST || isProductionHostname(host)) {
+      console.error("[contact] dummy Turnstile secret rejected outside dry-run host");
+      return json({ ok: false, error: "not_configured" }, 503, headers);
+    }
+  }
+
   const turnstileToken =
     typeof body.turnstileToken === "string" ? body.turnstileToken.trim() : "";
   if (!turnstileToken || turnstileToken.length > MAX_TURNSTILE_TOKEN) {
@@ -398,6 +486,12 @@ export async function onRequest(context: {
 
   if (!turnstileOk) {
     return badRequest(headers);
+  }
+
+  // After full validation + Turnstile: optional Preview dry-run (no Resend, no PII logs).
+  if (allowContactDryRun(env, request)) {
+    console.info("[contact] dry-run accepted (no email sent)");
+    return json({ ok: true }, 200, headers);
   }
 
   const apiKey = context.env.RESEND_API_KEY?.trim();
