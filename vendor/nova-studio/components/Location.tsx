@@ -1,9 +1,132 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { LineReveal } from "@/components/LineReveal";
 import { Reveal } from "@/components/Reveal";
 import { BookingButton, Label } from "@/components/ui";
 import { contact } from "@/lib/site";
+
+type MapState = "idle" | "loading" | "ready" | "error";
+
+const OSM_EXTERNAL =
+  "https://www.openstreetmap.org/?mlat=52.2265&mlon=21.0185#map=16/52.2265/21.0185";
+
+function LocationMap() {
+  const [state, setState] = useState<MapState>("idle");
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  function revealMap() {
+    setState("loading");
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      setState((prev) => (prev === "loading" ? "error" : prev));
+    }, 10000);
+  }
+
+  function onIframeLoad() {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setState("ready");
+  }
+
+  const showFrame = state === "loading" || state === "ready";
+
+  return (
+    <div className="location-map group relative h-[340px] overflow-hidden bg-cream-deep sm:h-[380px] lg:h-full lg:min-h-[480px]">
+      {showFrame ? (
+        <iframe
+          title="Mapa — NOVA STUDIO, ul. Wilcza 24, Warszawa"
+          src={contact.mapEmbed}
+          className="absolute inset-0 h-[calc(100%+48px)] w-full -translate-y-6 border-0 grayscale contrast-[1.08] brightness-[1.02] saturate-[0.25] transition-[filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:grayscale-[0.2] group-hover:saturate-[0.65]"
+          referrerPolicy="no-referrer-when-downgrade"
+          onLoad={onIframeLoad}
+        />
+      ) : null}
+
+      {state !== "ready" ? (
+        <div className="absolute inset-0 z-[4] flex flex-col items-center justify-center gap-4 bg-cream-deep px-6 text-center">
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.35]"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, rgba(28,25,23,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(28,25,23,0.06) 1px, transparent 1px)",
+              backgroundSize: "28px 28px",
+            }}
+            aria-hidden
+          />
+          <p className="relative font-display text-[11px] tracking-[0.22em] uppercase text-ink/70">
+            Wilcza 24 · Warszawa
+          </p>
+          {state === "idle" || state === "loading" ? (
+            <button
+              type="button"
+              onClick={revealMap}
+              disabled={state === "loading"}
+              className="relative z-[1] inline-flex items-center gap-2 bg-ink px-5 py-3 text-[10px] tracking-[0.2em] text-cream uppercase transition-opacity hover:opacity-85 disabled:cursor-wait disabled:opacity-70"
+            >
+              {state === "loading" ? "Ładowanie mapy…" : "Wyświetl mapę"}
+            </button>
+          ) : (
+            <div className="relative z-[1] space-y-3">
+              <p className="max-w-[16rem] text-[13px] leading-5 text-ink/75">
+                Nie udało się załadować mapy w tej przeglądarce.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <a
+                  href={contact.mapDirections}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-ink px-4 py-2.5 text-[9px] tracking-[0.2em] text-cream uppercase transition-opacity hover:opacity-85"
+                >
+                  Google Maps
+                  <span aria-hidden="true">→</span>
+                </a>
+                <a
+                  href={OSM_EXTERNAL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-ink/25 px-4 py-2.5 text-[9px] tracking-[0.2em] text-ink/80 uppercase transition-colors hover:border-ink/50"
+                >
+                  OpenStreetMap
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+              <button
+                type="button"
+                onClick={revealMap}
+                className="text-[11px] tracking-[0.12em] text-muted uppercase underline-offset-4 hover:underline"
+              >
+                Spróbuj ponownie
+              </button>
+            </div>
+          )}
+        </div>
+      ) : null}
+
+      <div className="pointer-events-none absolute inset-0 z-[2] bg-cream/10 mix-blend-multiply" />
+      <div className="pointer-events-none absolute inset-0 z-[2] ring-1 ring-inset ring-ink/10" />
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-[3] flex items-end justify-between gap-4 bg-gradient-to-t from-cream via-cream/80 to-transparent p-4 pt-14 sm:p-6 sm:pt-20">
+        <p className="font-display text-[11px] tracking-[0.22em] uppercase text-ink/75">
+          Wilcza 24 · Warszawa
+        </p>
+        <a
+          href={contact.mapDirections}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="pointer-events-auto btn-arrow inline-flex items-center gap-2 bg-ink px-3 py-2 text-[9px] tracking-[0.2em] text-cream uppercase transition-opacity hover:opacity-85"
+        >
+          Trasa
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  );
+}
 
 export function Location() {
   return (
@@ -102,31 +225,7 @@ export function Location() {
         </div>
 
         <Reveal variant="clip-y" delay={120} duration={1100} amount={0.2} className="h-full">
-          <div className="location-map group relative h-[340px] overflow-hidden bg-cream-deep sm:h-[380px] lg:h-full lg:min-h-[480px]">
-            <iframe
-              title="Mapa — NOVA STUDIO, ul. Wilcza 24, Warszawa"
-              src={contact.mapEmbed}
-              className="absolute inset-0 h-[calc(100%+48px)] w-full -translate-y-6 border-0 grayscale contrast-[1.08] brightness-[1.02] saturate-[0.25] transition-[filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:grayscale-[0.2] group-hover:saturate-[0.65]"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-cream/10 mix-blend-multiply" />
-            <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-ink/10" />
-            <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 bg-gradient-to-t from-cream via-cream/80 to-transparent p-4 pt-14 sm:p-6 sm:pt-20">
-              <p className="font-display text-[11px] tracking-[0.22em] uppercase text-ink/75">
-                Wilcza 24 · Warszawa
-              </p>
-              <a
-                href={contact.mapDirections}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="pointer-events-auto btn-arrow inline-flex items-center gap-2 bg-ink px-3 py-2 text-[9px] tracking-[0.2em] text-cream uppercase transition-opacity hover:opacity-85"
-              >
-                Trasa
-                <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
+          <LocationMap />
         </Reveal>
       </div>
     </section>
