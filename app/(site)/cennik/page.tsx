@@ -65,6 +65,9 @@ export default function PricingPage() {
               <p className="mt-5 max-w-md text-[12px] leading-relaxed text-muted/70">
                 {website.domainNote}
               </p>
+              <p className="mt-4 max-w-xl text-[13px] leading-relaxed text-muted/80">
+                {website.paymentNote}
+              </p>
             </div>
           </div>
         </div>

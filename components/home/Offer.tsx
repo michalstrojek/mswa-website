@@ -132,6 +132,16 @@ export function Offer() {
           <p className="mt-5 text-[12px] tracking-[0.08em] text-muted/70">
             {subscriptionNotes.optionalNote}
           </p>
+          <ul className="mt-5 max-w-2xl space-y-2">
+            {subscriptionNotes.shared.map((note) => (
+              <li
+                key={note}
+                className="text-[12px] leading-relaxed text-muted/70"
+              >
+                {note}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
