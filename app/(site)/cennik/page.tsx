@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: `Cennik — ${site.name}`,
   description:
-    "Jasny cennik stron internetowych MSWA. Strona firmowa 1 500 zł oraz opcjonalne MSWA Hosting i MSWA Care.",
+    "Jasny cennik stron internetowych MSWA. Strona firmowa 1 500 zł oraz opcjonalne MSWA Care i MSWA Care Plus.",
 };
 
 export default function PricingPage() {

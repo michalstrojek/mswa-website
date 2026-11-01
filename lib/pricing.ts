@@ -1,6 +1,7 @@
 /**
  * MSWA pricing — homepage offer + /cennik page content.
- * Zgodne z umowami MSWA PR_02 (wykonanie WWW) i PR_03 (Hosting/Care).
+ * Publiczna oferta zgodna z ustaleniami MSWA z 31.10.2026
+ * (wykonanie WWW + MSWA Care / MSWA Care Plus).
  */
 
 export const websiteOffer = {
@@ -22,7 +23,7 @@ export const websiteOffer = {
     "podstawowe SEO i przygotowanie techniczne",
     "podpięcie domeny i publikacja",
     "poprawki w ramach ustalonego zakresu przed publikacją",
-    "30 dni bezpłatnego wsparcia technicznego od publikacji strony",
+    "30 dni bezpłatnego usuwania usterek wykonawczych od publikacji strony",
   ],
   domainNote:
     "Domena pozostaje własnością klienta i jest kupowana bezpośrednio na jego dane. Pomagamy w jej wyborze, konfiguracji i podpięciu do strony. Koszt zakupu i odnowień domeny ponosi klient.",
@@ -34,29 +35,30 @@ export const websiteOffer = {
   pricingHref: "/cennik",
 } as const;
 
-export const hostingOffer = {
-  label: "MSWA Hosting",
+export const careOffer = {
+  label: "MSWA Care",
   price: "199 zł",
   priceSuffix: "/ 30 dni",
-  lead: "Dla klientów, którzy chcą, żeby ich strona po prostu działała — bez samodzielnego zarządzania hostingiem.",
+  lead: "Utrzymanie techniczne i hosting strony na infrastrukturze Cloudflare — bez samodzielnego zarządzania środowiskiem.",
   included: [
-    "hosting na infrastrukturze zarządzanej przez MSWA",
+    "hosting strony na infrastrukturze Cloudflare zarządzanej przez MSWA",
     "obsługa techniczna i utrzymanie strony",
     "automatyczne monitorowanie dostępności",
     "kopie zapasowe oraz możliwość przywrócenia działającej wersji",
     "reagowanie na awarie i niezbędne naprawy techniczne",
+    "techniczna obsługa istniejącego formularza kontaktowego",
   ],
   excludedNote:
-    "Bez zmian treści, zdjęć, cen ani wyglądu — takie prace wyceniamy indywidualnie.",
+    "Bez zmian treści, zdjęć, cen ani wyglądu — takie prace obejmuje Care Plus albo wycena indywidualna.",
 } as const;
 
-export const careOffer = {
-  label: "MSWA Care",
+export const carePlusOffer = {
+  label: "MSWA Care Plus",
   price: "299 zł",
   priceSuffix: "/ 30 dni",
-  lead: "Wszystko z MSWA Hosting oraz 2 rundy drobnych zmian na każde 30 dni.",
+  lead: "Wszystko z MSWA Care oraz 2 rundy drobnych zmian istniejących elementów na każde 30 dni.",
   included: [
-    "wszystko z MSWA Hosting",
+    "wszystko z MSWA Care",
     "2 rundy drobnych zmian na każde 30 dni",
     "aktualizacje tekstów, zdjęć, cen, kolorów i podobnych elementów",
     "jedna runda = jedno zbiorcze zgłoszenie drobnych zmian",
@@ -70,14 +72,15 @@ export const careOffer = {
 export const subscriptionNotes = {
   sectionLabel: "Po publikacji",
   sectionLead:
-    "Abonamenty są opcjonalne. Płatność z góry za każde 30 dni. Domena pozostaje po stronie klienta. Bez minimalnego okresu zobowiązania i kar za rezygnację.",
-  optionalNote: "Opcjonalnie. Bez długoterminowego zobowiązania.",
+    "Abonamenty są opcjonalne. Płatność z góry za każde 30 dni. Bez automatycznego obowiązku zakupu kolejnego okresu. Domena pozostaje po stronie klienta. Bez minimalnego okresu zobowiązania i kar za rezygnację.",
+  optionalNote:
+    "Opcjonalnie. Bez Care korzystasz z własnej infrastruktury hostingowej oraz niezależnej od konta MSWA obsługi formularza.",
   shared: [
-    "Hosting zarządza MSWA — domena pozostaje u klienta.",
+    "Stronę utrzymujemy na infrastrukturze Cloudflare — domena pozostaje u klienta.",
     "Rezygnacja jest skuteczna na koniec bieżącego opłaconego okresu.",
     "Bezpłatne jest wydanie opłaconego kodu, dostępnych plików i podstawowych informacji do przeniesienia strony.",
     "Wykonanie standardowej migracji strony na zgodny hosting przez MSWA: 399 zł.",
-    "Diagnozę awarii rozpoczynamy w ciągu 1 dnia roboczego. Nie gwarantujemy dostępności 100%.",
+    "Diagnozę awarii rozpoczynamy w ciągu 1 dnia roboczego. Nie gwarantujemy dostępności 100% ani stałego nadzoru 24/7.",
   ],
 } as const;
 
@@ -93,7 +96,7 @@ export const pricingPage = {
     priceNote: "jednorazowo",
     lead: "Nie musisz mieć gotowego projektu ani tekstów. Opowiedz nam o swojej firmie, pokaż materiały, które masz, a my zajmiemy się strukturą, treścią, wyglądem i publikacją.",
     paymentNote:
-      "Płatność: 50% zaliczki (750 zł) i 50% po akceptacji projektu (750 zł). Pierwsza kompletna wersja standardowo do 7 dni roboczych od zawarcia umowy, opłacenia zaliczki i dostarczenia kompletnych materiałów. Dopłata w ciągu 7 dni kalendarzowych od akceptacji. Publikacja i przekazanie po pełnej zapłacie.",
+      "Płatność: 50% zaliczki (750 zł) i 50% po odbiorze (750 zł). Pierwsza kompletna wersja standardowo do 7 dni roboczych od zawarcia umowy, opłacenia zaliczki i dostarczenia kompletnych materiałów. Dopłata w ciągu 7 dni kalendarzowych od odbioru. Publikacja i przekazanie po pełnej zapłacie.",
     included: [
       "analiza firmy i potrzeb",
       "zaplanowanie struktury strony",
@@ -121,7 +124,7 @@ export const pricingPage = {
       "podpięcie domeny",
       "publikacja",
       "poprawki w ramach ustalonego zakresu przed publikacją",
-      "30 dni bezpłatnego wsparcia technicznego od publikacji strony",
+      "30 dni bezpłatnego usuwania usterek wykonawczych od publikacji strony",
     ],
     domainNote:
       "Domena jest kupowana na dane klienta i pozostaje jego własnością. Koszt zakupu i odnowień ponosi klient.",
@@ -192,16 +195,16 @@ export const pricingPage = {
   },
   subscriptions: {
     eyebrow: "Po publikacji",
-    title: "MSWA Hosting i MSWA Care",
-    lead: "Abonamenty są opcjonalne. Jeśli ich nie wybierzesz, korzystasz z hostingu na swoim koncie. Płatność z góry za każde 30 dni. Bez minimalnego okresu zobowiązania i kar za rezygnację.",
+    title: "MSWA Care i MSWA Care Plus",
+    lead: "Abonamenty są opcjonalne. Jeśli ich nie wybierzesz, korzystasz z własnej infrastruktury hostingowej oraz niezależnej od konta MSWA obsługi formularza. Płatność z góry za każde 30 dni. Bez automatycznego obowiązku zakupu kolejnego okresu.",
     plans: [
       {
-        name: "MSWA Hosting",
+        name: "MSWA Care",
         price: "199 zł",
         priceSuffix: "/ 30 dni",
-        lead: "Strona działa u nas — bez samodzielnego zarządzania hostingiem.",
+        lead: "Utrzymanie techniczne i hosting strony na infrastrukturze Cloudflare.",
         included: [
-          "hosting na infrastrukturze zarządzanej przez MSWA",
+          "hosting strony na infrastrukturze Cloudflare zarządzanej przez MSWA",
           "obsługa techniczna i utrzymanie strony",
           "automatyczne monitorowanie dostępności",
           "kopie zapasowe kodu i plików oraz przywracanie działającej wersji",
@@ -211,12 +214,12 @@ export const pricingPage = {
         note: "Nie obejmuje zmian treści, zdjęć, cen, kolorów ani innych aktualizacji zamawianych przez klienta.",
       },
       {
-        name: "MSWA Care",
+        name: "MSWA Care Plus",
         price: "299 zł",
         priceSuffix: "/ 30 dni",
-        lead: "Hosting i utrzymanie oraz 2 rundy drobnych zmian na każde 30 dni.",
+        lead: "Care oraz 2 rundy drobnych zmian istniejących elementów na każde 30 dni.",
         included: [
-          "wszystko z MSWA Hosting",
+          "wszystko z MSWA Care",
           "2 rundy drobnych zmian na każde 30 dni",
           "aktualizacje istniejących tekstów, zdjęć, cen, kolorów i podobnych elementów",
           "jedna runda = jedno zbiorcze zgłoszenie drobnych zmian",
@@ -231,9 +234,9 @@ export const pricingPage = {
       "Rezygnacja jest skuteczna na koniec bieżącego opłaconego okresu.",
       "Bezpłatne jest wydanie opłaconego kodu, dostępnych plików i podstawowych informacji potrzebnych do przeniesienia strony.",
       "Jeśli zlecasz MSWA wykonanie standardowej migracji strony na zgodny hosting: 399 zł.",
-      "Diagnozę zgłoszonej lub wykrytej awarii rozpoczynamy w ciągu 1 dnia roboczego. Nie gwarantujemy dostępności 100% ani naprawy każdej awarii w określonym czasie.",
+      "Diagnozę zgłoszonej lub wykrytej awarii rozpoczynamy w ciągu 1 dnia roboczego. Nie gwarantujemy dostępności 100% ani stałego nadzoru 24/7.",
     ],
-    ctaLabel: "Zapytaj o hosting lub opiekę",
+    ctaLabel: "Zapytaj o Care lub Care Plus",
     ctaHref: "/#kontakt",
   },
 } as const;

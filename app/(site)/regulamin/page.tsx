@@ -211,7 +211,7 @@ export default function TermsPage() {
           </li>
           <li>
             Niniejszy regulamin nie określa pełnych warunków odpłatnych usług
-            realizacji stron ani abonamentów MSWA Hosting i MSWA Care.
+            realizacji stron ani abonamentów MSWA Care i MSWA Care Plus.
           </li>
         </ol>
       </section>

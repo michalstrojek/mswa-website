@@ -30,7 +30,7 @@ const questions: ReadonlyArray<{ q: string; a: ReactNode }> = [
   },
   {
     q: "Jak wygląda płatność?",
-    a: "Za wykonanie strony obowiązuje płatność 50/50: zaliczka 750 zł na start oraz 750 zł po akceptacji projektu. Dopłatę należy uiścić w ciągu 7 dni kalendarzowych od akceptacji. Publikacja i przekazanie projektu następują po pełnej zapłacie.",
+    a: "Za wykonanie strony obowiązuje płatność 50/50: zaliczka 750 zł na start oraz 750 zł po odbiorze. Dopłatę należy uiścić w ciągu 7 dni kalendarzowych od odbioru. Publikacja i przekazanie projektu następują po pełnej zapłacie.",
   },
   {
     q: "Co muszę Wam dostarczyć?",
@@ -38,15 +38,15 @@ const questions: ReadonlyArray<{ q: string; a: ReactNode }> = [
   },
   {
     q: "Czy zajmujecie się domeną i hostingiem?",
-    a: "Tak. Pomagamy w wyborze i konfiguracji domeny, ale domena jest kupowana i rejestrowana bezpośrednio na klienta — koszt zakupu i odnowień ponosi klient. Przy zakupie samej strony hosting jest po stronie klienta. Jeśli wybierzesz MSWA Hosting lub MSWA Care, hosting zapewnia i obsługuje MSWA.",
+    a: "Tak. Pomagamy w wyborze i konfiguracji domeny, ale domena jest kupowana i rejestrowana bezpośrednio na klienta — koszt zakupu i odnowień ponosi klient. Przy zakupie samej strony hosting oraz niezależna od konta MSWA obsługa formularza są po stronie klienta. Jeśli wybierzesz MSWA Care lub MSWA Care Plus, utrzymanie strony na infrastrukturze Cloudflare zapewnia i obsługuje MSWA.",
   },
   {
     q: "Czy mogę zgłaszać poprawki?",
-    a: "Tak. W cenie projektu są poprawki w ramach ustalonego zakresu przed publikacją strony. Po publikacji przysługuje 30 dni bezpłatnego usuwania usterek wynikających z wykonania strony. Większe zmiany zakresu, dodatkowe punkty treści lub funkcjonalności są traktowane jako rozszerzenie projektu.",
+    a: "Tak. W cenie projektu są poprawki w ramach ustalonego zakresu przed publikacją strony. Po publikacji przysługuje 30 dni bezpłatnego usuwania usterek wykonawczych — nie obejmuje to nieograniczonych zmian treści ani nowych funkcji. Większe zmiany zakresu, dodatkowe punkty treści lub funkcjonalności są traktowane jako rozszerzenie projektu.",
   },
   {
     q: "Czy po publikacji muszę płacić abonament?",
-    a: "Nie. Po wykonaniu strony nie ma obowiązkowego abonamentu ani minimalnego okresu zobowiązania. Możesz korzystać ze strony samodzielnie na własnej domenie i hostingu. Opcjonalnie możesz wybrać MSWA Hosting za 199 zł / 30 dni albo MSWA Care za 299 zł / 30 dni (Hosting plus 2 rundy drobnych zmian). Bezpłatne jest wydanie kodu i plików do przeniesienia; wykonanie migracji przez MSWA na zgodny hosting kosztuje 399 zł. Nowe podstrony, duże przebudowy i dodatkowe funkcje są wyceniane osobno.",
+    a: "Nie. Po wykonaniu strony nie ma obowiązkowego abonamentu ani minimalnego okresu zobowiązania. Możesz korzystać ze strony samodzielnie na własnej domenie, własnej infrastrukturze hostingowej i niezależnej obsłudze formularza. Opcjonalnie możesz wybrać MSWA Care za 199 zł / 30 dni albo MSWA Care Plus za 299 zł / 30 dni (Care plus 2 rundy drobnych zmian). Abonament opłacasz z góry za wybrany okres — bez automatycznego obowiązku zakupu kolejnego. Bezpłatne jest wydanie kodu i plików do przeniesienia; wykonanie migracji przez MSWA na zgodny hosting kosztuje 399 zł. Nowe podstrony, duże przebudowy i dodatkowe funkcje są wyceniane osobno.",
   },
 ];
 

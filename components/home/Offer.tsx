@@ -4,12 +4,12 @@ import { SectionLabel } from "@/components/site/SectionLabel";
 import { SiteLink } from "@/components/site/SiteLink";
 import {
   careOffer,
-  hostingOffer,
+  carePlusOffer,
   subscriptionNotes,
   websiteOffer,
 } from "@/lib/pricing";
 
-const subscriptionPlans = [hostingOffer, careOffer] as const;
+const subscriptionPlans = [careOffer, carePlusOffer] as const;
 
 export function Offer() {
   return (
