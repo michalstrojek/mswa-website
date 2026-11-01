@@ -28,7 +28,7 @@ export default function PrivacyPage() {
         Polityka prywatności MSWA
       </h1>
       <p className="mt-4 text-[13px] leading-relaxed text-muted/80">
-        Data aktualizacji: 8 października 2026&nbsp;r.
+        Data aktualizacji: 1 listopada 2026&nbsp;r.
       </p>
 
       <section className={sectionClass} aria-labelledby="privacy-1">
