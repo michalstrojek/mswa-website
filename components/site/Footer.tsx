@@ -63,12 +63,15 @@ export function Footer() {
 
       <div className="site-shell mt-11 flex flex-col gap-4 border-t border-line pt-6 text-[11px] tracking-[0.08em] text-muted/70 sm:mt-12 sm:flex-row sm:items-center sm:justify-between">
         <p>© 2026 {site.name}</p>
-        <div className="flex gap-6">
+        <div className="flex flex-wrap gap-x-6 gap-y-3">
           <SiteLink href="/polityka-prywatnosci" className="transition-colors hover:text-text">
             Polityka prywatności
           </SiteLink>
           <SiteLink href="/regulamin" className="transition-colors hover:text-text">
             Regulamin
+          </SiteLink>
+          <SiteLink href="/dsa" className="transition-colors hover:text-text">
+            Zgłaszanie treści (DSA)
           </SiteLink>
         </div>
       </div>

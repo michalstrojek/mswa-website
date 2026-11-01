@@ -71,6 +71,34 @@ export default function PrivacyPage() {
           <li>treść zapytania.</li>
         </ul>
         <p className={paragraphClass}>
+          Korzystając z formularza zgłoszeń DSA (strona{" "}
+          <Link href="/dsa" className={linkClass}>
+            /dsa
+          </Link>
+          ), zgłaszający może przekazać:
+        </p>
+        <ul className={listClass}>
+          <li>adres URL lub adresy URL wskazanej treści;</li>
+          <li>uzasadnienie zarzutu nielegalności;</li>
+          <li>
+            dodatkowy opis pozwalający odnaleźć treść (opcjonalnie);
+          </li>
+          <li>
+            oświadczenie o dobrej wierze oraz o prawdziwości i kompletności
+            informacji;
+          </li>
+          <li>
+            imię lub nazwę oraz adres e-mail — co do zasady wymagane; wyjątek:
+            przy zgłoszeniach dotyczących informacji uznawanych za związane z
+            przestępstwami z art. 3–7 dyrektywy 2011/93/UE dane te są opcjonalne.
+          </li>
+        </ul>
+        <p className={paragraphClass}>
+          Formularz DSA nie służy do przesyłania plików ani materiałów
+          przedstawiających nielegalne treści — wystarczą adres URL i
+          uzasadnienie.
+        </p>
+        <p className={paragraphClass}>
           W związku z działaniem strony i jej zabezpieczeń mogą być również
           przetwarzane dane techniczne, w szczególności adres IP, informacje o
           urządzeniu i przeglądarce oraz dane związane z korzystaniem z serwisu
@@ -78,7 +106,7 @@ export default function PrivacyPage() {
         </p>
         <p className={paragraphClass}>
           Prosimy o nieprzesyłanie danych szczególnych kategorii, które nie są
-          potrzebne do obsługi zapytania.
+          potrzebne do obsługi zapytania lub zgłoszenia DSA.
         </p>
       </section>
 
@@ -109,6 +137,22 @@ export default function PrivacyPage() {
           z prawa, odpowiednio na podstawie art. 6 ust. 1 lit. b, c lub f RODO.
         </p>
         <p className={`${paragraphClass} ${strongInBody}`}>
+          Obsługa zgłoszeń nielegalnych treści (DSA).
+        </p>
+        <p className={paragraphClass}>
+          Dane ze zgłoszenia DSA są wykorzystywane w celu przyjęcia i oceny
+          zgłoszenia, potwierdzenia odbioru oraz poinformowania o decyzji i
+          dostępnych środkach jej zakwestionowania, a także — gdy jest to
+          wymagane — w celu podjęcia działań wobec wskazanej treści na stronach
+          utrzymywanych przez MSWA.
+        </p>
+        <p className={paragraphClass}>
+          Podstawą prawną jest art. 6 ust. 1 lit. c RODO w związku z obowiązkami
+          wynikającymi z rozporządzenia (UE) 2022/2065 (DSA), w szczególności
+          art. 16. W zakresie zabezpieczenia mechanizmu przed nadużyciami
+          zastosowanie ma również art. 6 ust. 1 lit. f RODO.
+        </p>
+        <p className={`${paragraphClass} ${strongInBody}`}>
           Bezpieczeństwo serwisu.
         </p>
         <p className={paragraphClass}>
@@ -125,7 +169,7 @@ export default function PrivacyPage() {
           lit. f RODO.
         </p>
         <p className={paragraphClass}>
-          Dane z formularza nie są automatycznie wykorzystywane do newslettera
+          Dane z formularzy nie są automatycznie wykorzystywane do newslettera
           ani wysyłania niezamówionych wiadomości marketingowych.
         </p>
       </section>
@@ -136,9 +180,14 @@ export default function PrivacyPage() {
         </h2>
         <p className={paragraphClass}>
           Podanie danych jest dobrowolne, jednak uzupełnienie pól wymaganych
-          formularza jest konieczne, aby przesłać zgłoszenie.
+          danego formularza jest konieczne, aby przesłać wiadomość lub
+          zgłoszenie.
         </p>
-        <p className={paragraphClass}>Numer telefonu jest opcjonalny.</p>
+        <p className={paragraphClass}>
+          W formularzu kontaktowym numer telefonu jest opcjonalny. W formularzu
+          DSA imię lub nazwa oraz e-mail są opcjonalne wyłącznie w ścieżce
+          wyjątku dotyczącego przestępstw z art. 3–7 dyrektywy 2011/93/UE.
+        </p>
       </section>
 
       <section className={sectionClass} aria-labelledby="privacy-5">
@@ -151,11 +200,13 @@ export default function PrivacyPage() {
         <ul className={listClass}>
           <li>
             <span className={strongInBody}>Cloudflare</span> — hosting, obsługa
-            formularza, zabezpieczenia, Turnstile i przekierowywanie poczty;
+            formularzy (w tym kontaktowego i DSA), zabezpieczenia, Turnstile i
+            przekierowywanie poczty;
           </li>
           <li>
             <span className={strongInBody}>Resend</span> — techniczna wysyłka
-            wiadomości przesyłanych z formularza;
+            wiadomości z formularzy, w tym powiadomień o zgłoszeniu DSA i
+            potwierdzeń odbioru;
           </li>
           <li>
             <span className={strongInBody}>Google (Gmail)</span> — odbieranie,
@@ -166,6 +217,13 @@ export default function PrivacyPage() {
           Dane są przekazywane tym dostawcom w zakresie wynikającym z
           korzystania z ich usług i ich odpowiednich ról w przetwarzaniu
           informacji.
+        </p>
+        <p className={paragraphClass}>
+          Dane osoby zgłaszającej treść w ramach DSA nie są automatycznie
+          ujawniane klientowi, którego strona jest utrzymywana przez MSWA.
+          Udostępnienie takich danych następuje wyłącznie wtedy, gdy wymagają
+          tego przepisy prawa albo jest to niezbędne do obsługi konkretnej
+          sprawy.
         </p>
         <p className={paragraphClass}>
           Dane mogą być także udostępniane uprawnionym organom, jeżeli wymagają
@@ -214,6 +272,15 @@ export default function PrivacyPage() {
         <p className={paragraphClass}>
           Jeżeli rozmowy dotyczące współpracy są nadal prowadzone, dane mogą być
           przechowywane przez czas potrzebny do ich zakończenia.
+        </p>
+        <p className={paragraphClass}>
+          Zgłoszenia DSA oraz związaną z nimi korespondencję przechowujemy co do
+          zasady przez okres nie dłuższy niż 6 miesięcy od ostatniego kontaktu
+          w danej sprawie. Dłuższe przechowywanie następuje wyłącznie wtedy, gdy
+          wynika to z konkretnej podstawy prawnej albo uzasadnionej potrzeby
+          ustalenia, dochodzenia lub obrony roszczeń. Usuwanie korespondencji w
+          skrzynce administratora jest wykonywane ręcznie — serwis nie stosuje
+          automatycznego usuwania zgłoszeń DSA po upływie tego okresu.
         </p>
         <p className={paragraphClass}>
           W przypadku zawarcia umowy dane związane z realizacją i rozliczeniem
@@ -275,8 +342,9 @@ export default function PrivacyPage() {
           9. Cloudflare Turnstile
         </h2>
         <p className={paragraphClass}>
-          Formularz kontaktowy jest zabezpieczony usługą Cloudflare Turnstile,
-          która pomaga odróżniać użytkowników od zautomatyzowanego ruchu.
+          Formularz kontaktowy oraz formularz zgłoszeń DSA są zabezpieczone
+          usługą Cloudflare Turnstile, która pomaga odróżniać użytkowników od
+          zautomatyzowanego ruchu.
         </p>
         <p className={paragraphClass}>
           Cloudflare może w tym celu analizować sygnały techniczne, takie jak
@@ -302,7 +370,8 @@ export default function PrivacyPage() {
           10. Prawa użytkownika
         </h2>
         <p className={paragraphClass}>
-          Na zasadach określonych w RODO użytkownik ma prawo do:
+          Na zasadach określonych w RODO użytkownik — w tym osoba składająca
+          zgłoszenie DSA — ma prawo do:
         </p>
         <ul className={listClass}>
           <li>dostępu do swoich danych;</li>
@@ -329,6 +398,12 @@ export default function PrivacyPage() {
         <p className={paragraphClass}>
           Użytkownik ma również prawo wniesienia skargi do Prezesa Urzędu
           Ochrony Danych Osobowych (PUODO).
+        </p>
+        <p className={paragraphClass}>
+          Podanie danych w formularzu DSA jest potrzebne do obsługi zgłoszenia w
+          zakresie wymaganym przez art. 16 DSA. Skutkiem niepodania wymaganych
+          danych w zwykłej ścieżce jest brak możliwości wysłania zgłoszenia
+          przez formularz.
         </p>
       </section>
 
