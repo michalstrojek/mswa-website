@@ -246,8 +246,17 @@ export default function PrivacyPage() {
           języka albo stanu nawigacji.
         </p>
         <p className={paragraphClass}>
-          Niektóre projekty demonstracyjne pobierają czcionki z usług Google
-          Fonts, co może powodować nawiązanie połączenia z serwerami Google.
+          Czcionki wykorzystywane w projektach demonstracyjnych są hostowane
+          lokalnie w ramach serwisu MSWA i nie są pobierane z serwerów Google
+          Fonts.
+        </p>
+        <p className={paragraphClass}>
+          W projekcie demonstracyjnym Nova Studio mapa lokalizacji nie ładuje
+          się automatycznie. Dopiero po świadomym kliknięciu przycisku
+          „Wyświetl mapę” przeglądarka ładuje osadzoną mapę z serwisu
+          OpenStreetMap (openstreetmap.org). W związku z tym może dojść do
+          przekazania temu dostawcy danych technicznych, w szczególności adresu
+          IP oraz informacji o przeglądarce i urządzeniu.
         </p>
         <p className={paragraphClass}>
           Użytkownik może zarządzać obsługą cookies i pamięci przeglądarki
