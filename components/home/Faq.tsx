@@ -42,11 +42,11 @@ const questions: ReadonlyArray<{ q: string; a: ReactNode }> = [
   },
   {
     q: "Czy mogę zgłaszać poprawki?",
-    a: "Tak. W cenie projektu są poprawki w ramach ustalonego zakresu przed publikacją strony. Po publikacji przysługuje 30 dni bezpłatnego usuwania usterek wykonawczych — nie obejmuje to nieograniczonych zmian treści ani nowych funkcji. Większe zmiany zakresu, dodatkowe punkty treści lub funkcjonalności są traktowane jako rozszerzenie projektu.",
+    a: "Tak. Po udostępnieniu pierwszej kompletnej wersji strony masz 10 dni roboczych na zgłaszanie zwykłych poprawek w uzgodnionym zakresie. W tym czasie możesz wykorzystać 7 rund, po maksymalnie 15 drobnych zmian każda. Naprawa wad i niezgodności z umową nie pomniejsza tego limitu. Po publikacji przysługuje 30 dni bezpłatnego usuwania usterek wykonawczych — nie obejmuje to nieograniczonych zmian treści ani nowych funkcji. Większe zmiany zakresu, dodatkowe punkty treści lub funkcjonalności są traktowane jako rozszerzenie projektu.",
   },
   {
     q: "Czy po publikacji muszę płacić abonament?",
-    a: "Nie. Po wykonaniu strony nie ma obowiązkowego abonamentu ani minimalnego okresu zobowiązania. Możesz korzystać ze strony samodzielnie na własnej domenie, własnej infrastrukturze hostingowej i niezależnej obsłudze formularza. Opcjonalnie możesz wybrać MSWA Care za 199 zł / 30 dni albo MSWA Care Plus za 299 zł / 30 dni (Care plus 2 rundy drobnych zmian). Abonament opłacasz z góry za wybrany okres — bez automatycznego obowiązku zakupu kolejnego. Bezpłatne jest wydanie kodu i plików do przeniesienia; wykonanie migracji przez MSWA na zgodny hosting kosztuje 399 zł. Nowe podstrony, duże przebudowy i dodatkowe funkcje są wyceniane osobno.",
+    a: "Nie. Po wykonaniu strony nie ma obowiązkowego abonamentu ani minimalnego okresu zobowiązania. Możesz korzystać ze strony samodzielnie na własnej domenie, własnej infrastrukturze hostingowej i niezależnej obsłudze formularza. Opcjonalnie możesz wybrać MSWA Care za 199 zł / 30 dni albo MSWA Care Plus za 299 zł / 30 dni (2 rundy drobnych zmian w istniejącej stronie, maksymalnie 15 zmian w każdej rundzie, w każdym opłaconym okresie 30 kolejnych dni). Abonament opłacasz z góry za wybrany okres — bez automatycznego obowiązku zakupu kolejnego. Bezpłatne jest wydanie kodu i plików do przeniesienia; wykonanie migracji przez MSWA na zgodny hosting kosztuje 399 zł. Nowe podstrony, duże przebudowy i dodatkowe funkcje są wyceniane osobno.",
   },
 ];
 

@@ -22,7 +22,7 @@ export const websiteOffer = {
     "prosty odnośnik do zewnętrznej rezerwacji; proste elementy bloga jako punkty treści (bez CMS)",
     "podstawowe SEO i przygotowanie techniczne",
     "podpięcie domeny i publikacja",
-    "poprawki w ramach ustalonego zakresu przed publikacją",
+    "Po udostępnieniu pierwszej kompletnej wersji strony masz 10 dni roboczych na zgłaszanie zwykłych poprawek w uzgodnionym zakresie. W tym czasie możesz wykorzystać 7 rund, po maksymalnie 15 drobnych zmian każda. Naprawa wad i niezgodności z umową nie pomniejsza tego limitu.",
     "30 dni bezpłatnego usuwania usterek wykonawczych od publikacji strony",
   ],
   domainNote:
@@ -56,17 +56,18 @@ export const carePlusOffer = {
   label: "MSWA Care Plus",
   price: "299 zł",
   priceSuffix: "/ 30 dni",
-  lead: "Wszystko z MSWA Care oraz 2 rundy drobnych zmian istniejących elementów na każde 30 dni.",
+  lead: "W każdym opłaconym okresie 30 kolejnych dni otrzymujesz 2 rundy drobnych zmian w istniejącej stronie, maksymalnie 15 zmian w każdej rundzie. Nowe sekcje, funkcje i przebudowa strony wymagają osobnej wyceny.",
   included: [
     "wszystko z MSWA Care",
-    "2 rundy drobnych zmian na każde 30 dni",
-    "aktualizacje tekstów, zdjęć, cen, kolorów i podobnych elementów",
+    "2 rundy drobnych zmian w każdym opłaconym okresie 30 kolejnych dni — maksymalnie 15 zmian w każdej rundzie",
+    "aktualizacje tekstów, zdjęć, cen, kolorów i podobnych elementów w istniejącej strukturze strony",
     "jedna runda = jedno zbiorcze zgłoszenie drobnych zmian",
+    "naprawy wad, które MSWA ma obowiązek usunąć, nie zużywają rund ani limitu zmian",
     "wykonanie zwykle do 5 dni roboczych od kompletnego zgłoszenia",
     "dodatkowa runda zmian: 150 zł",
   ],
   excludedNote:
-    "Nowe podstrony, sekcje, funkcje i większe przebudowy wyceniamy osobno. Niewykorzystane rundy nie przechodzą dalej.",
+    "Nowe sekcje, funkcje i przebudowa strony wymagają osobnej wyceny. Niewykorzystane rundy nie przechodzą dalej.",
 } as const;
 
 export const subscriptionNotes = {
@@ -123,7 +124,7 @@ export const pricingPage = {
       "favicon i podstawowe meta dane",
       "podpięcie domeny",
       "publikacja",
-      "poprawki w ramach ustalonego zakresu przed publikacją",
+      "Po udostępnieniu pierwszej kompletnej wersji strony masz 10 dni roboczych na zgłaszanie zwykłych poprawek w uzgodnionym zakresie. W tym czasie możesz wykorzystać 7 rund, po maksymalnie 15 drobnych zmian każda. Naprawa wad i niezgodności z umową nie pomniejsza tego limitu.",
       "30 dni bezpłatnego usuwania usterek wykonawczych od publikacji strony",
     ],
     domainNote:
@@ -217,16 +218,17 @@ export const pricingPage = {
         name: "MSWA Care Plus",
         price: "299 zł",
         priceSuffix: "/ 30 dni",
-        lead: "Care oraz 2 rundy drobnych zmian istniejących elementów na każde 30 dni.",
+        lead: "W każdym opłaconym okresie 30 kolejnych dni otrzymujesz 2 rundy drobnych zmian w istniejącej stronie, maksymalnie 15 zmian w każdej rundzie. Nowe sekcje, funkcje i przebudowa strony wymagają osobnej wyceny.",
         included: [
           "wszystko z MSWA Care",
-          "2 rundy drobnych zmian na każde 30 dni",
-          "aktualizacje istniejących tekstów, zdjęć, cen, kolorów i podobnych elementów",
+          "2 rundy drobnych zmian w każdym opłaconym okresie 30 kolejnych dni — maksymalnie 15 zmian w każdej rundzie",
+          "aktualizacje istniejących tekstów, zdjęć, cen, kolorów i podobnych elementów w istniejącej strukturze strony",
           "jedna runda = jedno zbiorcze zgłoszenie drobnych zmian",
+          "naprawy wad, które MSWA ma obowiązek usunąć, nie zużywają rund ani limitu zmian",
           "standardowy termin: do 5 dni roboczych od kompletnego zgłoszenia",
           "dodatkowa runda zmian: 150 zł",
         ],
-        note: "Nowe podstrony, sekcje, funkcje i większe przebudowy wyceniamy indywidualnie. Niewykorzystane rundy nie przechodzą na kolejne okresy.",
+        note: "Nowe sekcje, funkcje i przebudowa strony wymagają osobnej wyceny. Niewykorzystane rundy nie przechodzą na kolejne okresy.",
       },
     ],
     sharedNotes: [
