@@ -1,19 +1,28 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { BlackLabelShell } from "@/components/projects/black-label/layout/BlackLabelShell";
 import "@/components/projects/black-label/black-label.css";
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin", "latin-ext"],
-  weight: ["500", "600"],
-  style: ["normal", "italic"],
+const cormorant = localFont({
+  src: [
+    {
+      path: "../../../fonts/cormorant-garamond/CormorantGaramond[wght].ttf",
+      weight: "500 600",
+      style: "normal",
+    },
+    {
+      path: "../../../fonts/cormorant-garamond/CormorantGaramond-Italic[wght].ttf",
+      weight: "500 600",
+      style: "italic",
+    },
+  ],
   variable: "--font-bl-display",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500"],
+const dmSans = localFont({
+  src: "../../../fonts/dm-sans/DMSans[opsz,wght].ttf",
+  weight: "400 500",
   variable: "--font-bl-sans",
   display: "swap",
 });

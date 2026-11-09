@@ -1,34 +1,39 @@
 import type { Metadata } from "next";
-import {
-  Cormorant_Garamond,
-  Great_Vibes,
-  Manrope,
-} from "next/font/google";
+import localFont from "next/font/local";
 import "@/components/projects/luna-studio/styles/tokens.css";
 import "@/components/projects/luna-studio/styles/reset.css";
 import "@/components/projects/luna-studio/styles/global.css";
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
+const cormorant = localFont({
+  src: [
+    {
+      path: "../../../fonts/cormorant-garamond/CormorantGaramond[wght].ttf",
+      weight: "400 600",
+      style: "normal",
+    },
+    {
+      path: "../../../fonts/cormorant-garamond/CormorantGaramond-Italic[wght].ttf",
+      weight: "400 600",
+      style: "italic",
+    },
+  ],
   variable: "--font-luna-serif",
   display: "swap",
   // Match Google Fonts CSS used by standalone (no size-adjusted fallback metrics)
   adjustFontFallback: false,
 });
 
-const manrope = Manrope({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600"],
+const manrope = localFont({
+  src: "../../../fonts/manrope/Manrope[wght].ttf",
+  weight: "400 600",
   variable: "--font-luna-sans",
   display: "swap",
   adjustFontFallback: false,
 });
 
-const greatVibes = Great_Vibes({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400"],
+const greatVibes = localFont({
+  src: "../../../fonts/great-vibes/GreatVibes-Regular.ttf",
+  weight: "400",
   variable: "--font-luna-script",
   display: "swap",
   adjustFontFallback: false,

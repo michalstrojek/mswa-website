@@ -1,22 +1,25 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Outfit } from "next/font/google";
+import localFont from "next/font/local";
 import "@/components/projects/studio-barber/styles/tokens.css";
 import "@/components/projects/studio-barber/styles/reset.css";
 import "@/components/projects/studio-barber/styles/global.css";
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin", "latin-ext"],
-  // Match standalone Google Fonts URL: upright 400/500/600 only (no italic)
-  weight: ["400", "500", "600"],
-  style: ["normal"],
+const cormorant = localFont({
+  src: [
+    {
+      path: "../../../fonts/cormorant-garamond/CormorantGaramond[wght].ttf",
+      weight: "400 600",
+      style: "normal",
+    },
+  ],
   variable: "--font-sb-serif",
   display: "swap",
   adjustFontFallback: false,
 });
 
-const outfit = Outfit({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600"],
+const outfit = localFont({
+  src: "../../../fonts/outfit/Outfit[wght].ttf",
+  weight: "400 600",
   variable: "--font-sb-sans",
   display: "swap",
   adjustFontFallback: false,

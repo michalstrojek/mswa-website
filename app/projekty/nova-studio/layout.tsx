@@ -1,40 +1,40 @@
 import type { Metadata } from "next";
-import {
-  Cormorant_Garamond,
-  Great_Vibes,
-  Inter,
-  Oswald,
-} from "next/font/google";
+import localFont from "next/font/local";
 import "@/components/projects/nova-studio/nova-studio.css";
 
-const inter = Inter({
-  subsets: ["latin", "latin-ext"],
+const inter = localFont({
+  src: "../../../fonts/inter/Inter[opsz,wght].ttf",
+  weight: "100 900",
   variable: "--font-nova-sans",
   display: "swap",
   adjustFontFallback: false,
 });
 
-const oswald = Oswald({
-  subsets: ["latin", "latin-ext"],
+const oswald = localFont({
+  src: "../../../fonts/oswald/Oswald[wght].ttf",
+  weight: "400 700",
   variable: "--font-nova-display",
-  weight: ["400", "500", "600", "700"],
   display: "swap",
   adjustFontFallback: false,
 });
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin", "latin-ext"],
+const cormorant = localFont({
+  src: [
+    {
+      path: "../../../fonts/cormorant-garamond/CormorantGaramond-Italic[wght].ttf",
+      weight: "400 600",
+      style: "italic",
+    },
+  ],
   variable: "--font-nova-serif",
-  style: ["italic"],
-  weight: ["400", "500", "600"],
   display: "swap",
   adjustFontFallback: false,
 });
 
-const greatVibes = Great_Vibes({
-  subsets: ["latin"],
-  variable: "--font-nova-script",
+const greatVibes = localFont({
+  src: "../../../fonts/great-vibes/GreatVibes-Regular.ttf",
   weight: "400",
+  variable: "--font-nova-script",
   display: "swap",
   adjustFontFallback: false,
 });

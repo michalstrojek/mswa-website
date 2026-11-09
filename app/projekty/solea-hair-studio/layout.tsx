@@ -1,32 +1,37 @@
 import type { Metadata } from "next";
-import {
-  Cormorant_Garamond,
-  Great_Vibes,
-  Outfit,
-} from "next/font/google";
+import localFont from "next/font/local";
 import "@/components/projects/solea-hair-studio/solea-hair-studio.css";
 
-const outfit = Outfit({
-  subsets: ["latin", "latin-ext"],
+const outfit = localFont({
+  src: "../../../fonts/outfit/Outfit[wght].ttf",
+  weight: "300 600",
   variable: "--font-solea-sans",
-  weight: ["300", "400", "500", "600"],
   display: "swap",
   adjustFontFallback: false,
 });
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin", "latin-ext"],
+const cormorant = localFont({
+  src: [
+    {
+      path: "../../../fonts/cormorant-garamond/CormorantGaramond[wght].ttf",
+      weight: "400 700",
+      style: "normal",
+    },
+    {
+      path: "../../../fonts/cormorant-garamond/CormorantGaramond-Italic[wght].ttf",
+      weight: "400 700",
+      style: "italic",
+    },
+  ],
   variable: "--font-solea-display",
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
   display: "swap",
   adjustFontFallback: false,
 });
 
-const greatVibes = Great_Vibes({
-  subsets: ["latin"],
-  variable: "--font-solea-script",
+const greatVibes = localFont({
+  src: "../../../fonts/great-vibes/GreatVibes-Regular.ttf",
   weight: "400",
+  variable: "--font-solea-script",
   display: "swap",
   adjustFontFallback: false,
 });

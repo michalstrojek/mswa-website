@@ -1,22 +1,30 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Outfit } from "next/font/google";
+import localFont from "next/font/local";
 import "@/components/projects/atelier/styles/tokens.css";
 import "@/components/projects/atelier/styles/reset.css";
 import "@/components/projects/atelier/styles/global.css";
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin", "latin-ext"],
-  // Match standalone: 300/400/500 + italic 300/400
-  weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
+const cormorant = localFont({
+  src: [
+    {
+      path: "../../../fonts/cormorant-garamond/CormorantGaramond[wght].ttf",
+      weight: "300 500",
+      style: "normal",
+    },
+    {
+      path: "../../../fonts/cormorant-garamond/CormorantGaramond-Italic[wght].ttf",
+      weight: "300 500",
+      style: "italic",
+    },
+  ],
   variable: "--font-atelier-serif",
   display: "swap",
   adjustFontFallback: false,
 });
 
-const outfit = Outfit({
-  subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500"],
+const outfit = localFont({
+  src: "../../../fonts/outfit/Outfit[wght].ttf",
+  weight: "300 500",
   variable: "--font-atelier-sans",
   display: "swap",
   adjustFontFallback: false,

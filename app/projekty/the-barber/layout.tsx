@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Oswald } from "next/font/google";
+import localFont from "next/font/local";
 import "@/components/projects/the-barber/the-barber.css";
 
-const oswald = Oswald({
-  subsets: ["latin", "latin-ext"],
-  weight: ["500", "600", "700"],
+const oswald = localFont({
+  src: "../../../fonts/oswald/Oswald[wght].ttf",
+  weight: "500 700",
   variable: "--font-tb-display",
   display: "swap",
 });
 
-const inter = Inter({
-  subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500", "600"],
+const inter = localFont({
+  src: "../../../fonts/inter/Inter[opsz,wght].ttf",
+  weight: "300 600",
   variable: "--font-tb-sans",
   display: "swap",
 });

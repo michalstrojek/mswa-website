@@ -1,19 +1,29 @@
 import type { Metadata } from "next";
-import { Outfit, Playfair_Display } from "next/font/google";
+import localFont from "next/font/local";
 import { HideDevIndicatorOnMobile } from "@/components/site/HideDevIndicatorOnMobile";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const outfit = Outfit({
-  subsets: ["latin", "latin-ext"],
+const outfit = localFont({
+  src: "../fonts/outfit/Outfit[wght].ttf",
+  weight: "100 900",
   variable: "--font-outfit",
   display: "swap",
 });
 
-const playfair = Playfair_Display({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
+const playfair = localFont({
+  src: [
+    {
+      path: "../fonts/playfair-display/PlayfairDisplay[wght].ttf",
+      weight: "400 600",
+      style: "normal",
+    },
+    {
+      path: "../fonts/playfair-display/PlayfairDisplay-Italic[wght].ttf",
+      weight: "400 600",
+      style: "italic",
+    },
+  ],
   variable: "--font-playfair",
   display: "swap",
 });
