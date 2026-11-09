@@ -46,7 +46,7 @@ const questions: ReadonlyArray<{ q: string; a: ReactNode }> = [
   },
   {
     q: "Czy po publikacji muszę płacić abonament?",
-    a: "Nie. Po wykonaniu strony nie ma obowiązkowego abonamentu ani minimalnego okresu zobowiązania. Możesz korzystać ze strony samodzielnie na własnej domenie, własnej infrastrukturze hostingowej i niezależnej obsłudze formularza. Opcjonalnie możesz wybrać MSWA Care za 150 zł / 30 dni albo MSWA Care Plus za 299 zł / 30 dni (2 rundy drobnych zmian w istniejącej stronie, maksymalnie 15 zmian w każdej rundzie, w każdym opłaconym okresie 30 kolejnych dni). Abonament opłacasz z góry za wybrany okres — bez automatycznego obowiązku zakupu kolejnego. Bezpłatne jest wydanie kodu i plików do przeniesienia; wykonanie migracji przez MSWA na zgodny hosting kosztuje 399 zł. Nowe podstrony, duże przebudowy i dodatkowe funkcje są wyceniane osobno.",
+    a: "Nie. Po wykonaniu strony nie ma obowiązkowego abonamentu ani minimalnego okresu zobowiązania. Możesz korzystać ze strony samodzielnie na własnej domenie, własnej infrastrukturze hostingowej i niezależnej obsłudze formularza. Opcjonalnie możesz wybrać MSWA Care za 150 zł / 30 dni albo MSWA Care Plus za 300 zł / 30 dni (2 rundy drobnych zmian w istniejącej stronie, maksymalnie 15 zmian w każdej rundzie, w każdym opłaconym okresie 30 kolejnych dni). Abonament opłacasz z góry za wybrany okres — bez automatycznego obowiązku zakupu kolejnego. Bezpłatne jest wydanie kodu i plików do przeniesienia; wykonanie migracji przez MSWA na zgodny hosting kosztuje 399 zł. Nowe podstrony, duże przebudowy i dodatkowe funkcje są wyceniane osobno.",
   },
 ];
 

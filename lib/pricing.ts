@@ -54,7 +54,7 @@ export const careOffer = {
 
 export const carePlusOffer = {
   label: "MSWA Care Plus",
-  price: "299 zł",
+  price: "300 zł",
   priceSuffix: "/ 30 dni",
   lead: "W każdym opłaconym okresie 30 kolejnych dni otrzymujesz 2 rundy drobnych zmian w istniejącej stronie, maksymalnie 15 zmian w każdej rundzie. Nowe sekcje, funkcje i przebudowa strony wymagają osobnej wyceny.",
   included: [
@@ -216,7 +216,7 @@ export const pricingPage = {
       },
       {
         name: "MSWA Care Plus",
-        price: "299 zł",
+        price: "300 zł",
         priceSuffix: "/ 30 dni",
         lead: "W każdym opłaconym okresie 30 kolejnych dni otrzymujesz 2 rundy drobnych zmian w istniejącej stronie, maksymalnie 15 zmian w każdej rundzie. Nowe sekcje, funkcje i przebudowa strony wymagają osobnej wyceny.",
         included: [
