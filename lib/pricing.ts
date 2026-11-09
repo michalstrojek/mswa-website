@@ -37,7 +37,7 @@ export const websiteOffer = {
 
 export const careOffer = {
   label: "MSWA Care",
-  price: "199 zł",
+  price: "150 zł",
   priceSuffix: "/ 30 dni",
   lead: "Utrzymanie techniczne i hosting strony na infrastrukturze Cloudflare — bez samodzielnego zarządzania środowiskiem.",
   included: [
@@ -201,7 +201,7 @@ export const pricingPage = {
     plans: [
       {
         name: "MSWA Care",
-        price: "199 zł",
+        price: "150 zł",
         priceSuffix: "/ 30 dni",
         lead: "Utrzymanie techniczne i hosting strony na infrastrukturze Cloudflare.",
         included: [
