@@ -508,7 +508,8 @@ export function Hero() {
             data-hero-meta
             className="mt-7 max-w-[440px] text-[9px] leading-relaxed tracking-[0.18em] text-muted/70 uppercase"
           >
-            Indywidualny projekt · Mobile · Podpięcie domeny i publikacja
+            Bezpłatny projekt poglądowy · Bez zaliczki · Bez obowiązkowego
+            abonamentu
           </p>
         </div>
 

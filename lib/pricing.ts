@@ -1,7 +1,7 @@
 /**
  * MSWA pricing — homepage offer + /cennik page content.
- * Publiczna oferta zgodna z ustaleniami MSWA z 31.10.2026
- * (wykonanie WWW + MSWA Care / MSWA Care Plus).
+ * Publiczna oferta zgodna z aktualnym modelem sprzedaży MSWA
+ * (wykonanie WWW + opcjonalne MSWA Care / MSWA Care Plus).
  */
 
 export const websiteOffer = {
@@ -9,8 +9,9 @@ export const websiteOffer = {
   price: "1 500 zł",
   priceNote: "jednorazowo",
   headline: "Jedna strona. Cały proces po naszej stronie.",
-  lead: "Podstawowa strona zawiera wszystko, czego potrzebuje większość lokalnych firm — do 11 prostych punktów treści. Jeśli potrzebujesz dodatkowych funkcji lub większego zakresu, możesz dobrać je według jasnego cennika.",
+  lead: "Zaczynamy od bezpłatnego projektu poglądowego — dostajesz link i oglądasz bez zobowiązania. Podstawowa strona zawiera wszystko, czego potrzebuje większość lokalnych firm — do 11 prostych punktów treści. Dodatkowe funkcje dobierzesz według jasnego cennika.",
   included: [
+    "bezpłatny projekt poglądowy z linkiem do obejrzenia — bez zobowiązania do zakupu",
     "indywidualny projekt dopasowany do firmy",
     "pomysł, struktura i podstawowe treści po naszej stronie",
     "do 11 prostych punktów treści (modułów) na stronie głównej i podstronach",
@@ -21,12 +22,15 @@ export const websiteOffer = {
     "do 150 zdjęć oraz sekcja filmów w ramach limitów umowy",
     "prosty odnośnik do zewnętrznej rezerwacji; proste elementy bloga jako punkty treści (bez CMS)",
     "podstawowe SEO i przygotowanie techniczne",
-    "podpięcie domeny i publikacja",
-    "Po udostępnieniu pierwszej kompletnej wersji strony masz 10 dni roboczych na zgłaszanie zwykłych poprawek w uzgodnionym zakresie. W tym czasie możesz wykorzystać 7 rund, po maksymalnie 15 drobnych zmian każda. Naprawa wad i niezgodności z umową nie pomniejsza tego limitu.",
+    "2 rundy drobnych zmian w cenie — maksymalnie 15 zmian w każdej rundzie; dodatkowa runda: 150 zł",
+    "podpięcie domeny i publikacja po rozliczeniu",
+    "pliki strony oraz licencja niewyłączna do korzystania, przenoszenia i dalszego rozwijania strony — zgodnie z warunkami oferty",
     "30 dni bezpłatnego usuwania usterek wykonawczych od publikacji strony",
   ],
   domainNote:
-    "Domena pozostaje własnością klienta i jest kupowana bezpośrednio na jego dane. Pomagamy w jej wyborze, konfiguracji i podpięciu do strony. Koszt zakupu i odnowień domeny ponosi klient.",
+    "Domenę kupujesz i opłacasz samodzielnie. Pomagamy w wyborze, konfiguracji i podpięciu do strony.",
+  processNote:
+    "Bez zaliczki. Po akceptacji oferty e-mailem uzgadniamy poprawki, pokazujemy wersję końcową i po jej akceptacji płacisz 1 500 zł. Publikacja i przekazanie następują po rozliczeniu oraz spełnieniu niezbędnych warunków technicznych.",
   extendedNote:
     "Masz bardziej rozbudowany projekt? Rozszerzenia mają jasno określone ceny.",
   ctaLabel: "Zapytaj o swoją stronę",
@@ -73,11 +77,11 @@ export const carePlusOffer = {
 export const subscriptionNotes = {
   sectionLabel: "Po publikacji",
   sectionLead:
-    "Abonamenty są opcjonalne. Płatność z góry za każde 30 dni. Bez automatycznego obowiązku zakupu kolejnego okresu. Domena pozostaje po stronie klienta. Bez minimalnego okresu zobowiązania i kar za rezygnację.",
+    "Care i Care Plus są dobrowolne. Opłacasz z góry wybrany okres 30 dni — bez automatycznego pobierania opłat i bez obowiązkowego abonamentu. Domenę kupujesz i opłacasz samodzielnie.",
   optionalNote:
-    "Opcjonalnie. Bez Care korzystasz z własnej infrastruktury hostingowej oraz niezależnej od konta MSWA obsługi formularza.",
+    "Bez Care korzystasz z własnego hostingu i odpowiadasz za jego bieżące utrzymanie. Obsługa formularza jest wtedy niezależna od konta MSWA.",
   shared: [
-    "Stronę utrzymujemy na infrastrukturze Cloudflare — domena pozostaje u klienta.",
+    "W Care i Care Plus stronę utrzymujemy na infrastrukturze Cloudflare — domena pozostaje u Ciebie.",
     "Rezygnacja jest skuteczna na koniec bieżącego opłaconego okresu.",
     "Bezpłatne jest wydanie opłaconego kodu, dostępnych plików i podstawowych informacji do przeniesienia strony.",
     "Wykonanie standardowej migracji strony na zgodny hosting przez MSWA: 399 zł.",
@@ -95,10 +99,11 @@ export const pricingPage = {
     eyebrow: "Strona firmowa",
     price: "1 500 zł",
     priceNote: "jednorazowo",
-    lead: "Nie musisz mieć gotowego projektu ani tekstów. Opowiedz nam o swojej firmie, pokaż materiały, które masz, a my zajmiemy się strukturą, treścią, wyglądem i publikacją.",
+    lead: "Najpierw przygotowujemy bezpłatny projekt poglądowy i wysyłamy Ci link. Obejrzenie go nic nie zobowiązuje. Nie musisz mieć gotowych tekstów — opowiedz o firmie, a my zajmiemy się strukturą, treścią, wyglądem i publikacją.",
     paymentNote:
-      "Płatność: 50% zaliczki (750 zł) i 50% po odbiorze (750 zł). Pierwsza kompletna wersja standardowo do 7 dni roboczych od zawarcia umowy, opłacenia zaliczki i dostarczenia kompletnych materiałów. Dopłata w ciągu 7 dni kalendarzowych od odbioru. Publikacja i przekazanie po pełnej zapłacie.",
+      "Bez zaliczki. Po akceptacji oferty i warunków e-mailem uzgadniamy poprawki, pokazujemy wersję końcową i po jej akceptacji płacisz 1 500 zł. Publikacja oraz przekazanie plików następują po rozliczeniu i spełnieniu niezbędnych warunków technicznych.",
     included: [
+      "bezpłatny projekt poglądowy z linkiem do obejrzenia — bez zobowiązania do zakupu",
       "analiza firmy i potrzeb",
       "zaplanowanie struktury strony",
       "przygotowanie podstawowych tekstów, nagłówków i CTA",
@@ -122,13 +127,14 @@ export const pricingPage = {
       "podstawowe SEO techniczne",
       "Google Search Console",
       "favicon i podstawowe meta dane",
+      "2 rundy drobnych zmian w cenie — maksymalnie 15 zmian w każdej rundzie; dodatkowa runda: 150 zł",
       "podpięcie domeny",
-      "publikacja",
-      "Po udostępnieniu pierwszej kompletnej wersji strony masz 10 dni roboczych na zgłaszanie zwykłych poprawek w uzgodnionym zakresie. W tym czasie możesz wykorzystać 7 rund, po maksymalnie 15 drobnych zmian każda. Naprawa wad i niezgodności z umową nie pomniejsza tego limitu.",
+      "publikacja po rozliczeniu",
+      "pliki strony oraz licencja niewyłączna do korzystania, przenoszenia i dalszego rozwijania strony — zgodnie z warunkami oferty",
       "30 dni bezpłatnego usuwania usterek wykonawczych od publikacji strony",
     ],
     domainNote:
-      "Domena jest kupowana na dane klienta i pozostaje jego własnością. Koszt zakupu i odnowień ponosi klient.",
+      "Domenę kupujesz i opłacasz samodzielnie. Pomagamy w wyborze, konfiguracji i podpięciu.",
   },
   extensions: {
     eyebrow: "Rozszerzenia",
@@ -197,7 +203,7 @@ export const pricingPage = {
   subscriptions: {
     eyebrow: "Po publikacji",
     title: "MSWA Care i MSWA Care Plus",
-    lead: "Abonamenty są opcjonalne. Jeśli ich nie wybierzesz, korzystasz z własnej infrastruktury hostingowej oraz niezależnej od konta MSWA obsługi formularza. Płatność z góry za każde 30 dni. Bez automatycznego obowiązku zakupu kolejnego okresu.",
+    lead: "Care i Care Plus są dobrowolne. Jeśli ich nie wybierzesz, korzystasz z własnego hostingu i odpowiadasz za jego bieżące utrzymanie. Opłacasz z góry wybrany okres 30 dni — bez automatycznego pobierania opłat.",
     plans: [
       {
         name: "MSWA Care",

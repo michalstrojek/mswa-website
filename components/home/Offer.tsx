@@ -78,6 +78,9 @@ export function Offer() {
             <p className="mt-5 max-w-md text-[12px] leading-relaxed text-muted/70">
               {websiteOffer.domainNote}
             </p>
+            <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-muted/80">
+              {websiteOffer.processNote}
+            </p>
           </div>
         </div>
 

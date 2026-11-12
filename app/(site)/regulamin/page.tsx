@@ -27,7 +27,7 @@ export default function TermsPage() {
       </h1>
       <p className="mt-4 text-[13px] leading-relaxed text-muted/80">
         <strong className="font-medium text-text">
-          Data aktualizacji: 8 października 2026&nbsp;r.
+          Data aktualizacji: 12 listopada 2026&nbsp;r.
         </strong>
       </p>
 
@@ -211,7 +211,7 @@ export default function TermsPage() {
           </li>
           <li>
             Niniejszy regulamin nie określa pełnych warunków odpłatnych usług
-            realizacji stron ani abonamentów MSWA Care i MSWA Care Plus.
+            realizacji stron ani pakietów MSWA Care i MSWA Care Plus.
           </li>
         </ol>
       </section>

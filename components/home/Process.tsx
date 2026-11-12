@@ -13,18 +13,18 @@ const stages = [
   },
   {
     n: "02",
-    title: "Tworzymy kierunek",
-    text: "Na podstawie rozmowy przygotowujemy koncepcję strony i jej charakter wizualny.",
+    title: "Projekt poglądowy",
+    text: "Bezpłatnie przygotowujemy projekt i wysyłamy Ci link. Obejrzenie nic nie zobowiązuje.",
   },
   {
     n: "03",
-    title: "Budujemy i dopracowujemy",
-    text: "Powstaje strona, dostajesz ją do wglądu i nanosimy ustalone poprawki.",
+    title: "Poprawki i akceptacja",
+    text: "Akceptujesz ofertę e-mailem, uzgadniamy poprawki i zatwierdzamy wersję końcową.",
   },
   {
     n: "04",
-    title: "Uruchamiamy",
-    text: "Podpinamy domenę, publikujemy stronę i wszystko jest gotowe do działania.",
+    title: "Płatność i publikacja",
+    text: "Po akceptacji płacisz 1 500 zł. Publikujemy stronę po rozliczeniu i przekazujemy pliki.",
   },
 ] as const;
 

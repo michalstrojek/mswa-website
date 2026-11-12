@@ -10,27 +10,30 @@ const questions: ReadonlyArray<{ q: string; a: ReactNode }> = [
     q: "Ile kosztuje strona?",
     a: (
       <>
-        Strona internetowa kosztuje 1 500 zł. Najczęstsze rozszerzenia mają
-        jasno określone ceny w naszym{" "}
+        Strona internetowa kosztuje 1 500 zł jednorazowo. Najczęstsze
+        rozszerzenia mają jasno określone ceny w naszym{" "}
         <Link
           href="/cennik"
           className="text-text underline decoration-accent/40 underline-offset-4 transition-colors hover:text-accent"
         >
           cenniku
         </Link>
-        , dzięki czemu przed rozpoczęciem projektu wiesz, za co płacisz.
-        Nietypowe lub bardziej zaawansowane funkcjonalności wyceniamy
-        indywidualnie przed rozpoczęciem prac.
+        . Nietypowe lub bardziej zaawansowane funkcje wyceniamy indywidualnie
+        przed rozpoczęciem prac.
       </>
     ),
   },
   {
-    q: "Ile trwa wykonanie strony?",
-    a: "Pierwsza kompletna wersja standardowo powstaje do 7 dni roboczych od spełnienia warunków rozpoczęcia: zawarcia umowy, opłacenia zaliczki i dostarczenia kompletnych wymaganych materiałów. Bardziej rozbudowane projekty mogą wymagać więcej czasu — dokładny termin ustalamy przed startem.",
+    q: "Czy oglądanie projektu coś mnie zobowiązuje?",
+    a: "Nie. Najpierw bezpłatnie przygotowujemy projekt poglądowy i wysyłamy Ci link. Możesz go obejrzeć bez zobowiązania do zakupu.",
   },
   {
-    q: "Jak wygląda płatność?",
-    a: "Za wykonanie strony obowiązuje płatność 50/50: zaliczka 750 zł na start oraz 750 zł po odbiorze. Dopłatę należy uiścić w ciągu 7 dni kalendarzowych od odbioru. Publikacja i przekazanie projektu następują po pełnej zapłacie.",
+    q: "Jak wygląda współpraca i płatność?",
+    a: "Bez zaliczki. Jeśli oferta Ci odpowiada, akceptujesz ją i warunki e-mailem. Uzgadniamy poprawki, pokazujemy wersję końcową i po jej akceptacji płacisz 1 500 zł. Publikacja oraz przekazanie plików następują po rozliczeniu i spełnieniu niezbędnych warunków technicznych.",
+  },
+  {
+    q: "Ile trwa wykonanie strony?",
+    a: "Po rozmowie przygotowujemy bezpłatny projekt poglądowy. Termin realizacji końcowej strony ustalamy po akceptacji oferty — zależnie od zakresu i materiałów, które otrzymamy.",
   },
   {
     q: "Co muszę Wam dostarczyć?",
@@ -38,15 +41,15 @@ const questions: ReadonlyArray<{ q: string; a: ReactNode }> = [
   },
   {
     q: "Czy zajmujecie się domeną i hostingiem?",
-    a: "Tak. Pomagamy w wyborze i konfiguracji domeny, ale domena jest kupowana i rejestrowana bezpośrednio na klienta — koszt zakupu i odnowień ponosi klient. Przy zakupie samej strony hosting oraz niezależna od konta MSWA obsługa formularza są po stronie klienta. Jeśli wybierzesz MSWA Care lub MSWA Care Plus, utrzymanie strony na infrastrukturze Cloudflare zapewnia i obsługuje MSWA.",
+    a: "Domenę kupujesz i opłacasz samodzielnie — pomagamy w wyborze, konfiguracji i podpięciu. Przy zakupie samej strony hosting oraz bieżące utrzymanie są po Twojej stronie. Jeśli wybierzesz MSWA Care lub MSWA Care Plus, utrzymanie strony na infrastrukturze Cloudflare zapewnia MSWA.",
   },
   {
     q: "Czy mogę zgłaszać poprawki?",
-    a: "Tak. Po udostępnieniu pierwszej kompletnej wersji strony masz 10 dni roboczych na zgłaszanie zwykłych poprawek w uzgodnionym zakresie. W tym czasie możesz wykorzystać 7 rund, po maksymalnie 15 drobnych zmian każda. Naprawa wad i niezgodności z umową nie pomniejsza tego limitu. Po publikacji przysługuje 30 dni bezpłatnego usuwania usterek wykonawczych — nie obejmuje to nieograniczonych zmian treści ani nowych funkcji. Większe zmiany zakresu, dodatkowe punkty treści lub funkcjonalności są traktowane jako rozszerzenie projektu.",
+    a: "Tak. W cenie strony są 2 rundy drobnych zmian — maksymalnie 15 zmian w każdej. Dodatkowa runda kosztuje 150 zł. Większe zmiany i dodatkowe funkcje wyceniamy indywidualnie.",
   },
   {
     q: "Czy po publikacji muszę płacić abonament?",
-    a: "Nie. Po wykonaniu strony nie ma obowiązkowego abonamentu ani minimalnego okresu zobowiązania. Możesz korzystać ze strony samodzielnie na własnej domenie, własnej infrastrukturze hostingowej i niezależnej obsłudze formularza. Opcjonalnie możesz wybrać MSWA Care za 150 zł / 30 dni albo MSWA Care Plus za 300 zł / 30 dni (2 rundy drobnych zmian w istniejącej stronie, maksymalnie 15 zmian w każdej rundzie, w każdym opłaconym okresie 30 kolejnych dni). Abonament opłacasz z góry za wybrany okres — bez automatycznego obowiązku zakupu kolejnego. Bezpłatne jest wydanie kodu i plików do przeniesienia; wykonanie migracji przez MSWA na zgodny hosting kosztuje 399 zł. Nowe podstrony, duże przebudowy i dodatkowe funkcje są wyceniane osobno.",
+    a: "Nie. Nie ma obowiązkowego abonamentu. Możesz korzystać ze strony na własnym hostingu. Opcjonalnie możesz wybrać MSWA Care za 150 zł / 30 dni (utrzymanie techniczne) albo MSWA Care Plus za 300 zł / 30 dni (utrzymanie techniczne i 2 rundy drobnych zmian w opłaconym okresie). Opłacasz z góry wybrany okres — bez automatycznego pobierania opłat. Bezpłatne jest wydanie kodu i plików do przeniesienia; wykonanie migracji przez MSWA na zgodny hosting kosztuje 399 zł.",
   },
 ];
 
